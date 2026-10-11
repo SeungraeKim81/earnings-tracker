@@ -1,0 +1,305 @@
+{
+ "lang": "en",
+ "items": {
+  "2026Q2/000660/eps/reason": {
+   "src": "8751de5e",
+   "text": "Not disclosed"
+  },
+  "2026Q2/000660/notes": {
+   "src": "41982dd8",
+   "text": "★Record results, but below consensus. Revenue KRW 79.3T (+257%), operating income KRW 60.5T (+557%), operating margin 76% (up from 71% in Q1, another record). Missed consensus (revenue KRW 83.9T, operating income KRW 64.7T) by -5.5% on revenue and -6.4% on operating income. Net income KRW 93.9T (net margin 118%). Operating margin ranks second after Micron (GAAP 80.4%, non-GAAP 81.2%). Listed ADRs on Nasdaq on 7/10. EPS not disclosed — consensus KRW 68,565. ※Price reaction reconsidered: the report date (7/29) coincided with a two-day KOSPI crash (-11%, -6%) triggered by forced liquidation of leveraged positions, so the -6% drop is hard to attribute to the miss alone (KOSPI broke below 5,700). The market calmed on 7/30 with Samsung Electronics' results; KOSPI closed -1.23% (5,593.56)."
+  },
+  "2026Q2/005930/eps/reason": {
+   "src": "9496122c",
+   "text": "Not confirmed — check against DART filing"
+  },
+  "2026Q2/005930/notes": {
+   "src": "ac460f02",
+   "text": "Final results (nearly identical to preliminary). Revenue KRW 171.5T (+130%), operating income KRW 89.5T (+1,814%, operating margin 52.2%), net income KRW 71.3T (+1,230%). Revenue slightly missed consensus (-1.7%); operating income beat by +5.5% (per reports). ★The DS (semiconductor) division alone posted revenue of KRW 127.5T and operating income of KRW 89.2T (70% margin, 99.7% of company operating income) — record DRAM and NAND sales to AI servers. ★The DX (devices) division posted its first operating loss since the 2021 integration (-KRW 0.8T) due to rising component costs ('chipflation'). Display: revenue KRW 7.5T / operating income KRW 0.7T; Harman: revenue KRW 4.6T / operating income KRW 0.4T. A stronger dollar added KRW 3.1T to operating income; R&D a record KRW 16T. EPS not confirmed (check against DART filing). Shares spiked as much as +7.1% intraday (KRW 223,250) right after the final results but gave back all gains on worries about a semiconductor peak, closing roughly flat — the price-reaction column is left blank because the net effect is unclear. On the call, management said the memory shortage would 'persist through 2028'; an ADR listing is not under consideration."
+  },
+  "2026Q2/005930/price_reaction/reason": {
+   "src": "db614439",
+   "text": "Rose as much as +7.1% intraday, then gave it back to close roughly flat; net effect unclear"
+  },
+  "2026Q2/AAPL/notes": {
+   "src": "e908cf14",
+   "text": "Record June quarter. Revenue $109.4B (+16%); iPhone $54.25B (+22%) beat, while Services $30.74B slightly missed consensus ($31.22B). EPS $2.02 (+29%) includes a $0.11 benefit from tariff refunds. Gross margin 50.1% (includes ~+2pp from tariff refunds; underlying margin is lower). R&D $11.7B (+32%), total operating expenses $19.1B → operating income $35.695B (confirmed in 10-Q: gross margin $54.77B - operating expenses $19.075B). The main driver of the share decline was a conservative Q4 guide citing 'supply constraints': FX headwind of -2.5pp and gross margin of 47–48% (initial reaction to the Services miss -3–4% → widened to -8% after the guidance, varies by source). Tim Cook's last earnings call (successor: John Ternus)."
+  },
+  "2026Q2/AAPL/operating_income/reason": {
+   "src": "123053e8",
+   "text": "Confirmed operating income of $35,695M in the 10-Q (previous 35.70 was back-calculated as gross margin minus operating expenses)"
+  },
+  "2026Q2/AMZN/eps/caution": {
+   "src": "0544eacf",
+   "text": "Includes $53.4B of pre-tax non-operating income related to the Anthropic investment — not directly comparable with consensus"
+  },
+  "2026Q2/AMZN/notes": {
+   "src": "7e0846a8",
+   "text": "★AWS grew 37% (fastest in 18 quarters); first quarter with revenue above $200B. AWS revenue $42.2B (beat consensus of $40.5B); AWS operating income $16.6B, margin 36.8–39.4% (varies by report), above Google Cloud's margin (35.6%). Company operating income $27.5B (+43%). GAAP EPS of $5.75 includes $53.4B of pre-tax non-operating income related to the Anthropic investment — an accounting illusion similar to Alphabet's, so a direct comparison with consensus ($1.82) is not meaningful. ★Raised 2026 CapEx guidance from ~$200B to $220B (Q2 CapEx $54.2B, +68%) — the largest raise among the four hyperscalers. Q3 revenue guidance $197–202B. Shares +7–9% after hours."
+  },
+  "2026Q2/ASML/eps/note": {
+   "src": "7f9d7ffb",
+   "text": "Basic EPS"
+  },
+  "2026Q2/ASML/eps/reason": {
+   "src": "c4a1ec84",
+   "text": "Basic EPS of €7.59 from the official earnings release (held back in the sheet because of the revenue mismatch)"
+  },
+  "2026Q2/ASML/notes": {
+   "src": "cfe66cd6",
+   "text": "Revenue of €9.326B beat consensus; net income €2.918B, gross margin 54.0%, operating margin 37.1%. Raised 2026 revenue guidance from €36–40B to €43–45B (gross margin 54–56%); Q3 guidance: revenue €11.0–12.0B, gross margin 55–57%. Intel adopted High-NA EUV for 18A. ※Checked against IR (2026-10-12): the earlier sheet revenue of 9.03 was a typo; EPS €7.59 and operating margin 37.1% are official figures. The operating-income column is revenue × 37.1%."
+  },
+  "2026Q2/ASML/operating_income/reason": {
+   "src": "27862f78",
+   "text": "Converted by multiplying revenue of €9.326B by the official 37.1% operating margin (Q2 IR materials)"
+  },
+  "2026Q2/ASML/price_reaction/reason": {
+   "src": "4b3f66c6",
+   "text": "Not obtained"
+  },
+  "2026Q2/ASML/revenue/reason": {
+   "src": "997fe182",
+   "text": "ASML's official earnings release shows net sales of €9,326M. The sheet value 9.03 was a typo"
+  },
+  "2026Q2/ASML/revenue_consensus/note": {
+   "src": "146faac1",
+   "text": "Source and as-of date unknown. Needs rechecking, since the revenue actual was a typo"
+  },
+  "2026Q2/GOOGL/eps/caution": {
+   "src": "9e837460",
+   "text": "Includes ~$98B of equity-investment gains — not directly comparable with consensus"
+  },
+  "2026Q2/GOOGL/notes": {
+   "src": "ef6aa0dd",
+   "text": "EPS inflated by ~$98B of equity-investment gains (net income would decline without them) → the real picture is operating income +30.4%. Cloud +82%, RPO $514B. Shares fell on the raised CapEx guide of $195–205B (widening to about -7% the next day)."
+  },
+  "2026Q2/GS/eps_consensus/alts/0/provider": {
+   "src": "061ff1f2",
+   "text": "Other aggregator"
+  },
+  "2026Q2/GS/eps_consensus/note": {
+   "src": "c42b74a0",
+   "text": "Was marked as a preview estimate, but confirmed to match the Zacks consensus of 5 analysts"
+  },
+  "2026Q2/GS/notes": {
+   "src": "b27b42f8",
+   "text": "Best quarter ever. Lead underwriter on the SpaceX IPO. Revenue = net revenues. ※Operating income not applicable to banks. EPS consensus $14.47 (Zacks; another aggregator $14.54). Revenue consensus $16.49B (Zacks via AP; 247wallst $16.40B) — the earlier sheet's revenue consensus of 14.47 was the EPS consensus entered by mistake"
+  },
+  "2026Q2/GS/price_reaction/reason": {
+   "src": "6cf8afa7",
+   "text": "Price reaction not obtained"
+  },
+  "2026Q2/GS/revenue_consensus/provider": {
+   "src": "8a673025",
+   "text": "Zacks (via AP)"
+  },
+  "2026Q2/GS/revenue_consensus/reason": {
+   "src": "af3104cb",
+   "text": "The sheet value 14.47 was the EPS consensus entered in the revenue column by mistake. Consensus on a net-revenue basis is $16.49B (Zacks, 6 analysts)"
+  },
+  "2026Q2/JPM/notes": {
+   "src": "d3b8f0d4",
+   "text": "Quarterly net income $21.2B — the largest ever for a US bank. Strong IB and trading; SpaceX IPO fees contributed. ※Operating income not applicable to banks — judge by net income. (Price reaction not obtained)"
+  },
+  "2026Q2/JPM/price_reaction/reason": {
+   "src": "6cf8afa7",
+   "text": "Price reaction not obtained"
+  },
+  "2026Q2/META/notes": {
+   "src": "0e98ad5d",
+   "text": "Revenue beat ($60.8B, +28%; advertising $59.3B), but EPS of $6.18 missed consensus of $7.14 by 13%. Expenses +55% ($42.0B, including $2.4B of legal costs and $1.18B of severance from May layoffs) cut operating margin from 43% to 31%; net income -14%. CapEx of $31.08B left FCF at only $0.78B. Reality Labs operating loss $4.62B. Raised the low end of FY26 CapEx from $125B to $130B ($130–145B). Shares -8% after hours."
+  },
+  "2026Q2/MSFT/eps/note": {
+   "src": "ce9f06c8",
+   "text": "Excludes OpenAI investment results. GAAP $4.81"
+  },
+  "2026Q2/MSFT/notes": {
+   "src": "0cdee6b9",
+   "text": "★The only clear winner. Revenue $90.0B (+18%), operating income $40.6B (+18%). EPS non-GAAP $4.74 (+23%, excluding OpenAI investment results) / GAAP $4.81 (+32%). Q4 CapEx plus finance leases $41B (+69%). Shares +7–9% after hours — driven less by results than by accounting-policy changes: building useful life extended from 15 to 25 years, and data-center leases reclassified from finance to operating leases → 2026 CapEx falls from $190B to about $175B (an accounting effect, not a spending cut). Signaled 'further increases' in FY27 CapEx (no specific figure yet)."
+  },
+  "2026Q2/MU/eps_consensus/alts_note": {
+   "src": "8c131e90",
+   "text": "$20.3–20.7 depending on aggregator"
+  },
+  "2026Q2/MU/notes": {
+   "src": "508d816d",
+   "text": "★At the front line of the AI memory supercycle. Revenue $41.46B (+346% YoY, +74% QoQ), a record for the fifth straight quarter. GAAP operating margin 80.4% (non-GAAP 81.2%); non-GAAP gross margin 84.9% (39.0% a year earlier). Data-center revenue $25B+ ($100B+ annualized). 16 strategic customer agreements (SCAs) secure at least $100B of committed revenue (covering 20% of DRAM and 30% of NAND volume, through 2030). FQ4 guidance: revenue $50B (well above consensus of $43–44B), EPS $31, CapEx about $10B (~$27B for the full FY). Expects the shortage to 'persist beyond 2027'. Shares +15% after hours (+14.6–17% by report). ※Fiscal 2026 Q3 = calendar Mar–May 2026, a different window from other companies' calendar Q2. Consensus varies somewhat by aggregator: revenue $35.2–35.8B, EPS $20.3–20.7."
+  },
+  "2026Q2/MU/revenue_consensus/alts_note": {
+   "src": "5b320d8e",
+   "text": "$35.2–35.8B depending on aggregator"
+  },
+  "2026Q2/NFLX/notes": {
+   "src": "f1704d3c",
+   "text": "Operating income +11%, operating margin 33.4% (34.1% a year earlier). Results in line, but Q3 guidance was soft ($12.86B). Overhang from the failed WBD acquisition."
+  },
+  "2026Q2/NVDA/notes": {
+   "src": "50bdcd8f",
+   "text": "★Record quarter; fifth straight beat. Revenue $96.2B (+18% QoQ, +106% YoY), +4.5% vs consensus ($92.1B). Data-center revenue $89.0B (+117% YoY, 92.5% of total), driven by the Blackwell Ultra ramp. GAAP operating income $63.7B (+124% YoY), operating margin 66.2% (below Micron's 80.4% and SK hynix's 76.3%). GAAP net income $59.7B (EPS $2.46); non-GAAP EPS $2.22 (+6.3% vs consensus of $2.09). Gross margin 75.0% (72.4% a year earlier). ※Warned in advance that soaring memory prices could push gross margin down to 71–72% in Q4 — a sign that even Nvidia faces cost pressure from the memory shortage. Q3 guidance: revenue $108.0B ±2% (about $3.8B above consensus), gross margin ~74.0%. Supply commitments (mainly memory procurement) jumped from $119B to $279B quarter over quarter. Backlog topped $2T. The CFO expects the top five hyperscalers' CapEx to rise from $800B+ in 2026 to $1.3T in 2027 — consistent with the GOOGL, MSFT, META and AMZN CapEx raises noted above. Announced an expanded AWS partnership (2 million+ GPUs plus new Vera CPUs, partly integrated with next-generation Rubin). Buybacks plus dividends $26.0B (remaining authorization $99.0B); issued $25B of bonds. Shares rose about +5% after hours during the call — in contrast to declines after each of the previous four reports."
+  },
+  "2026Q2/TSLA/eps/note": {
+   "src": "380f89cc",
+   "text": "Adjusted EPS"
+  },
+  "2026Q2/TSLA/notes": {
+   "src": "5e5ab54e",
+   "text": "Despite record deliveries of 480,000, GAAP operating income fell 57% and operating margin collapsed from 4.1% to 1.4%. Adjusted EPS missed. CapEx +142%, FCF -$1.09B. Net income includes a $1.005B SpaceX valuation gain. EPS = adjusted."
+  },
+  "2026Q2/TSM/eps/note": {
+   "src": "515f2bfa",
+   "text": "Converted to USD on an ADR basis"
+  },
+  "2026Q2/TSM/notes": {
+   "src": "b1418926",
+   "text": "Net income $22.4B (+77%), gross margin 67.7%. HPC was 66% of revenue. Raised CapEx to $60–64B; FY growth 40%+. Operating margin 60.3% (TSMC 2Q26 earnings release, operating income NT$766.60B). The operating-income column is USD revenue × 60.3%. EPS converted to USD/ADR."
+  },
+  "2026Q2/TSM/operating_income/reason": {
+   "src": "84b3136f",
+   "text": "Converted by multiplying USD revenue of 40.20 by the 60.3% operating margin in TSMC's 2Q26 earnings release (operating income NT$766.60B)"
+  },
+  "2026Q2/highlights/0": {
+   "src": "c2c9aeaa",
+   "text": "[Semiconductor operating-margin ranking] Micron 80.4% > SK hynix 76.3% > Nvidia 66.2% > TSMC 60.3%. An unusual setup in the AI cycle where memory (Micron, SK hynix) earns higher margins than GPUs (Nvidia)."
+  },
+  "2026Q2/highlights/1": {
+   "src": "2b4318c8",
+   "text": "[Hyperscaler CapEx summary] GOOGL $195–205B · MSFT ~$175B (accounting effect) · META $130–145B · AMZN $220B. Nvidia's CFO expects combined CapEx of the top 5 to rise from $800B+ in 2026 to $1.3T in 2027 (cited as evidence of demand)."
+  },
+  "2026Q2/highlights/2": {
+   "src": "0d302de6",
+   "text": "[Price-reaction caveats] Samsung Electronics left blank: +7.1% intraday, gains given back by the close (net effect unclear). SK hynix's -6% coincided with a two-day KOSPI crash driven by forced liquidations (-11%, -6%), so it can't be attributed to the earnings miss alone. Nvidia rose +5%, unlike its post-earnings declines in the previous four quarters."
+  },
+  "2026Q2/highlights/3": {
+   "src": "1eadd484",
+   "text": "[Interpretation caveat] MSFT's lower CapEx (~$175B) is an accounting-change effect, not a cut in actual spending. Alphabet, Tesla and Amazon EPS include equity-investment gains / non-operating investment results (SpaceX, Anthropic), and SK hynix's net margin (118%) also reflects non-operating items, so judge fundamentals by operating income and operating margin."
+  },
+  "2026Q3/000660/notes": {
+   "src": "1f944ee2",
+   "text": "Date estimated (end of October). Consensus (FnGuide): revenue about KRW 99.4T, operating income about KRW 78T."
+  },
+  "2026Q3/005930/announce/final_expected": {
+   "src": "5923687e",
+   "text": "End of October (estimated)"
+  },
+  "2026Q3/005930/eps/reason": {
+   "src": "26bc6b10",
+   "text": "Not in the preliminary filing — to be entered with final results"
+  },
+  "2026Q3/005930/notes": {
+   "src": "2ac861ac",
+   "text": "★Preliminary results (consolidated, IFRS, filed 10/8): revenue KRW 195T (+126.6% YoY, +13.7% QoQ), operating income KRW 107.4T (+782.5% YoY, +20.0% QoQ), operating margin about 55%. Consensus (WiseReport broker average, 10/4): revenue KRW 201.7T, operating income KRW 108.1T → revenue missed by 3.3%; operating income was -0.7% vs this aggregate but above LSEG (KRW 106.1T) and FnGuide (KRW 105.2T) (reported as a 'beat'). The consensus of KRW 110.6–111.8T noted earlier was an error. Segment results, net income and EPS are not in the preliminary filing; final results are due at the end of October (to be updated then). Shares: reported down about 2% on the day, with foreigners net sellers for 8 straight sessions, but the exact closing change was not confirmed, so left blank."
+  },
+  "2026Q3/005930/price_reaction/reason": {
+   "src": "91557c70",
+   "text": "Only reports of a 'roughly 2% drop' on the day; the exact closing change was not confirmed"
+  },
+  "2026Q3/005930/revenue_consensus/provider": {
+   "src": "df4c1d12",
+   "text": "WiseReport (broker average)"
+  },
+  "2026Q3/AAPL/notes": {
+   "src": "e2aef1d5",
+   "text": "Date estimated (before Apple's official confirmation). Jun–Sep → Jul–Sep quarter. Watch: iPhone revenue, Services growth, China, tariff impact."
+  },
+  "2026Q3/AMZN/notes": {
+   "src": "5dcc838c",
+   "text": "Date estimated. Watch: AWS growth (Q2 +37%), whether the $220B CapEx guidance holds, operating margin."
+  },
+  "2026Q3/ASML/notes": {
+   "src": "76e74272",
+   "text": "Date verified. Results vs Q3 guidance (revenue €11.0–12.0B, gross margin 55–57%) and 2026 revenue guidance of €43–45B (raised from €36–40B at Q2). Watch comments on 2027 bookings."
+  },
+  "2026Q3/GOOGL/notes": {
+   "src": "4c32e2cd",
+   "text": "Date estimated (some expect 11/3). Watch: Cloud growth and backlog, CapEx guidance of $195–205B, separating EPS distortion from equity-investment gains."
+  },
+  "2026Q3/GS/notes": {
+   "src": "3b4ada08",
+   "text": "Date verified (company calendar, before the US open). Bank: operating income not applicable → judge by net income / EPS."
+  },
+  "2026Q3/JPM/notes": {
+   "src": "3b4ada08",
+   "text": "Date verified (company calendar, before the US open). Bank: operating income not applicable → judge by net income / EPS."
+  },
+  "2026Q3/META/notes": {
+   "src": "1e265c75",
+   "text": "Date estimated. Watch: results vs Q3 revenue guidance of $61–64B, full-year expenses of $165–169B, CapEx of $130–145B."
+  },
+  "2026Q3/MSFT/announce/note": {
+   "src": "deb8559c",
+   "text": "Not yet announced"
+  },
+  "2026Q3/MSFT/notes": {
+   "src": "46e579c4",
+   "text": "Date not announced (estimated). Jul–Sep quarter. Watch: Azure growth, CapEx trend (separating accounting effects), guidance for higher FY27 CapEx."
+  },
+  "2026Q3/MU/eps_consensus/alts/0/provider": {
+   "src": "061ff1f2",
+   "text": "Other aggregator"
+  },
+  "2026Q3/MU/notes": {
+   "src": "2113b217",
+   "text": "★Record revenue of $54.23B (+379% YoY, +31% QoQ), above consensus of $51.51B (Yahoo Finance). Operating income entered as GAAP $43.75B (80.7%) (the $44.6B / 82.3% in the company's prepared remarks is not clearly labeled GAAP or non-GAAP). EPS is non-GAAP $33.42 as in the Q2 sheet (GAAP $32.87); consensus $31.16 (Investing.com; another aggregator $31.82). Gross margin 87.0% (+210bp QoQ), CapEx $10.8B, FCF $33.2B. FQ1 FY27 guidance: revenue $61.5B ±1.5B, EPS $38.15 ±1.00, gross margin about 86.25%, CapEx about $11.5B. Reported 9/30 (after the US close). Price reaction left blank: after-hours reports conflicted (+1.3% vs -0.8%) and the next-day close was not confirmed."
+  },
+  "2026Q3/MU/operating_income/note": {
+   "src": "69fbc05a",
+   "text": "The $44.6B / 82.3% in the company's prepared remarks is not clearly labeled GAAP or non-GAAP"
+  },
+  "2026Q3/MU/price_reaction/reason": {
+   "src": "4c5c4509",
+   "text": "After-hours reports conflicted (+1.3% vs -0.8%) and the next-day close was not confirmed"
+  },
+  "2026Q3/NFLX/notes": {
+   "src": "d6fef8c8",
+   "text": "Date estimated. Results vs Q3 revenue guidance of $12.86B."
+  },
+  "2026Q3/NVDA/notes": {
+   "src": "119b4dde",
+   "text": "Date estimated (some expect 11/25). Aug–Oct quarter. Guidance: revenue $108B ±2%, GM 74% ±0.5pp."
+  },
+  "2026Q3/TSLA/announce/note": {
+   "src": "b22ee308",
+   "text": "Announced in 8-K"
+  },
+  "2026Q3/TSLA/notes": {
+   "src": "8c20b25b",
+   "text": "Date confirmed (8-K): 10/21 at 5:30pm US Eastern after the close → Bangkok 10/22 04:30. Check EPS distortions such as equity-investment gains."
+  },
+  "2026Q3/TSM/announce/note": {
+   "src": "557d1443",
+   "text": "Not yet on the official calendar"
+  },
+  "2026Q3/TSM/notes": {
+   "src": "0475d779",
+   "text": "Date estimated (not yet on TSMC's official calendar). Entered in USD as in the Q2 sheet. Watch: AI accelerator share of revenue, gross margin, whether full-year guidance is raised."
+  },
+  "2026Q3/highlights/0": {
+   "src": "da5149df",
+   "text": "[Checkpoints vs Q2] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B (looks lower due to accounting effects, not lower spending) — record in the notes whether each is raised, maintained or cut."
+  },
+  "2026Q3/highlights/1": {
+   "src": "c340b54a",
+   "text": "[Distortion caveat] GOOGL, AMZN and TSLA EPS can swing heavily on equity-investment gains, and SK hynix's net margin was inflated by non-operating items (118% in Q2) → judge fundamentals by operating income and operating margin."
+  },
+  "co/AAPL/rule": {
+   "src": "f2abd7e9",
+   "text": "Fiscal year ends on the last Saturday of September. FQ4 = Jul–Sep"
+  },
+  "co/MSFT/rule": {
+   "src": "35441986",
+   "text": "Fiscal year ends June 30. FQ1 = Jul–Sep"
+  },
+  "co/MU/rule": {
+   "src": "05533def",
+   "text": "Fiscal year ends on the Thursday closest to Aug 31 (FY26 = 2026-09-03, 53 weeks). Offset from calendar quarters by about 1–2 months"
+  },
+  "co/NVDA/rule": {
+   "src": "3ae38c01",
+   "text": "Fiscal year ends on the last Sunday of January (FY27 = 2027-01-31). FQ3 FY27 = Aug–Oct"
+  },
+  "co/TSM/currency_note": {
+   "src": "c0a30cdc",
+   "text": "Reports in TWD, but entered in USD (ADR-converted)"
+  }
+ }
+}

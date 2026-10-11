@@ -6,47 +6,50 @@
 <title>어닝 트래커</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1><small>미국 · 한국 · 대만 · 유럽 주요 기업</small>어닝 트래커</h1>
-    <div class="stamp">시즌 <b id="seasonTxt"></b><br>갱신 <b id="updTxt"></b><br><button type="button" class="linkbtn" id="csvBtn">CSV 내려받기</button></div>
+    <h1><small data-i18n="kicker"></small><span data-i18n="title"></span></h1>
+    <div class="stamp"><span data-i18n="season"></span> <b id="seasonTxt"></b><br><span data-i18n="updated"></span> <b id="updTxt"></b><br><button type="button" class="linkbtn" id="csvBtn" data-i18n="csv"></button></div>
   </header>
 
-  <nav class="bar" aria-label="보기 설정">
-    <div class="seg" role="group" aria-label="시즌 선택" id="seasonSeg"></div>
-    <div class="seg" role="group" aria-label="원화 단위">
-      <button type="button" data-unit="jo" aria-pressed="true">원화 조원</button><button type="button" data-unit="bil" aria-pressed="false">원화 십억원</button>
+  <nav class="bar">
+    <div class="seg" role="group" data-i18n-aria="seasonSel" id="seasonSeg"></div>
+    <div class="bar-r">
+      <div class="seg" role="group" data-i18n-aria="unitSel">
+        <button type="button" data-unit="jo" aria-pressed="true" data-i18n="unitJo"></button><button type="button" data-unit="bil" aria-pressed="false" data-i18n="unitBil"></button>
+      </div>
+      <div class="seg" role="group" data-i18n-aria="langSel" id="langSeg"></div>
     </div>
   </nav>
 
-  <section class="summary" id="summary" aria-label="시즌 요약"></section>
+  <section class="summary" id="summary"></section>
 
   <section class="sec">
-    <div class="sec-head"><h2>실적 비교</h2><span class="cap" id="tblCap"></span></div>
+    <div class="sec-head"><h2 data-i18n="tableTitle"></h2><span class="cap" id="tblCap"></span></div>
     <div class="panel scroll" id="tblWrap"><table id="tbl"></table></div>
     <div class="legend">
-      <span><i class="sw up"></i>상회(beat)</span><span><i class="sw down"></i>하회(miss)</span>
-      <span><sup class="fl derived">계산</sup>공식 수치로 계산한 값</span><span><sup class="fl unverified">미확인</sup>출처 미확인</span><span><sup class="fl disputed">불일치</sup>출처 간 불일치</span>
-      <span><span class="info">점선 밑줄</span> 출처·기준 있음 (행을 펼치면 상세)</span><span>※ 해석 주의(지분평가이익 등 회계 왜곡)</span>
+      <span><i class="sw up"></i><span data-i18n="lgBeat"></span></span><span><i class="sw down"></i><span data-i18n="lgMiss"></span></span>
+      <span><sup class="fl derived" data-i18n="flagShort.derived"></sup><span data-i18n="lgDerived"></span></span>
+      <span><sup class="fl unverified" data-i18n="flagShort.unverified"></sup><span data-i18n="lgUnverified"></span></span>
+      <span><sup class="fl disputed" data-i18n="flagShort.disputed"></sup><span data-i18n="lgDisputed"></span></span>
+      <span><span class="info" data-i18n="lgInfoA"></span> <span data-i18n="lgInfoB"></span></span><span data-i18n="lgCaution"></span>
     </div>
   </section>
 
   <section class="sec" id="hlSec" hidden>
-    <div class="sec-head"><h2>시즌 메모</h2></div>
+    <div class="sec-head"><h2 data-i18n="highlightsH"></h2></div>
     <ul class="hl" id="highlights"></ul>
   </section>
 
-  <footer class="notes">
-    <p><b>단위</b> · 매출·영업이익은 보고통화 기준(USD·EUR은 십억, 원화는 위 버튼으로 조원/십억원 선택). TSMC는 USD(ADR 환산) 기준. 통화가 다르면 절대값 대신 서프라이즈·YoY·영업이익률·주가반응(%)으로 비교합니다.</p>
-    <p><b>계산</b> · 서프라이즈 = (실적 − 컨센) ÷ |컨센|, 영업이익률 = 영업이익 ÷ 매출. 입력이 하나라도 비면 계산하지 않습니다. 은행(JPM·GS)은 영업이익 비적용.</p>
-    <p><b>주가반응</b> · 미국 기업은 시간외, 한국 기업은 발표 당일 장중 기준. 같은 날 시장 전체가 급락했으면 비고에 적었습니다.</p>
-    <p><b>회계기간</b> · 마이크론·엔비디아·애플·마이크로소프트는 역년 분기와 기간이 달라 회계기간 아래에 날짜를 적었습니다(≈는 회계 규칙으로 계산한 날짜).</p>
-    <p><b>출처</b> · 각사 실적발표·IR·공시(10-Q, 8-K, DART 등)와 공개 보도. 컨센서스는 집계기관·기준일에 따라 다르며, 고른 값과 다른 집계값을 함께 남겼습니다. 특정 종목의 매수·매도를 권하는 자료가 아닙니다.</p>
-  </footer>
+  <footer class="notes" id="footer"></footer>
 </div>
+<script src="assets/i18n.js"></script>
 <script src="assets/calc.js"></script>
 <script src="assets/app.js"></script>
 </body>

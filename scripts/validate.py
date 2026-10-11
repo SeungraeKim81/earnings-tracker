@@ -177,6 +177,12 @@ def main():
         if set(seen) != set(companies):
             warnings.append(f"{sid}: 빠진 회사 {sorted(set(companies) - set(seen))}")
 
+    import i18n
+    for lang in i18n.LANGS:
+        missing, stale, _ = i18n.state(lang)
+        if missing or stale:
+            warnings.append(f"번역 {lang}: 없음 {len(missing)} · 오래됨 {len(stale)} — python scripts/i18n.py export {lang}")
+
     for title, items in (("오류", errors), ("경고", warnings), ("검증 표시(unverified/derived/disputed)", flagged)):
         print(f"{title} {len(items)}건")
         for i in items:

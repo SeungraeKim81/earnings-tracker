@@ -1,6 +1,6 @@
 """구글 시트 스냅샷 + overlay → data/seasons/*.json, data/index.json
 
-    python scripts/import_sheet.py
+    python scripts/import_sheet.py --force   (최초 이관용 — 지금은 data/*.json이 마스터)
 
 1. migration/sheet_snapshot.json(시트 원본 값·수식)을 읽는다.
 2. 시트의 서프라이즈·영업이익률 수식 결과와 lib.py 계산이 모두 같은지 확인한다(다르면 중단).
@@ -87,6 +87,9 @@ def build_metric(key, raw, ov, company, changes):
 
 
 def main():
+    if "--force" not in sys.argv:
+        sys.exit("2026-10-12부터 data/*.json이 마스터다. 이 스크립트는 data/를 시트 기준으로 덮어쓰므로 "
+                 "정말 필요할 때만 --force를 붙여 실행한다.")
     snap = json.loads(SNAPSHOT.read_text(encoding="utf-8"))
     overlay = json.loads(OVERLAY.read_text(encoding="utf-8"))["seasons"]
     comp = load("companies.json")

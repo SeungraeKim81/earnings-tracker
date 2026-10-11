@@ -6,16 +6,21 @@ data/
   index.json             시즌 목록과 현재 시즌
   seasons/2026Q2.json    시즌별 발표 이벤트와 결과
   seasons/2026Q3.json
-migration/
-  sheet_snapshot.json    구글 시트 원본 값·수식 (이관 기준)
+  i18n/en.json, th.json  데이터 문장 번역 {키: {src: 원문 해시, text}}
+migration/                (최초 이관 기록, 더 이상 쓰지 않음)
+  sheet_snapshot.json    구글 시트 원본 값·수식
   overlay.json           시트에 없는 정보와 0단계 정정
 ```
+
+## 번역 (data/i18n)
+
+원문은 항상 한국어. 키는 `{시즌}/{티커}/notes`, `{시즌}/{티커}/{지표}/{note|caution|reason|alts_note|provider}`, `{시즌}/{티커}/announce/{note|final_expected}`, `{시즌}/highlights/{순번}`, `co/{티커}/rule` 등(`scripts/i18n.py`의 `items()`). `src`가 지금 원문의 해시와 다르면 화면은 한국어 원문을 보여 주고 검증 스크립트가 경고한다.
 
 ## companies.json
 
 | 필드 | 뜻 |
 |---|---|
-| `ticker`, `name`, `name_en` | 티커, 표시 이름 |
+| `ticker`, `name`, `name_en` | 티커, 표시 이름(한국어 화면은 `name`, 영어·태국어는 `name_en`). 한국 종목(숫자 코드)은 화면에서 종목명이 크게 보임 |
 | `region` | `regions[].id` (US / KR / TW / NL) |
 | `sector` | 섹터 (한글 표기) |
 | `currency` | 입력 통화. TSMC는 TWD 보고지만 USD(ADR 환산)로 입력 (`currency_note`) |
