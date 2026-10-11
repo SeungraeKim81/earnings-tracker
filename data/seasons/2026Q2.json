@@ -1,0 +1,805 @@
+{
+ "id": "2026Q2",
+ "label": "Q2 2026",
+ "sheet_updated": "2026-08-27",
+ "updated": "2026-10-12",
+ "source": "google_sheet",
+ "highlights": [
+  "[반도체 영업이익률 순위] 마이크론 80.4% > SK하이닉스 76.3% > 엔비디아 66.2% > TSMC 60.3%. AI 사이클에서 메모리(마이크론·SK하이닉스)가 GPU(엔비디아)보다 마진이 높은 이례적 구도.",
+  "[하이퍼스케일러 CapEx 종합] GOOGL $195–205B · MSFT ~$175B(회계효과) · META $130–145B · AMZN $220B. 엔비디아 CFO는 상위 5개사 합산 CapEx가 2026년 $800B+→2027년 $1.3조로 증가할 것으로 전망(수요 근거로 제시).",
+  "[주가반응 해석 주의] 삼성전자는 장중 +7.1%→종가 상승분 반납(net 불확실)으로 공란. SK하이닉스 -6%는 KOSPI 2일 연속(-11%,-6%) 강제청산 폭락과 겹쳐 실적 미스만의 결과로 단정 어려움. 엔비디아는 최근 4분기 연속 실적후 주가 하락 이력과 달리 +5%로 반등.",
+  "[해석 주의] MSFT의 CapEx 축소(~$175B)는 회계처리 변경 효과이지 실지출 감소가 아닙니다. Alphabet·Tesla·Amazon EPS에는 지분평가익/비영업 투자손익(SpaceX·Anthropic)이 포함돼 있고, SK하이닉스 순이익률(118%)에도 영업외 요인이 있어 영업이익·영업이익률로 실체를 판단하십시오."
+ ],
+ "events": [
+  {
+   "ticker": "AAPL",
+   "status": "reported",
+   "stage": null,
+   "label": "FQ3 2026",
+   "period": {
+    "start": "2026-03-29",
+    "end": "2026-06-27"
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-07-30",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 109.42
+    },
+    "revenue_consensus": {
+     "value": 108.65
+    },
+    "revenue_yoy": {
+     "value": 0.164
+    },
+    "operating_income": {
+     "value": 35.695,
+     "sheet_value": 35.7,
+     "flag": "verified",
+     "reason": "10-Q 영업이익 $35,695M 확인(기존 35.70은 매출총이익-영업비용 역산치)",
+     "src": [
+      {
+       "title": "Apple 10-Q (FQ3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000320193/000032019326000020/aapl-20260627.htm",
+       "asOf": "2026-07-31"
+      }
+     ]
+    },
+    "eps": {
+     "value": 2.02,
+     "basis": "GAAP"
+    },
+    "eps_consensus": {
+     "value": 1.89
+    },
+    "price_reaction": {
+     "value": -0.08,
+     "basis": "after_hours"
+    }
+   },
+   "notes": "역대 최대 6월분기. 매출 $109.4B(+16%), 아이폰 $54.25B(+22%)로 서프라이즈, 서비스 $30.74B는 컨센($31.22B) 소폭 미스. EPS $2.02(+29%)엔 관세환급 효과 $0.11 포함. 매출총이익률 50.1%(관세환급 약 +2%p 포함, 기저 마진은 이보다 낮음). R&D $11.7B(+32%), 총영업비용 $19.1B → 영업이익 $35.695B(10-Q 확인: 매출총이익 $54.77B - 영업비용 $19.075B). Q4 가이던스에서 '공급제약'을 이유로 환율역풍 -2.5%p·매출총이익률 47~48%로 보수적 제시한 것이 주가 하락의 주요인(초기 서비스미스 반응 -3~4% → 가이던스 공개 후 -8%까지 확대, 자료별 상이). 팀 쿡의 마지막 실적발표(후임 John Ternus).",
+   "changes": [
+    {
+     "field": "operating_income",
+     "from": 35.7,
+     "to": 35.695,
+     "reason": "10-Q 영업이익 $35,695M 확인(기존 35.70은 매출총이익-영업비용 역산치)"
+    },
+    {
+     "field": "notes",
+     "reason": "0단계 정리(문구 정정)"
+    }
+   ]
+  },
+  {
+   "ticker": "AMZN",
+   "status": "reported",
+   "stage": null,
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-07-30",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 200.6
+    },
+    "revenue_consensus": {
+     "value": 196.47
+    },
+    "revenue_yoy": {
+     "value": 0.2
+    },
+    "operating_income": {
+     "value": 27.5
+    },
+    "eps": {
+     "value": 5.75,
+     "basis": "GAAP",
+     "note": "Anthropic 투자 관련 세전 비영업이익 $53.4B 포함 — 컨센과 직접 비교 부적절"
+    },
+    "eps_consensus": {
+     "value": 1.82
+    },
+    "price_reaction": {
+     "value": 0.08,
+     "basis": "after_hours"
+    }
+   },
+   "notes": "★AWS 성장 37%(18분기 최고), 매출 첫 분기 $200B 돌파. AWS 매출 $42.2B(컨센 $40.5B 상회), AWS 영업이익 $16.6B·마진 36.8~39.4%(보도별 상이)로 Google Cloud 마진(35.6%) 상회. 전사 영업이익 $27.5B(+43%). GAAP EPS $5.75엔 Anthropic 투자 관련 세전 비영업이익 $53.4B 포함 — 알파벳과 유사한 회계착시, 컨센($1.82)과 직접비교 부적절. ★2026 CapEx 가이던스를 기존 ~$200B에서 $220B로 상향(Q2 CapEx $54.2B, +68%) — 하이퍼스케일러 4사 중 최대 상향폭. Q3 매출가이던스 $197~202B. 주가 시간외 +7~9%."
+  },
+  {
+   "ticker": "GOOGL",
+   "status": "reported",
+   "stage": null,
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-07-22",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 119.8
+    },
+    "revenue_consensus": {
+     "value": 116.93
+    },
+    "revenue_yoy": {
+     "value": 0.24
+    },
+    "operating_income": {
+     "value": 40.77
+    },
+    "eps": {
+     "value": 9.11,
+     "basis": "GAAP",
+     "note": "지분평가익 약 $98B 포함 — 컨센과 직접 비교 부적절"
+    },
+    "eps_consensus": {
+     "value": 2.95
+    },
+    "price_reaction": {
+     "value": -0.02,
+     "basis": "after_hours"
+    }
+   },
+   "notes": "EPS는 약 $98B 지분평가익 착시(제외 시 순익 감소) → 실체는 영업이익 +30.4%. Cloud +82%, RPO $514B. CapEx $195–205B 상향에 하락(익일 -7%대까지 확대)."
+  },
+  {
+   "ticker": "META",
+   "status": "reported",
+   "stage": null,
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-07-29",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 60.8
+    },
+    "revenue_consensus": {
+     "value": 60.2
+    },
+    "revenue_yoy": {
+     "value": 0.28
+    },
+    "operating_income": {
+     "value": 18.8
+    },
+    "eps": {
+     "value": 6.18,
+     "basis": "GAAP"
+    },
+    "eps_consensus": {
+     "value": 7.14
+    },
+    "price_reaction": {
+     "value": -0.08,
+     "basis": "after_hours"
+    }
+   },
+   "notes": "매출은 상회($60.8B, +28%; 광고 $59.3B)했으나 EPS $6.18로 컨센 $7.14 대비 -13% 미스. 비용 +55%($42.0B, 법률비용 $2.4B·5월 감원 위로금 $1.18B 포함)로 영업이익률 43%→31% 붕괴, 순이익 -14%. CapEx $31.08B로 FCF $0.78B에 불과. Reality Labs 영업손실 $4.62B. FY26 CapEx 하단을 $125B→$130B로 상향($130–145B). 주가 시간외 -8%."
+  },
+  {
+   "ticker": "MSFT",
+   "status": "reported",
+   "stage": null,
+   "label": "FQ4 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-07-29",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 90.01
+    },
+    "revenue_consensus": {
+     "value": 87.67
+    },
+    "revenue_yoy": {
+     "value": 0.18
+    },
+    "operating_income": {
+     "value": 40.6
+    },
+    "eps": {
+     "value": 4.74,
+     "basis": "non-GAAP",
+     "note": "OpenAI 투자손익 제외. GAAP $4.81"
+    },
+    "eps_consensus": {
+     "value": 4.24
+    },
+    "price_reaction": {
+     "value": 0.07,
+     "basis": "after_hours"
+    }
+   },
+   "notes": "★유일한 명확한 승자. 매출 $90.0B(+18%), 영업이익 $40.6B(+18%). EPS non-GAAP $4.74(+23%, OpenAI 투자손익 제외)/GAAP $4.81(+32%). Q4 CapEx+금융리스 $41B(+69%). 주가 시간외 +7~9% — 사유는 실적보다 회계정책 변경: 건물 내용연수 15→25년, 데이터센터 리스 금융→운용리스 전환 → 2026 CapEx가 $190B에서 약 $175B로 축소(실지출 감축 아닌 회계효과). FY27 CapEx '추가 증가' 예고(구체 수치 미확정).",
+   "changes": [
+    {
+     "field": "label",
+     "from": "FY26 Q4",
+     "to": "FQ4 2026",
+     "reason": "시트 표기 'FY26 Q4'를 다른 회사와 같은 'FQ# 연도' 형식으로 통일"
+    }
+   ]
+  },
+  {
+   "ticker": "MU",
+   "status": "reported",
+   "stage": null,
+   "label": "FQ3 2026",
+   "period": {
+    "start": "2026-02-27",
+    "end": "2026-05-28",
+    "approx": true
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-06-24",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 41.46
+    },
+    "revenue_consensus": {
+     "value": 35.25,
+     "alts_note": "집계기관별 $35.2~35.8B"
+    },
+    "revenue_yoy": {
+     "value": 3.46
+    },
+    "operating_income": {
+     "value": 33.32,
+     "basis": "GAAP"
+    },
+    "eps": {
+     "value": 25.11,
+     "basis": "non-GAAP"
+    },
+    "eps_consensus": {
+     "value": 20.28,
+     "alts_note": "집계기관별 $20.3~20.7"
+    },
+    "price_reaction": {
+     "value": 0.15,
+     "basis": "after_hours"
+    }
+   },
+   "notes": "★AI 메모리 슈퍼사이클의 최전선. 매출 $41.46B(+346% YoY, +74% QoQ)로 5분기 연속 사상 최대. GAAP 영업이익률 80.4%(비GAAP 81.2%), 비GAAP 총이익률 84.9%(전년 39.0%). 데이터센터 매출 $25B+(연환산 $100B+). 16건의 전략적고객계약(SCA)으로 확정매출 최소 $100B(DRAM 20%·NAND 30% 물량 커버, 2030년까지). FQ4 가이던스: 매출 $50B(컨센 $43~44B 대폭 상회), EPS $31, CapEx 약 $10B(FY 전체 ~$27B). 공급부족 '2027년 이후까지 지속' 전망. 주가 시간외 +15%(보도별 +14.6~17%). ※회계연도 2026 Q3=역년 2026.3~5월분기로 타사 캘린더 Q2와 시점 다름. 컨센서스는 집계기관별 매출 $35.2~35.8B·EPS $20.3~20.7 범위로 다소 상이."
+  },
+  {
+   "ticker": "NVDA",
+   "status": "reported",
+   "stage": null,
+   "label": "FQ2 2027",
+   "period": {
+    "start": "2026-04-27",
+    "end": "2026-07-26",
+    "approx": true
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-08-26",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 96.2
+    },
+    "revenue_consensus": {
+     "value": 92.07
+    },
+    "revenue_yoy": {
+     "value": 1.058
+    },
+    "operating_income": {
+     "value": 63.7,
+     "basis": "GAAP"
+    },
+    "eps": {
+     "value": 2.22,
+     "basis": "non-GAAP",
+     "note": "GAAP $2.46"
+    },
+    "eps_consensus": {
+     "value": 2.09
+    },
+    "price_reaction": {
+     "value": 0.05,
+     "basis": "after_hours"
+    }
+   },
+   "notes": "★역대 최대 분기, 5분기 연속 컨센 상회. 매출 $96.2B(+18% QoQ, +106% YoY)로 컨센($92.1B) 대비 +4.5%. 데이터센터 매출 $89.0B(+117% YoY, 전체의 92.5%) — Blackwell Ultra 램프가 견인. GAAP 영업이익 $63.7B(+124% YoY), 영업이익률 66.2%(마이크론 80.4%·SK하이닉스 76.3%보다는 낮음). GAAP 순이익 $59.7B(EPS $2.46), 비GAAP EPS $2.22(컨센 $2.09 대비 +6.3%). 총이익률 75.0%(전년 72.4%). ※Q4 가이던스에서 메모리 가격 급등 영향으로 총이익률이 71~72%까지 하락할 것이라고 선제 경고 — 엔비디아조차 메모리 품귀의 비용 압박을 받고 있다는 신호. Q3 가이던스: 매출 $108.0B±2%(컨센 대비 약 $3.8B 상회), 총이익률 ~74.0%. 공급계약(주로 메모리 조달) 잔액이 전분기 $119B→$279B로 급증. 수주잔고(backlog) $2조 돌파. CFO는 상위 5개 하이퍼스케일러 CapEx가 2026년 $800B+에서 2027년 $1.3조로 증가할 것으로 전망 — 앞서 정리한 GOOGL·MSFT·META·AMZN CapEx 상향과 같은 방향. AWS와 파트너십 확대(GPU 200만개+신규 Vera CPU 공급, 일부 차세대 Rubin과 통합) 발표. 자사주매입+배당 $26.0B(잔여 한도 $99.0B), $25B 회사채 발행. 주가는 실적발표 컨퍼런스콜 중 +5% 안팎 시간외 상승 — 최근 4분기 연속 실적 후 주가가 하락했던 이력과 대비되는 반응."
+  },
+  {
+   "ticker": "GS",
+   "status": "reported",
+   "stage": null,
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-07-14",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 20.34
+    },
+    "revenue_consensus": {
+     "value": 16.49,
+     "sheet_value": 14.47,
+     "provider": "Zacks (AP 보도)",
+     "asOf": "2026-07-14",
+     "alts": [
+      {
+       "provider": "247wallst",
+       "value": 16.4
+      }
+     ],
+     "reason": "시트 값 14.47은 EPS 컨센을 매출 칸에 잘못 넣은 값. 순매출 기준 컨센 $16.49B(Zacks 6명)",
+     "src": [
+      {
+       "title": "AP: Goldman Q2 earnings snapshot",
+       "url": "https://wtop.com/news/2026/07/goldman-q2-earnings-snapshot/"
+      },
+      {
+       "title": "247wallst: GS Q2 2026",
+       "url": "https://247wallst.com/cards/goldman-sachs-q2-2026-earnings-gs-01kxg6hwy77gv9q5a8ks0rp5js"
+      }
+     ]
+    },
+    "revenue_yoy": {
+     "value": 0.39
+    },
+    "operating_income": null,
+    "eps": {
+     "value": 20.98,
+     "basis": "GAAP"
+    },
+    "eps_consensus": {
+     "value": 14.47,
+     "provider": "Zacks",
+     "alts": [
+      {
+       "provider": "기타 집계",
+       "value": 14.54
+      }
+     ],
+     "note": "프리뷰 추정치로 표시돼 있었으나 Zacks 5명 컨센과 같은 값으로 확인"
+    },
+    "price_reaction": {
+     "value": null,
+     "reason": "주가반응 미확보"
+    }
+   },
+   "notes": "역대 최고 분기. SpaceX IPO 대표주관. 매출=순매출 기준. ※은행 영업이익 비적용. EPS 컨센 $14.47(Zacks, 다른 집계 $14.54). 매출 컨센 $16.49B(Zacks·AP 보도, 247wallst $16.40B) — 이전 시트의 매출 컨센 14.47은 EPS 컨센을 잘못 넣은 값",
+   "changes": [
+    {
+     "field": "revenue_consensus",
+     "from": 14.47,
+     "to": 16.49,
+     "reason": "시트 값 14.47은 EPS 컨센을 매출 칸에 잘못 넣은 값. 순매출 기준 컨센 $16.49B(Zacks 6명)"
+    },
+    {
+     "field": "notes",
+     "reason": "0단계 정리(문구 정정)"
+    }
+   ]
+  },
+  {
+   "ticker": "JPM",
+   "status": "reported",
+   "stage": null,
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-07-14",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 58.02
+    },
+    "revenue_consensus": {
+     "value": 50.19
+    },
+    "revenue_yoy": null,
+    "operating_income": null,
+    "eps": {
+     "value": 6.14,
+     "basis": "GAAP"
+    },
+    "eps_consensus": {
+     "value": 5.85
+    },
+    "price_reaction": {
+     "value": null,
+     "reason": "주가반응 미확보"
+    }
+   },
+   "notes": "분기 순이익 $21.2B — 美 은행 사상 최대. IB·트레이딩 강세, SpaceX IPO 수수료 기여. ※은행은 영업이익 개념 비적용 — 순이익 기준 판단. (주가반응 미확보)"
+  },
+  {
+   "ticker": "NFLX",
+   "status": "reported",
+   "stage": null,
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-07-16",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 12.56
+    },
+    "revenue_consensus": {
+     "value": 12.58
+    },
+    "revenue_yoy": {
+     "value": 0.134
+    },
+    "operating_income": {
+     "value": 4.19
+    },
+    "eps": {
+     "value": 0.8,
+     "basis": "GAAP"
+    },
+    "eps_consensus": {
+     "value": 0.79
+    },
+    "price_reaction": {
+     "value": -0.09,
+     "basis": "after_hours"
+    }
+   },
+   "notes": "영업이익 +11%, 영업이익률 33.4%(전년 34.1%). 실적은 부합했으나 Q3 가이던스 미흡($12.86B). WBD 인수 실패 부담."
+  },
+  {
+   "ticker": "TSLA",
+   "status": "reported",
+   "stage": null,
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-07-22",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 28.24
+    },
+    "revenue_consensus": {
+     "value": 25.71
+    },
+    "revenue_yoy": {
+     "value": 0.26
+    },
+    "operating_income": {
+     "value": 0.398,
+     "basis": "GAAP"
+    },
+    "eps": {
+     "value": 0.33,
+     "basis": "non-GAAP",
+     "note": "조정 EPS"
+    },
+    "eps_consensus": {
+     "value": 0.51
+    },
+    "price_reaction": {
+     "value": -0.04,
+     "basis": "after_hours"
+    }
+   },
+   "notes": "인도 48.0만대 기록에도 GAAP 영업이익 -57%, 영업이익률 4.1%→1.4% 붕괴. adj EPS 미스. CapEx +142%, FCF -$1.09B. 순이익에 SpaceX 평가익 $1.005B 포함. EPS=조정."
+  },
+  {
+   "ticker": "005930",
+   "status": "reported",
+   "stage": "final",
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "KRW",
+   "announce": {
+    "date": "2026-07-30",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 171499.5
+    },
+    "revenue_consensus": {
+     "value": 174466,
+     "provider": "FnGuide"
+    },
+    "revenue_yoy": {
+     "value": 1.3
+    },
+    "operating_income": {
+     "value": 89492.4,
+     "basis": "IFRS"
+    },
+    "eps": {
+     "value": null,
+     "reason": "미확인 — DART 공시 대조 필요"
+    },
+    "eps_consensus": null,
+    "price_reaction": {
+     "value": null,
+     "reason": "장중 +7.1%까지 올랐다가 종가 보합권으로 반납해 순효과 불확실"
+    }
+   },
+   "notes": "확정실적(잠정치와 거의 동일). 매출 171.5조(+130%), 영업이익 89.5조(+1814%, 영업이익률 52.2%), 순이익 71.3조(+1230%). 매출은 컨센 대비 -1.7% 소폭 미스, 영업이익은 +5.5% 서프라이즈(보도 기준). ★DS(반도체)부문 단독 매출 127.5조·영업이익 89.2조(이익률 70%, 전사 영업이익의 99.7%) — AI서버향 D램·낸드 사상 최대 판매. ★DX(세트)부문은 부품원가 상승(칩플레이션)으로 2021년 통합 이후 첫 영업손실(-8000억원). 디스플레이 매출7.5조/영업이익0.7조, 하만 매출4.6조/영업이익0.4조. 원달러 강세로 영업이익 +3.1조원 환효과, R&D 16조원 사상 최대. EPS 미확인(DART 공시 대조 필요). 주가는 확정실적 발표 직후 장중 +7.1%(223,250원)까지 급등했으나 반도체 피크아웃(고점통과) 우려로 상승분을 모두 반납, 종가는 보합권 마감 — 주가반응 열은 net effect 불확실로 공란 처리. 컨퍼런스콜에서 메모리 공급부족 '2028년까지 지속' 언급, ADR 상장은 미검토."
+  },
+  {
+   "ticker": "000660",
+   "status": "reported",
+   "stage": "final",
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "KRW",
+   "announce": {
+    "date": "2026-07-29",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 79318.7
+    },
+    "revenue_consensus": {
+     "value": 83919.4,
+     "provider": "FnGuide"
+    },
+    "revenue_yoy": {
+     "value": 2.568
+    },
+    "operating_income": {
+     "value": 60542.6,
+     "basis": "IFRS"
+    },
+    "eps": {
+     "value": null,
+     "reason": "미공개"
+    },
+    "eps_consensus": {
+     "value": 68565,
+     "provider": "FnGuide"
+    },
+    "price_reaction": {
+     "value": -0.06,
+     "basis": "intraday"
+    }
+   },
+   "notes": "★사상 최대 실적이나 컨센 하회. 매출 79.3조(+257%), 영업이익 60.5조(+557%), 영업이익률 76%(1Q 71%→ 재차 사상최고). 컨센(매출 83.9조·영업이익 64.7조) 대비 매출 -5.5%·영업이익 -6.4% 미스. 순이익 93.9조(순이익률 118%). 영업이익률은 마이크론(GAAP 80.4%·비GAAP 81.2%)에 이어 2위. 7/10 나스닥 ADR 상장. EPS 미공개 — 컨센 68,565원. ※주가반응 재해석: 발표일(7/29)이 KOSPI 2일 연속(-11%, -6%) 레버리지 강제청산발 폭락과 겹쳐, -6% 하락을 실적 미스만의 결과로 보기 어려움(코스피는 5,700선 붕괴). 7/30 삼성전자 실적과 함께 시장 진정, KOSPI -1.23% 마감(5,593.56).",
+   "changes": [
+    {
+     "field": "notes",
+     "reason": "0단계 정리(문구 정정)"
+    }
+   ]
+  },
+  {
+   "ticker": "TSM",
+   "status": "reported",
+   "stage": null,
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "USD",
+   "announce": {
+    "date": "2026-07-16",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 40.2
+    },
+    "revenue_consensus": {
+     "value": 39.3
+    },
+    "revenue_yoy": {
+     "value": 0.36
+    },
+    "operating_income": {
+     "value": 24.241,
+     "sheet_value": null,
+     "flag": "derived",
+     "reason": "TSMC 2Q26 실적발표 영업이익률 60.3%(영업이익 NT$766.60B)를 USD 매출 40.20에 곱해 환산",
+     "src": [
+      {
+       "title": "TSMC 2Q26 Earnings Release",
+       "url": "https://pr.tsmc.com/schinese/news/3326",
+       "asOf": "2026-07-16"
+      }
+     ]
+    },
+    "eps": {
+     "value": 4.31,
+     "basis": "IFRS",
+     "note": "ADR 기준 USD 환산"
+    },
+    "eps_consensus": {
+     "value": 3.83
+    },
+    "price_reaction": {
+     "value": -0.015
+    }
+   },
+   "notes": "순이익 $22.4B(+77%), 총이익률 67.7%. HPC가 매출 66%. CapEx $60–64B 상향, FY 성장 40%+. 영업이익률 60.3%(TSMC 2Q26 실적발표, 영업이익 NT$766.60B). 영업이익 열은 USD 매출 × 60.3%로 환산한 값. EPS는 USD/ADR 환산.",
+   "changes": [
+    {
+     "field": "operating_income",
+     "from": null,
+     "to": 24.241,
+     "reason": "TSMC 2Q26 실적발표 영업이익률 60.3%(영업이익 NT$766.60B)를 USD 매출 40.20에 곱해 환산"
+    },
+    {
+     "field": "notes",
+     "reason": "0단계 정리(문구 정정)"
+    }
+   ]
+  },
+  {
+   "ticker": "ASML",
+   "status": "reported",
+   "stage": null,
+   "label": "Q2 2026",
+   "period": {
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "currency": "EUR",
+   "announce": {
+    "date": "2026-07-15",
+    "timing": null,
+    "certainty": "confirmed"
+   },
+   "metrics": {
+    "revenue": {
+     "value": 9.326,
+     "sheet_value": 9.03,
+     "flag": "verified",
+     "reason": "ASML 공식 실적발표 순매출 €9,326M. 시트 값 9.03은 오기",
+     "src": [
+      {
+       "title": "ASML Q2 2026 press release",
+       "url": "https://www.asml.com/en/news/press-releases/2026/q2-2026-financial-results",
+       "asOf": "2026-07-15"
+      }
+     ]
+    },
+    "revenue_consensus": {
+     "value": 8.9,
+     "flag": "unverified",
+     "note": "출처·기준일 미상. 매출 실적치가 오기였으므로 함께 재확인 필요"
+    },
+    "revenue_yoy": null,
+    "operating_income": {
+     "value": 3.46,
+     "sheet_value": null,
+     "flag": "derived",
+     "reason": "공식 영업이익률 37.1%(Q2 IR 자료)를 매출 €9.326B에 곱해 환산",
+     "src": [
+      {
+       "title": "ASML Q2 2026 investor presentation",
+       "url": "https://ourbrand.asml.com/asset/9078cf4d-91fd-4dd9-a5d5-d1caab6dc046/2026_07_15_Presentation-Investor-Relations-Q2-2026.pdf",
+       "asOf": "2026-07-15"
+      }
+     ]
+    },
+    "eps": {
+     "value": 7.59,
+     "sheet_value": null,
+     "basis": "IFRS",
+     "flag": "verified",
+     "note": "기본 EPS",
+     "reason": "공식 실적발표 기본 EPS €7.59 (시트에서는 매출 불일치로 입력 보류했던 값)",
+     "src": [
+      {
+       "title": "ASML Q2 2026 press release",
+       "url": "https://www.asml.com/en/news/press-releases/2026/q2-2026-financial-results",
+       "asOf": "2026-07-15"
+      }
+     ]
+    },
+    "eps_consensus": null,
+    "price_reaction": {
+     "value": null,
+     "reason": "미확보"
+    }
+   },
+   "notes": "매출 €9.326B로 컨센 상회, 순이익 €2.918B, 매출총이익률 54.0%, 영업이익률 37.1%. 2026 연간 매출 가이던스 €36–40B → €43–45B 상향(총이익률 54–56%), Q3 가이던스 매출 €11.0–12.0B·총이익률 55–57%. Intel이 18A에 High-NA EUV 채택. ※IR 대조(2026-10-12): 이전 시트 매출 9.03은 오기였고, EPS €7.59·영업이익률 37.1%는 공식 수치. 영업이익 열은 매출 × 37.1%로 환산한 값.",
+   "changes": [
+    {
+     "field": "revenue",
+     "from": 9.03,
+     "to": 9.326,
+     "reason": "ASML 공식 실적발표 순매출 €9,326M. 시트 값 9.03은 오기"
+    },
+    {
+     "field": "operating_income",
+     "from": null,
+     "to": 3.46,
+     "reason": "공식 영업이익률 37.1%(Q2 IR 자료)를 매출 €9.326B에 곱해 환산"
+    },
+    {
+     "field": "eps",
+     "from": null,
+     "to": 7.59,
+     "reason": "공식 실적발표 기본 EPS €7.59 (시트에서는 매출 불일치로 입력 보류했던 값)"
+    },
+    {
+     "field": "notes",
+     "reason": "0단계 정리(문구 정정)"
+    }
+   ]
+  }
+ ]
+}

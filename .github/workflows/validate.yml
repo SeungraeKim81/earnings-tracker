@@ -1,0 +1,19 @@
+name: 데이터 검증
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 검증
+        run: python scripts/validate.py
+      - name: 테스트
+        run: python -m unittest discover -s tests -v

@@ -1,0 +1,151 @@
+{
+ "_doc": "시트 스냅샷 위에 덧씌우는 정보. 시트에 없는 필드(기간·일정 확실도·회계기준·출처·검증 표시)와 0단계 정정. 값(value)이 시트와 다르면 reason 필수. notes_replace는 [기존 문구, 새 문구] 쌍이며 기존 문구가 비고에 없으면 이관이 실패한다.",
+ "seasons": {
+  "2026Q2": {
+   "label": "Q2 2026",
+   "highlight_rows": [29, 30, 31, 37],
+   "events": {
+    "AAPL": {
+     "period": {"start": "2026-03-29", "end": "2026-06-27"},
+     "metrics": {
+      "operating_income": {"value": 35.695, "flag": "verified",
+       "reason": "10-Q 영업이익 $35,695M 확인(기존 35.70은 매출총이익-영업비용 역산치)",
+       "src": [{"title": "Apple 10-Q (FQ3 2026)", "url": "https://www.sec.gov/Archives/edgar/data/0000320193/000032019326000020/aapl-20260627.htm", "asOf": "2026-07-31"}]},
+      "eps": {"basis": "GAAP"}
+     },
+     "notes_replace": [["→ 영업이익은 매출총이익-영업비용으로 역산(비공식 추정치, IR 확정치 대조 권장).", "→ 영업이익 $35.695B(10-Q 확인: 매출총이익 $54.77B - 영업비용 $19.075B)."]]
+    },
+    "AMZN": {"metrics": {"eps": {"basis": "GAAP", "note": "Anthropic 투자 관련 세전 비영업이익 $53.4B 포함 — 컨센과 직접 비교 부적절"}}},
+    "GOOGL": {"metrics": {"eps": {"basis": "GAAP", "note": "지분평가익 약 $98B 포함 — 컨센과 직접 비교 부적절"}}},
+    "META": {"metrics": {"eps": {"basis": "GAAP"}}},
+    "MSFT": {
+     "label": "FQ4 2026",
+     "label_reason": "시트 표기 'FY26 Q4'를 다른 회사와 같은 'FQ# 연도' 형식으로 통일",
+     "period": {"start": "2026-04-01", "end": "2026-06-30"},
+     "metrics": {"eps": {"basis": "non-GAAP", "note": "OpenAI 투자손익 제외. GAAP $4.81"}}
+    },
+    "MU": {
+     "period": {"start": "2026-02-27", "end": "2026-05-28", "approx": true},
+     "metrics": {
+      "operating_income": {"basis": "GAAP"},
+      "eps": {"basis": "non-GAAP"},
+      "revenue_consensus": {"alts_note": "집계기관별 $35.2~35.8B"},
+      "eps_consensus": {"alts_note": "집계기관별 $20.3~20.7"}
+     }
+    },
+    "NVDA": {
+     "period": {"start": "2026-04-27", "end": "2026-07-26", "approx": true},
+     "metrics": {"operating_income": {"basis": "GAAP"}, "eps": {"basis": "non-GAAP", "note": "GAAP $2.46"}}
+    },
+    "GS": {
+     "metrics": {
+      "revenue_consensus": {"value": 16.49, "provider": "Zacks (AP 보도)", "asOf": "2026-07-14",
+       "alts": [{"provider": "247wallst", "value": 16.40}],
+       "reason": "시트 값 14.47은 EPS 컨센을 매출 칸에 잘못 넣은 값. 순매출 기준 컨센 $16.49B(Zacks 6명)",
+       "src": [{"title": "AP: Goldman Q2 earnings snapshot", "url": "https://wtop.com/news/2026/07/goldman-q2-earnings-snapshot/"},
+               {"title": "247wallst: GS Q2 2026", "url": "https://247wallst.com/cards/goldman-sachs-q2-2026-earnings-gs-01kxg6hwy77gv9q5a8ks0rp5js"}]},
+      "eps_consensus": {"provider": "Zacks", "alts": [{"provider": "기타 집계", "value": 14.54}],
+       "note": "프리뷰 추정치로 표시돼 있었으나 Zacks 5명 컨센과 같은 값으로 확인"},
+      "eps": {"basis": "GAAP"},
+      "price_reaction": {"reason": "주가반응 미확보"}
+     },
+     "notes_replace": [["*EPS 컨센($14.47)은 프리뷰 추정치 — 확정 컨센 교체 권장", "EPS 컨센 $14.47(Zacks, 다른 집계 $14.54). 매출 컨센 $16.49B(Zacks·AP 보도, 247wallst $16.40B) — 이전 시트의 매출 컨센 14.47은 EPS 컨센을 잘못 넣은 값"]]
+    },
+    "JPM": {"metrics": {"eps": {"basis": "GAAP"}, "price_reaction": {"reason": "주가반응 미확보"}}},
+    "NFLX": {"metrics": {"eps": {"basis": "GAAP"}}},
+    "TSLA": {"metrics": {"operating_income": {"basis": "GAAP"}, "eps": {"basis": "non-GAAP", "note": "조정 EPS"}}},
+    "005930": {
+     "stage": "final",
+     "metrics": {
+      "operating_income": {"basis": "IFRS"},
+      "revenue_consensus": {"provider": "FnGuide"},
+      "eps": {"reason": "미확인 — DART 공시 대조 필요"},
+      "price_reaction": {"reason": "장중 +7.1%까지 올랐다가 종가 보합권으로 반납해 순효과 불확실"}
+     }
+    },
+    "000660": {
+     "stage": "final",
+     "metrics": {
+      "operating_income": {"basis": "IFRS"},
+      "revenue_consensus": {"provider": "FnGuide"},
+      "eps_consensus": {"provider": "FnGuide"},
+      "eps": {"reason": "미공개"}
+     },
+     "notes_replace": [["영업이익률은 마이크론(81.2%)에 이어 2위.", "영업이익률은 마이크론(GAAP 80.4%·비GAAP 81.2%)에 이어 2위."]]
+    },
+    "TSM": {
+     "metrics": {
+      "operating_income": {"value": 24.241, "flag": "derived",
+       "reason": "TSMC 2Q26 실적발표 영업이익률 60.3%(영업이익 NT$766.60B)를 USD 매출 40.20에 곱해 환산",
+       "src": [{"title": "TSMC 2Q26 Earnings Release", "url": "https://pr.tsmc.com/schinese/news/3326", "asOf": "2026-07-16"}]},
+      "eps": {"basis": "IFRS", "note": "ADR 기준 USD 환산"}
+     },
+     "notes_replace": [["영업이익률 60.3%(2차 자료 — 영업이익 절대액 미확보).", "영업이익률 60.3%(TSMC 2Q26 실적발표, 영업이익 NT$766.60B). 영업이익 열은 USD 매출 × 60.3%로 환산한 값."]]
+    },
+    "ASML": {
+     "metrics": {
+      "revenue": {"value": 9.326, "flag": "verified",
+       "reason": "ASML 공식 실적발표 순매출 €9,326M. 시트 값 9.03은 오기",
+       "src": [{"title": "ASML Q2 2026 press release", "url": "https://www.asml.com/en/news/press-releases/2026/q2-2026-financial-results", "asOf": "2026-07-15"}]},
+      "revenue_consensus": {"flag": "unverified", "note": "출처·기준일 미상. 매출 실적치가 오기였으므로 함께 재확인 필요"},
+      "operating_income": {"value": 3.460, "flag": "derived",
+       "reason": "공식 영업이익률 37.1%(Q2 IR 자료)를 매출 €9.326B에 곱해 환산",
+       "src": [{"title": "ASML Q2 2026 investor presentation", "url": "https://ourbrand.asml.com/asset/9078cf4d-91fd-4dd9-a5d5-d1caab6dc046/2026_07_15_Presentation-Investor-Relations-Q2-2026.pdf", "asOf": "2026-07-15"}]},
+      "eps": {"value": 7.59, "basis": "IFRS", "flag": "verified", "note": "기본 EPS",
+       "reason": "공식 실적발표 기본 EPS €7.59 (시트에서는 매출 불일치로 입력 보류했던 값)",
+       "src": [{"title": "ASML Q2 2026 press release", "url": "https://www.asml.com/en/news/press-releases/2026/q2-2026-financial-results", "asOf": "2026-07-15"}]},
+      "price_reaction": {"reason": "미확보"}
+     },
+     "notes_replace": [
+      ["매출 컨센 상회, Q3 가이던스 상향, 2026 매출 €36–40B.", "매출 €9.326B로 컨센 상회, 순이익 €2.918B, 매출총이익률 54.0%, 영업이익률 37.1%. 2026 연간 매출 가이던스 €36–40B → €43–45B 상향(총이익률 54–56%), Q3 가이던스 매출 €11.0–12.0B·총이익률 55–57%."],
+      ["*2차 매체발 EPS €7.59·영업이익률 37.1% 보도 있으나 매출수치 불일치 — IR 대조 후 입력 권장", "※IR 대조(2026-10-12): 이전 시트 매출 9.03은 오기였고, EPS €7.59·영업이익률 37.1%는 공식 수치. 영업이익 열은 매출 × 37.1%로 환산한 값."]
+     ]
+    }
+   }
+  },
+  "2026Q3": {
+   "label": "Q3 2026",
+   "highlight_rows": [34, 35],
+   "events": {
+    "AAPL": {"period": {"start": "2026-06-28", "end": "2026-09-26"},
+     "announce": {"timing": "amc", "certainty": "estimated"}},
+    "AMZN": {"announce": {"timing": "amc", "certainty": "estimated"}},
+    "GOOGL": {"announce": {"timing": "amc", "certainty": "estimated", "alt_dates": ["2026-11-03"]}},
+    "META": {"announce": {"timing": "amc", "certainty": "estimated"}},
+    "MSFT": {"period": {"start": "2026-07-01", "end": "2026-09-30"},
+     "announce": {"timing": "amc", "certainty": "estimated", "note": "공지 전"}},
+    "MU": {
+     "period": {"start": "2026-05-29", "end": "2026-09-03", "approx": true},
+     "announce": {"timing": "amc", "certainty": "confirmed"},
+     "metrics": {
+      "revenue_consensus": {"provider": "Yahoo Finance"},
+      "operating_income": {"basis": "GAAP", "note": "회사 준비발언의 $44.6B·82.3%는 GAAP/비GAAP 표기 불명"},
+      "eps": {"basis": "non-GAAP", "note": "GAAP $32.87"},
+      "eps_consensus": {"provider": "Investing.com", "alts": [{"provider": "기타 집계", "value": 31.82}]},
+      "price_reaction": {"reason": "시간외 보도가 +1.3%와 -0.8%로 엇갈리고 익일 종가 미확인"}
+     }
+    },
+    "NVDA": {"period": {"start": "2026-07-27", "end": "2026-10-25", "approx": true},
+     "announce": {"timing": "amc", "certainty": "estimated", "alt_dates": ["2026-11-25"]}},
+    "GS": {"announce": {"timing": "bmo", "certainty": "verified"}},
+    "JPM": {"announce": {"timing": "bmo", "certainty": "verified"}},
+    "NFLX": {"announce": {"timing": "amc", "certainty": "estimated"}},
+    "TSLA": {"announce": {"timing": "amc", "time": "17:30", "tz": "America/New_York", "certainty": "confirmed", "note": "8-K 공지"}},
+    "005930": {
+     "stage": "preliminary",
+     "announce": {"certainty": "confirmed", "final_expected": "10월 말(추정)"},
+     "metrics": {
+      "operating_income": {"basis": "IFRS"},
+      "revenue_consensus": {"provider": "WiseReport (증권사 평균)", "asOf": "2026-10-04"},
+      "eps": {"reason": "잠정 공시에 없음 — 확정실적 때 입력"},
+      "price_reaction": {"reason": "당일 '2%대 하락' 보도만 있고 정확한 종가 등락률 미확인"}
+     }
+    },
+    "000660": {"announce": {"certainty": "estimated"}},
+    "TSM": {"announce": {"certainty": "estimated", "note": "공식 캘린더 미게시"}},
+    "ASML": {"announce": {"timing": "bmo", "certainty": "verified"},
+     "notes_replace": [["Q3 가이던스 및 2026 매출 €36–40B 가이던스 대비.", "Q3 가이던스(매출 €11.0–12.0B, 총이익률 55–57%) 및 2026 매출 €43–45B 가이던스(Q2 때 €36–40B에서 상향) 대비."]]}
+   }
+  }
+ }
+}
