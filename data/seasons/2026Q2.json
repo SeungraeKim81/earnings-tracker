@@ -93,7 +93,7 @@
     "eps": {
      "value": 5.75,
      "basis": "GAAP",
-     "note": "Anthropic 투자 관련 세전 비영업이익 $53.4B 포함 — 컨센과 직접 비교 부적절"
+     "caution": "Anthropic 투자 관련 세전 비영업이익 $53.4B 포함 — 컨센과 직접 비교 부적절"
     },
     "eps_consensus": {
      "value": 1.82
@@ -136,7 +136,7 @@
     "eps": {
      "value": 9.11,
      "basis": "GAAP",
-     "note": "지분평가익 약 $98B 포함 — 컨센과 직접 비교 부적절"
+     "caution": "지분평가익 약 $98B 포함 — 컨센과 직접 비교 부적절"
     },
     "eps_consensus": {
      "value": 2.95

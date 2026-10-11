@@ -74,7 +74,8 @@ migration/
 | `provider`, `asOf` | 컨센서스 집계기관과 기준일 |
 | `alts[]` | 다른 집계기관 값 `{provider, value}` |
 | `src[]` | 출처 `{title, url, asOf}` |
-| `note` | 해석 메모 (예: 지분평가이익 포함) |
+| `note` | 참고 메모 (예: GAAP 기준 값) |
+| `caution` | 해석 주의 (예: 지분평가이익 포함 — 컨센과 직접 비교 부적절). 화면에서 계산 필드 옆 ※로 표시 |
 
 ### 계산 필드 (저장하지 않음, `scripts/lib.py`)
 

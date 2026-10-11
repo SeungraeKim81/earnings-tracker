@@ -63,6 +63,9 @@ def check_metric(where, key, m, company):
             errors.append(f"{where} {key}: src 항목은 title과 http url 필요")
         if "asOf" in s and not is_date(s["asOf"]):
             errors.append(f"{where} {key}: src asOf 날짜 형식 오류")
+    for f in ("note", "caution", "reason", "alts_note"):
+        if f in m and not isinstance(m[f], str):
+            errors.append(f"{where} {key}: {f}는 문자열이어야 함")
     if "asOf" in m and not is_date(m["asOf"]):
         errors.append(f"{where} {key}: asOf 날짜 형식 오류")
     if key == "price_reaction" and is_num(v) and abs(v) >= 1:
@@ -116,9 +119,9 @@ def check_event(sid, e, company, today):
         x = d[k]
         base = ms.get(mk) or {}
         act = ms.get("revenue" if k == "revenue_surprise" else "eps") or {}
-        noted = any(m.get("note") or m.get("flag") for m in (base, act))
+        noted = any(m.get("caution") or m.get("note") or m.get("flag") for m in (base, act))
         if x is not None and abs(x) > SURPRISE_WARN and not noted:
-            warnings.append(f"{where}: {k} {x:+.1%} — 오기 의심(정상이면 해당 지표에 note를 남길 것)")
+            warnings.append(f"{where}: {k} {x:+.1%} — 오기 의심(정상이면 해당 지표에 caution이나 note를 남길 것)")
     if d["op_margin"] is not None and not (-1 < d["op_margin"] < 1):
         errors.append(f"{where}: 영업이익률 {d['op_margin']:.1%} — 단위 확인")
 

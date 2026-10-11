@@ -15,8 +15,8 @@
      },
      "notes_replace": [["→ 영업이익은 매출총이익-영업비용으로 역산(비공식 추정치, IR 확정치 대조 권장).", "→ 영업이익 $35.695B(10-Q 확인: 매출총이익 $54.77B - 영업비용 $19.075B)."]]
     },
-    "AMZN": {"metrics": {"eps": {"basis": "GAAP", "note": "Anthropic 투자 관련 세전 비영업이익 $53.4B 포함 — 컨센과 직접 비교 부적절"}}},
-    "GOOGL": {"metrics": {"eps": {"basis": "GAAP", "note": "지분평가익 약 $98B 포함 — 컨센과 직접 비교 부적절"}}},
+    "AMZN": {"metrics": {"eps": {"basis": "GAAP", "caution": "Anthropic 투자 관련 세전 비영업이익 $53.4B 포함 — 컨센과 직접 비교 부적절"}}},
+    "GOOGL": {"metrics": {"eps": {"basis": "GAAP", "caution": "지분평가익 약 $98B 포함 — 컨센과 직접 비교 부적절"}}},
     "META": {"metrics": {"eps": {"basis": "GAAP"}}},
     "MSFT": {
      "label": "FQ4 2026",
