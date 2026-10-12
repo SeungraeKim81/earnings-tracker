@@ -122,7 +122,8 @@ def check_event(sid, e, company, today):
         x = d[k]
         base = ms.get(mk) or {}
         act = ms.get("revenue" if k == "revenue_surprise" else "eps") or {}
-        noted = any(m.get("caution") or m.get("note") or m.get("flag") for m in (base, act))
+        # 해석 메모가 있거나 이미 의심 표시된 값이면 생략. 실적이 공식 확인(verified)이어도 컨센이 틀릴 수 있어 생략하지 않는다
+        noted = any(m.get("caution") or m.get("note") or m.get("flag") in ("derived", "unverified", "disputed") for m in (base, act))
         if x is not None and abs(x) > SURPRISE_WARN and not noted:
             warnings.append(f"{where}: {k} {x:+.1%} — 오기 의심(정상이면 해당 지표에 caution이나 note를 남길 것)")
     if d["op_margin"] is not None and not (-1 < d["op_margin"] < 1):

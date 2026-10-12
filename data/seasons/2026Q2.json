@@ -7,7 +7,7 @@
  "highlights": [
   "[반도체 영업이익률 순위] 마이크론 80.4% > SK하이닉스 76.3% > 엔비디아 66.2% > TSMC 60.3%. AI 사이클에서 메모리(마이크론·SK하이닉스)가 GPU(엔비디아)보다 마진이 높은 이례적 구도.",
   "[하이퍼스케일러 CapEx 종합] GOOGL $195–205B · MSFT ~$175B(회계효과) · META $130–145B · AMZN $220B. 엔비디아 CFO는 상위 5개사 합산 CapEx가 2026년 $800B+→2027년 $1.3조로 증가할 것으로 전망(수요 근거로 제시).",
-  "[주가반응 해석 주의] 삼성전자는 장중 +7.1%→종가 상승분 반납(net 불확실)으로 공란. SK하이닉스 -6%는 KOSPI 2일 연속(-11%,-6%) 강제청산 폭락과 겹쳐 실적 미스만의 결과로 단정 어려움. 엔비디아는 최근 4분기 연속 실적후 주가 하락 이력과 달리 +5%로 반등.",
+  "[주가반응 해석 주의] 삼성전자는 장중 +7.1%까지 올랐다가 상승분을 반납(종가 기준 −0.7%). SK하이닉스 -6%는 KOSPI 2일 연속(-11%,-6%) 강제청산 폭락과 겹쳐 실적 미스만의 결과로 단정 어려움. 엔비디아는 최근 4분기 연속 실적후 주가 하락 이력과 달리 +5%로 반등.",
   "[해석 주의] MSFT의 CapEx 축소(~$175B)는 회계처리 변경 효과이지 실지출 감소가 아닙니다. Alphabet·Tesla·Amazon EPS에는 지분평가익/비영업 투자손익(SpaceX·Anthropic)이 포함돼 있고, SK하이닉스 순이익률(118%)에도 영업외 요인이 있어 영업이익·영업이익률로 실체를 판단하십시오."
  ],
  "events": [
@@ -23,12 +23,20 @@
    "currency": "USD",
    "announce": {
     "date": "2026-07-30",
-    "timing": null,
+    "timing": "amc",
     "certainty": "confirmed"
    },
    "metrics": {
     "revenue": {
-     "value": 109.42
+     "value": 109.42,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Apple 10-Q (FQ3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000320193/000032019326000020/aapl-20260627.htm",
+       "asOf": "2026-07-31"
+      }
+     ]
     },
     "revenue_consensus": {
      "value": 108.65
@@ -50,7 +58,15 @@
     },
     "eps": {
      "value": 2.02,
-     "basis": "GAAP"
+     "basis": "GAAP",
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Apple 10-Q (FQ3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000320193/000032019326000020/aapl-20260627.htm",
+       "asOf": "2026-07-31"
+      }
+     ]
     },
     "eps_consensus": {
      "value": 1.89
@@ -74,12 +90,20 @@
    "currency": "USD",
    "announce": {
     "date": "2026-07-30",
-    "timing": null,
+    "timing": "amc",
     "certainty": "confirmed"
    },
    "metrics": {
     "revenue": {
-     "value": 200.6
+     "value": 200.6,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Amazon Q2 2026 earnings release",
+       "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results",
+       "asOf": "2026-07-30"
+      }
+     ]
     },
     "revenue_consensus": {
      "value": 196.47
@@ -88,12 +112,28 @@
      "value": 0.2
     },
     "operating_income": {
-     "value": 27.5
+     "value": 27.5,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Amazon Q2 2026 earnings release",
+       "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results",
+       "asOf": "2026-07-30"
+      }
+     ]
     },
     "eps": {
      "value": 5.75,
      "basis": "GAAP",
-     "caution": "Anthropic 투자 관련 세전 비영업이익 $53.4B 포함 — 컨센과 직접 비교 부적절"
+     "caution": "Anthropic 투자 관련 세전 비영업이익 $53.4B 포함 — 컨센과 직접 비교 부적절",
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Amazon Q2 2026 earnings release",
+       "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results",
+       "asOf": "2026-07-30"
+      }
+     ]
     },
     "eps_consensus": {
      "value": 1.82
@@ -117,29 +157,61 @@
    "currency": "USD",
    "announce": {
     "date": "2026-07-22",
-    "timing": null,
+    "timing": "amc",
     "certainty": "confirmed"
    },
    "metrics": {
     "revenue": {
-     "value": 119.8
+     "value": 119.8,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Alphabet 8-K exhibit 99.1 (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm",
+       "asOf": "2026-07-22"
+      }
+     ]
     },
     "revenue_consensus": {
-     "value": 116.93
+     "value": 116.93,
+     "alts_note": "집계기관별 $116.5~117.1B"
     },
     "revenue_yoy": {
      "value": 0.24
     },
     "operating_income": {
-     "value": 40.77
+     "value": 40.77,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Alphabet 8-K exhibit 99.1 (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm",
+       "asOf": "2026-07-22"
+      }
+     ]
     },
     "eps": {
      "value": 9.11,
      "basis": "GAAP",
-     "caution": "지분평가익 약 $98B 포함 — 컨센과 직접 비교 부적절"
+     "caution": "지분평가익 약 $98B 포함 — 컨센과 직접 비교 부적절",
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Alphabet 8-K exhibit 99.1 (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm",
+       "asOf": "2026-07-22"
+      }
+     ]
     },
     "eps_consensus": {
-     "value": 2.95
+     "value": 2.95,
+     "alts": [
+      {
+       "provider": "TipRanks 등 집계",
+       "value": 2.88
+      }
+     ],
+     "alts_note": "집계기관별 $2.87~2.89"
     },
     "price_reaction": {
      "value": -0.02,
@@ -160,35 +232,81 @@
    "currency": "USD",
    "announce": {
     "date": "2026-07-29",
-    "timing": null,
+    "timing": "amc",
     "certainty": "confirmed"
    },
    "metrics": {
     "revenue": {
-     "value": 60.8
+     "value": 60.8,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Meta 8-K exhibit 99.1 (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001326801/000162828026050596/meta-06302026xexhibit991.htm",
+       "asOf": "2026-07-29"
+      }
+     ]
     },
     "revenue_consensus": {
-     "value": 60.2
+     "value": 60.2,
+     "provider": "TipRanks",
+     "alts": [
+      {
+       "provider": "Rivkin",
+       "value": 60.2
+      }
+     ]
     },
     "revenue_yoy": {
      "value": 0.28
     },
     "operating_income": {
-     "value": 18.8
+     "value": 18.78,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Meta 8-K exhibit 99.1 (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001326801/000162828026050596/meta-06302026xexhibit991.htm",
+       "asOf": "2026-07-29"
+      }
+     ],
+     "reason": "공식 영업이익 $18.78B(기존 18.80은 반올림 값)"
     },
     "eps": {
      "value": 6.18,
-     "basis": "GAAP"
+     "basis": "GAAP",
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Meta 8-K exhibit 99.1 (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001326801/000162828026050596/meta-06302026xexhibit991.htm",
+       "asOf": "2026-07-29"
+      }
+     ]
     },
     "eps_consensus": {
-     "value": 7.14
+     "value": 7.19,
+     "provider": "TipRanks",
+     "alts": [
+      {
+       "provider": "Rivkin",
+       "value": 7.22
+      }
+     ],
+     "reason": "기존 7.14는 전년 동기(Q2 2025) EPS를 컨센서스로 잘못 넣은 값",
+     "src": [
+      {
+       "title": "TipRanks: META Q2 2026 earnings",
+       "url": "https://www.tipranks.com/stocks/meta/earnings/q2-2026-report"
+      }
+     ]
     },
     "price_reaction": {
      "value": -0.08,
      "basis": "after_hours"
     }
    },
-   "notes": "매출은 상회($60.8B, +28%; 광고 $59.3B)했으나 EPS $6.18로 컨센 $7.14 대비 -13% 미스. 비용 +55%($42.0B, 법률비용 $2.4B·5월 감원 위로금 $1.18B 포함)로 영업이익률 43%→31% 붕괴, 순이익 -14%. CapEx $31.08B로 FCF $0.78B에 불과. Reality Labs 영업손실 $4.62B. FY26 CapEx 하단을 $125B→$130B로 상향($130–145B). 주가 시간외 -8%."
+   "notes": "매출은 상회($60.8B, +28%; 광고 $59.3B)했으나 EPS $6.18로 컨센 $7.19(TipRanks, Rivkin $7.22) 대비 -14% 미스(전년 동기 $7.14). 비용 +55%($42.0B, 법률비용 $2.4B·5월 감원 위로금 $1.18B 포함)로 영업이익률 43%→31% 붕괴, 순이익 -14%. CapEx $31.08B로 FCF $0.78B에 불과. Reality Labs 영업손실 $4.62B. FY26 CapEx 하단을 $125B→$130B로 상향($130–145B). 주가 시간외 -8%."
   },
   {
    "ticker": "MSFT",
@@ -202,29 +320,66 @@
    "currency": "USD",
    "announce": {
     "date": "2026-07-29",
-    "timing": null,
+    "timing": "amc",
     "certainty": "confirmed"
    },
    "metrics": {
     "revenue": {
-     "value": 90.01
+     "value": 90.01,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Microsoft 8-K exhibit 99.1 (FY26 Q4)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312526323632/msft-ex99_1.htm",
+       "asOf": "2026-07-29"
+      }
+     ]
     },
     "revenue_consensus": {
-     "value": 87.67
+     "value": 87.67,
+     "alts": [
+      {
+       "provider": "기타 집계",
+       "value": 87.44
+      }
+     ]
     },
     "revenue_yoy": {
      "value": 0.18
     },
     "operating_income": {
-     "value": 40.6
+     "value": 40.6,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Microsoft 8-K exhibit 99.1 (FY26 Q4)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312526323632/msft-ex99_1.htm",
+       "asOf": "2026-07-29"
+      }
+     ]
     },
     "eps": {
      "value": 4.74,
      "basis": "non-GAAP",
-     "note": "OpenAI 투자손익 제외. GAAP $4.81"
+     "note": "OpenAI 투자손익 제외. GAAP $4.81",
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Microsoft 8-K exhibit 99.1 (FY26 Q4)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312526323632/msft-ex99_1.htm",
+       "asOf": "2026-07-29"
+      }
+     ],
+     "caution": "Anthropic 투자 이익 $3.2B 등 일회성 항목이 약 $0.27 기여(제외 시 약 $4.47) — 컨센 대비 해석 주의"
     },
     "eps_consensus": {
-     "value": 4.24
+     "value": 4.24,
+     "alts": [
+      {
+       "provider": "기타 집계",
+       "value": 4.21
+      }
+     ]
     },
     "price_reaction": {
      "value": 0.07,
@@ -246,12 +401,20 @@
    "currency": "USD",
    "announce": {
     "date": "2026-06-24",
-    "timing": null,
+    "timing": "amc",
     "certainty": "confirmed"
    },
    "metrics": {
     "revenue": {
-     "value": 41.46
+     "value": 41.46,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Micron 8-K exhibit 99.1 (FQ3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+       "asOf": "2026-06-24"
+      }
+     ]
     },
     "revenue_consensus": {
      "value": 35.25,
@@ -262,11 +425,28 @@
     },
     "operating_income": {
      "value": 33.32,
-     "basis": "GAAP"
+     "basis": "GAAP",
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Micron 8-K exhibit 99.1 (FQ3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+       "asOf": "2026-06-24"
+      }
+     ]
     },
     "eps": {
      "value": 25.11,
-     "basis": "non-GAAP"
+     "basis": "non-GAAP",
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Micron 8-K exhibit 99.1 (FQ3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+       "asOf": "2026-06-24"
+      }
+     ],
+     "note": "GAAP $24.67"
     },
     "eps_consensus": {
      "value": 20.28,
@@ -292,7 +472,7 @@
    "currency": "USD",
    "announce": {
     "date": "2026-08-26",
-    "timing": null,
+    "timing": "amc",
     "certainty": "confirmed"
    },
    "metrics": {
@@ -300,7 +480,13 @@
      "value": 96.2
     },
     "revenue_consensus": {
-     "value": 92.07
+     "value": 92.07,
+     "alts": [
+      {
+       "provider": "LSEG",
+       "value": 92.17
+      }
+     ]
     },
     "revenue_yoy": {
      "value": 1.058
@@ -315,7 +501,13 @@
      "note": "GAAP $2.46"
     },
     "eps_consensus": {
-     "value": 2.09
+     "value": 2.09,
+     "alts": [
+      {
+       "provider": "대다수 집계",
+       "value": 2.1
+      }
+     ]
     },
     "price_reaction": {
      "value": 0.05,
@@ -341,7 +533,15 @@
    },
    "metrics": {
     "revenue": {
-     "value": 20.34
+     "value": 20.34,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Goldman Sachs 8-K (Q2 2026 earnings results)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000294/a2q26gsearningsresults.htm",
+       "asOf": "2026-07-14"
+      }
+     ]
     },
     "revenue_consensus": {
      "value": 16.49,
@@ -371,7 +571,15 @@
     "operating_income": null,
     "eps": {
      "value": 20.98,
-     "basis": "GAAP"
+     "basis": "GAAP",
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Goldman Sachs 8-K (Q2 2026 earnings results)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000294/a2q26gsearningsresults.htm",
+       "asOf": "2026-07-14"
+      }
+     ]
     },
     "eps_consensus": {
      "value": 14.47,
@@ -419,16 +627,33 @@
    },
    "metrics": {
     "revenue": {
-     "value": 58.02
+     "value": 58.02,
+     "note": "관리회계(managed) 기준. 보고 기준 순매출 $57.3B(+28%, 10-Q)",
+     "src": [
+      {
+       "title": "JPMorgan Chase 10-Q (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000019617/000162828026054343/jpm-20260630.htm"
+      }
+     ]
     },
     "revenue_consensus": {
      "value": 50.19
     },
-    "revenue_yoy": null,
+    "revenue_yoy": {
+     "value": 0.27,
+     "note": "관리회계 기준. 중요 항목 제외 시 +15%",
+     "src": [
+      {
+       "title": "JPMorgan Chase 10-Q (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000019617/000162828026054343/jpm-20260630.htm"
+      }
+     ]
+    },
     "operating_income": null,
     "eps": {
      "value": 6.14,
-     "basis": "GAAP"
+     "basis": "non-GAAP",
+     "caution": "중요 항목 제외 EPS. 보고 EPS $7.70(Visa 주식 관련 이익 $4.6B·지분투자 이익 $1.0B 포함)"
     },
     "eps_consensus": {
      "value": 5.85
@@ -449,7 +674,7 @@
      ]
     }
    },
-   "notes": "분기 순이익 $21.2B — 美 은행 사상 최대. IB·트레이딩 강세, SpaceX IPO 수수료 기여. ※은행은 영업이익 개념 비적용 — 순이익 기준 판단. (주가반응 미확보)"
+   "notes": "분기 순이익 $21.2B(EPS $7.70) — 美 은행 사상 최대. Visa 주식 관련 이익 $4.6B·지분투자 이익 $1.0B 포함, 제외 시 $16.9B(EPS $6.14, 표의 EPS). IB·트레이딩 강세, SpaceX IPO 수수료 기여. ※은행은 영업이익 개념 비적용 — 순이익 기준 판단."
   },
   {
    "ticker": "NFLX",
@@ -463,25 +688,50 @@
    "currency": "USD",
    "announce": {
     "date": "2026-07-16",
-    "timing": null,
+    "timing": "amc",
     "certainty": "confirmed"
    },
    "metrics": {
     "revenue": {
-     "value": 12.56
+     "value": 12.56,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Netflix 8-K exhibit 99.1 (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000211/ex991_q226.htm",
+       "asOf": "2026-07-16"
+      }
+     ]
     },
     "revenue_consensus": {
-     "value": 12.58
+     "value": 12.58,
+     "alts_note": "집계기관별 $12.57~12.59B"
     },
     "revenue_yoy": {
      "value": 0.134
     },
     "operating_income": {
-     "value": 4.19
+     "value": 4.19,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Netflix 8-K exhibit 99.1 (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000211/ex991_q226.htm",
+       "asOf": "2026-07-16"
+      }
+     ]
     },
     "eps": {
      "value": 0.8,
-     "basis": "GAAP"
+     "basis": "GAAP",
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Netflix 8-K exhibit 99.1 (Q2 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000211/ex991_q226.htm",
+       "asOf": "2026-07-16"
+      }
+     ]
     },
     "eps_consensus": {
      "value": 0.79
@@ -505,7 +755,7 @@
    "currency": "USD",
    "announce": {
     "date": "2026-07-22",
-    "timing": null,
+    "timing": "amc",
     "certainty": "confirmed"
    },
    "metrics": {
@@ -513,7 +763,15 @@
      "value": 28.24
     },
     "revenue_consensus": {
-     "value": 25.71
+     "value": 25.71,
+     "flag": "disputed",
+     "alts": [
+      {
+       "provider": "보도 집계(Mercom 등)",
+       "value": 26.4
+      }
+     ],
+     "note": "출처 미상 값. 보도된 집계는 $26.0~26.4B"
     },
     "revenue_yoy": {
      "value": 0.26
@@ -525,10 +783,27 @@
     "eps": {
      "value": 0.33,
      "basis": "non-GAAP",
-     "note": "조정 EPS"
+     "note": "조정 EPS. GAAP $0.32"
     },
     "eps_consensus": {
-     "value": 0.51
+     "value": 0.51,
+     "provider": "LSEG",
+     "alts": [
+      {
+       "provider": "기타 보도",
+       "value": 0.53
+      },
+      {
+       "provider": "Tesla 자체 집계",
+       "value": 0.55
+      }
+     ],
+     "src": [
+      {
+       "title": "Tesla Q2 2026 earnings consensus",
+       "url": "https://ir.tesla.com/press-release/earnings-consensus-second-quarter-2026"
+      }
+     ]
     },
     "price_reaction": {
      "value": -0.04,
@@ -568,8 +843,17 @@
      "basis": "IFRS"
     },
     "eps": {
-     "value": null,
-     "reason": "미확인 — DART 공시 대조 필요"
+     "value": 10849,
+     "basis": "IFRS",
+     "flag": "verified",
+     "note": "보통주·우선주 동일",
+     "src": [
+      {
+       "title": "삼성전자 뉴스룸: 2026년 2분기 실적 발표",
+       "url": "https://news.samsung.com/kr/삼성전자-2026년-2분기-실적-발표",
+       "asOf": "2026-07-30"
+      }
+     ]
     },
     "eps_consensus": null,
     "price_reaction": {
@@ -588,7 +872,7 @@
      ]
     }
    },
-   "notes": "확정실적(잠정치와 거의 동일). 매출 171.5조(+130%), 영업이익 89.5조(+1814%, 영업이익률 52.2%), 순이익 71.3조(+1230%). 매출은 컨센 대비 -1.7% 소폭 미스, 영업이익은 +5.5% 서프라이즈(보도 기준). ★DS(반도체)부문 단독 매출 127.5조·영업이익 89.2조(이익률 70%, 전사 영업이익의 99.7%) — AI서버향 D램·낸드 사상 최대 판매. ★DX(세트)부문은 부품원가 상승(칩플레이션)으로 2021년 통합 이후 첫 영업손실(-8000억원). 디스플레이 매출7.5조/영업이익0.7조, 하만 매출4.6조/영업이익0.4조. 원달러 강세로 영업이익 +3.1조원 환효과, R&D 16조원 사상 최대. EPS 미확인(DART 공시 대조 필요). 주가는 확정실적 발표 직후 장중 +7.1%(223,250원)까지 급등했으나 반도체 피크아웃(고점통과) 우려로 상승분을 모두 반납, 종가는 보합권 마감 — 주가반응 열은 net effect 불확실로 공란 처리. 컨퍼런스콜에서 메모리 공급부족 '2028년까지 지속' 언급, ADR 상장은 미검토."
+   "notes": "확정실적(잠정치와 거의 동일). 매출 171.5조(+130%), 영업이익 89.5조(+1814%, 영업이익률 52.2%), 순이익 71.3조(+1230%). 매출은 컨센 대비 -1.7% 소폭 미스, 영업이익은 +5.5% 서프라이즈(보도 기준). ★DS(반도체)부문 단독 매출 127.5조·영업이익 89.2조(이익률 70%, 전사 영업이익의 99.7%) — AI서버향 D램·낸드 사상 최대 판매. ★DX(세트)부문은 부품원가 상승(칩플레이션)으로 2021년 통합 이후 첫 영업손실(-8000억원). 디스플레이 매출7.5조/영업이익0.7조, 하만 매출4.6조/영업이익0.4조. 원달러 강세로 영업이익 +3.1조원 환효과, R&D 16조원 사상 최대. EPS 10,849원(보통주·우선주 동일, 삼성전자 뉴스룸). 주가는 확정실적 발표 직후 장중 +7.1%(223,250원)까지 급등했으나 반도체 피크아웃(고점통과) 우려로 상승분을 모두 반납, 종가는 보합권 마감 — 종가 기준 주가반응은 −0.7%. 컨퍼런스콜에서 메모리 공급부족 '2028년까지 지속' 언급, ADR 상장은 미검토."
   },
   {
    "ticker": "000660",
@@ -622,7 +906,7 @@
     },
     "eps": {
      "value": null,
-     "reason": "미공개"
+     "reason": "회사 발표·보도에서 확인 못 함 — DART 분기보고서 대조 필요"
     },
     "eps_consensus": {
      "value": 68565,
@@ -652,13 +936,29 @@
    },
    "metrics": {
     "revenue": {
-     "value": 40.2
+     "value": 40.2,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "TSMC 2Q26 earnings release",
+       "url": "https://pr.tsmc.com/english/news/3326",
+       "asOf": "2026-07-16"
+      }
+     ]
     },
     "revenue_consensus": {
      "value": 39.3
     },
     "revenue_yoy": {
-     "value": 0.36
+     "value": 0.337,
+     "reason": "매출을 USD로 입력하므로 USD 기준 YoY로 정정(NT$ 기준 +36.0%)",
+     "src": [
+      {
+       "title": "TSMC 2Q26 earnings release",
+       "url": "https://pr.tsmc.com/english/news/3326",
+       "asOf": "2026-07-16"
+      }
+     ]
     },
     "operating_income": {
      "value": 24.241,
@@ -715,11 +1015,37 @@
      ]
     },
     "revenue_consensus": {
-     "value": 8.9,
-     "flag": "unverified",
-     "note": "출처·기준일 미상. 매출 실적치가 오기였으므로 함께 재확인 필요"
+     "value": 8.97,
+     "provider": "Chartmill",
+     "alts": [
+      {
+       "provider": "Newsquawk(발표 전 프리뷰)",
+       "value": 8.83
+      },
+      {
+       "provider": "이전 시트 값(출처 미상)",
+       "value": 8.9
+      }
+     ],
+     "reason": "출처 미상이던 8.90을 확인된 집계로 교체",
+     "src": [
+      {
+       "title": "Chartmill: ASML Q2 revenue and earnings beat",
+       "url": "https://www.chartmill.com/news/ASML/Chartmill-50983-ASML-Holding-NV-AMSASML-Surges-as-Quality-Stock-with-Q2-Revenue-and-Earnings-Beat-Lifts-Full-Year-Guidance"
+      }
+     ]
     },
-    "revenue_yoy": null,
+    "revenue_yoy": {
+     "value": 0.212,
+     "flag": "derived",
+     "reason": "Q2 2025 순매출 €7.692B 대비로 계산",
+     "src": [
+      {
+       "title": "Parameter.io: ASML Q2 2026",
+       "url": "https://parameter.io/asml-asml-stock-rallies-on-stellar-q2-results-and-upgraded-2026-revenue-forecast/"
+      }
+     ]
+    },
     "operating_income": {
      "value": 3.46,
      "flag": "derived",
@@ -746,7 +1072,22 @@
       }
      ]
     },
-    "eps_consensus": null,
+    "eps_consensus": {
+     "value": 6.93,
+     "provider": "Chartmill",
+     "alts": [
+      {
+       "provider": "Newsquawk(발표 전 프리뷰)",
+       "value": 6.88
+      }
+     ],
+     "src": [
+      {
+       "title": "Chartmill: ASML Q2 revenue and earnings beat",
+       "url": "https://www.chartmill.com/news/ASML/Chartmill-50983-ASML-Holding-NV-AMSASML-Surges-as-Quality-Stock-with-Q2-Revenue-and-Earnings-Beat-Lifts-Full-Year-Guidance"
+      }
+     ]
+    },
     "price_reaction": {
      "value": -0.0041,
      "basis": "close",
