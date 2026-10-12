@@ -385,8 +385,19 @@
      "note": "프리뷰 추정치로 표시돼 있었으나 Zacks 5명 컨센과 같은 값으로 확인"
     },
     "price_reaction": {
-     "value": null,
-     "reason": "주가반응 미확보"
+     "value": 0.09,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-07-13",
+      "2026-07-14"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (GS)",
+       "url": "https://finance.yahoo.com/quote/GS/history"
+      }
+     ]
     }
    },
    "notes": "역대 최고 분기. SpaceX IPO 대표주관. 매출=순매출 기준. ※은행 영업이익 비적용. EPS 컨센 $14.47(Zacks, 다른 집계 $14.54). 매출 컨센 $16.49B(Zacks·AP 보도, 247wallst $16.40B) — 이전 시트의 매출 컨센 14.47은 EPS 컨센을 잘못 넣은 값"
@@ -423,8 +434,19 @@
      "value": 5.85
     },
     "price_reaction": {
-     "value": null,
-     "reason": "주가반응 미확보"
+     "value": 0.025,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-07-13",
+      "2026-07-14"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (JPM)",
+       "url": "https://finance.yahoo.com/quote/JPM/history"
+      }
+     ]
     }
    },
    "notes": "분기 순이익 $21.2B — 美 은행 사상 최대. IB·트레이딩 강세, SpaceX IPO 수수료 기여. ※은행은 영업이익 개념 비적용 — 순이익 기준 판단. (주가반응 미확보)"
@@ -551,8 +573,19 @@
     },
     "eps_consensus": null,
     "price_reaction": {
-     "value": null,
-     "reason": "장중 +7.1%까지 올랐다가 종가 보합권으로 반납해 순효과 불확실"
+     "value": -0.0072,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-07-29",
+      "2026-07-30"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (005930.KS)",
+       "url": "https://finance.yahoo.com/quote/005930.KS/history"
+      }
+     ]
     }
    },
    "notes": "확정실적(잠정치와 거의 동일). 매출 171.5조(+130%), 영업이익 89.5조(+1814%, 영업이익률 52.2%), 순이익 71.3조(+1230%). 매출은 컨센 대비 -1.7% 소폭 미스, 영업이익은 +5.5% 서프라이즈(보도 기준). ★DS(반도체)부문 단독 매출 127.5조·영업이익 89.2조(이익률 70%, 전사 영업이익의 99.7%) — AI서버향 D램·낸드 사상 최대 판매. ★DX(세트)부문은 부품원가 상승(칩플레이션)으로 2021년 통합 이후 첫 영업손실(-8000억원). 디스플레이 매출7.5조/영업이익0.7조, 하만 매출4.6조/영업이익0.4조. 원달러 강세로 영업이익 +3.1조원 환효과, R&D 16조원 사상 최대. EPS 미확인(DART 공시 대조 필요). 주가는 확정실적 발표 직후 장중 +7.1%(223,250원)까지 급등했으나 반도체 피크아웃(고점통과) 우려로 상승분을 모두 반납, 종가는 보합권 마감 — 주가반응 열은 net effect 불확실로 공란 처리. 컨퍼런스콜에서 메모리 공급부족 '2028년까지 지속' 언급, ADR 상장은 미검토."
@@ -715,8 +748,19 @@
     },
     "eps_consensus": null,
     "price_reaction": {
-     "value": null,
-     "reason": "미확보"
+     "value": -0.0041,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-07-14",
+      "2026-07-15"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (ASML.AS)",
+       "url": "https://finance.yahoo.com/quote/ASML.AS/history"
+      }
+     ]
     }
    },
    "notes": "매출 €9.326B로 컨센 상회, 순이익 €2.918B, 매출총이익률 54.0%, 영업이익률 37.1%. 2026 연간 매출 가이던스 €36–40B → €43–45B 상향(총이익률 54–56%), Q3 가이던스 매출 €11.0–12.0B·총이익률 55–57%. Intel이 18A에 High-NA EUV 채택. ※IR 대조(2026-10-12): 이전 시트 매출 9.03은 오기였고, EPS €7.59·영업이익률 37.1%는 공식 수치. 영업이익 열은 매출 × 37.1%로 환산한 값."
