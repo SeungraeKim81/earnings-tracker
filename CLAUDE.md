@@ -15,7 +15,8 @@
    - 못 구한 값은 `value: null` + `reason`. 계산으로 만든 값은 `flag: derived` + `reason`
    - 회계 왜곡(지분평가이익 등)은 해당 지표 `caution`
    - `notes`(한국어)에 핵심 코멘트, 시즌 파일 `updated`를 오늘 날짜(방콕)로
-3. 일정이 바뀌면 `announce`(date, timing, time/tz, certainty, alt_dates)를 고친다.
+3. 일정이 바뀌면 `announce`(date, timing, time/tz, certainty, alt_dates)를 고친다. 발표한 이벤트는 `announce.timing`(`bmo`/`amc`/`during`)을 반드시 채운다 — 주가반응 자동 수집이 이 값으로 첫 거래일을 정한다.
+   - **주가반응은 넣지 않는다.** GitHub Actions(`daily.yml`)가 매일 Yahoo 종가로 채운다(`basis: close`). 시간외 반응 보도가 의미 있으면 비고에만 적는다.
 4. 번역: `python scripts/i18n.py export en > /tmp/en.json`(th도 같은 방식) → 영어·태국어로 번역한 `{키: 번역문}` 파일을 만들어 `python scripts/i18n.py apply en <파일>`. 숫자·티커·기호는 원문 그대로, 원화 '조'는 T.
 5. 검증 후 커밋·푸시 (main에 푸시되면 검증 통과 시 자동 배포):
 
@@ -25,6 +26,10 @@ python -m unittest discover -s tests
 ```
 
 오류 0건이어야 한다. 경고는 확인 후 데이터에 `caution`·`note`·`reason`을 남겨 해소한다.
+
+## 정기 실행 (Claude 루틴)
+
+매일 방콕 08:50·20:50에 새 세션이 이 절차를 스스로 수행한다(`docs/UPDATE_PLAN.md`). 할 일이 없으면 아무것도 바꾸지 않는다. 같은 시각에 GitHub Actions도 푸시할 수 있으니 푸시 전에 `git pull --rebase origin main`.
 
 ## 새 시즌 만들기
 

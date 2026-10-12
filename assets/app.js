@@ -102,6 +102,7 @@ function metricBits(m, base, k, cur, html) {
   if (m.basis) b.push(t('basis.' + m.basis) || m.basis);
   if (m.flag) b.push(t('flag.' + m.flag));
   if (m.provider) b.push(e(txt(base + '/provider', m.provider)) + (m.asOf ? ` (${m.asOf})` : ''));
+  if (m.window) b.push(`${m.window[0]} → ${m.window[1]}`);
   (m.alts || []).forEach((a, i) => b.push(`${t('altAgg')} ${e(txt(`${base}/alts/${i}/provider`, a.provider))} ${fmtM(k, a.value, cur)}`));
   if (m.alts_note) b.push(e(txt(base + '/alts_note', m.alts_note)));
   if (m.note) b.push(e(txt(base + '/note', m.note)));

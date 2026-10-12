@@ -1,46 +1,221 @@
 {
  "regions": [
-  {"id": "US", "label": "미국", "flag": "🇺🇸"},
-  {"id": "KR", "label": "한국", "flag": "🇰🇷"},
-  {"id": "TW", "label": "대만", "flag": "🇹🇼"},
-  {"id": "NL", "label": "유럽·네덜란드", "flag": "🇳🇱"}
+  {
+   "id": "US",
+   "label": "미국",
+   "flag": "🇺🇸"
+  },
+  {
+   "id": "KR",
+   "label": "한국",
+   "flag": "🇰🇷"
+  },
+  {
+   "id": "TW",
+   "label": "대만",
+   "flag": "🇹🇼"
+  },
+  {
+   "id": "NL",
+   "label": "유럽·네덜란드",
+   "flag": "🇳🇱"
+  }
  ],
  "companies": [
-  {"ticker": "AAPL", "name": "Apple", "region": "US", "sector": "빅테크", "currency": "USD", "order": 1,
-   "fiscal": {"calendar": false, "rule": "회계연도 9월 마지막 토요일 마감. FQ4 = 7~9월"},
-   "reaction_basis": "after_hours"},
-  {"ticker": "AMZN", "name": "Amazon", "region": "US", "sector": "빅테크", "currency": "USD", "order": 2,
-   "fiscal": {"calendar": true}, "reaction_basis": "after_hours"},
-  {"ticker": "GOOGL", "name": "Alphabet", "region": "US", "sector": "빅테크", "currency": "USD", "order": 3,
-   "fiscal": {"calendar": true}, "reaction_basis": "after_hours"},
-  {"ticker": "META", "name": "Meta Platforms", "region": "US", "sector": "빅테크", "currency": "USD", "order": 4,
-   "fiscal": {"calendar": true}, "reaction_basis": "after_hours"},
-  {"ticker": "MSFT", "name": "Microsoft", "region": "US", "sector": "빅테크", "currency": "USD", "order": 5,
-   "fiscal": {"calendar": false, "rule": "회계연도 6/30 마감. FQ1 = 7~9월"},
-   "reaction_basis": "after_hours"},
-  {"ticker": "MU", "name": "Micron Technology", "region": "US", "sector": "반도체(메모리)", "currency": "USD", "order": 6,
-   "fiscal": {"calendar": false, "rule": "회계연도 8/31에 가장 가까운 목요일 마감(FY26 = 2026-09-03, 53주). 역년 분기와 약 1~2개월 어긋남"},
-   "reaction_basis": "after_hours"},
-  {"ticker": "NVDA", "name": "Nvidia", "region": "US", "sector": "반도체(GPU/AI가속기)", "currency": "USD", "order": 7,
-   "fiscal": {"calendar": false, "rule": "회계연도 1월 마지막 일요일 마감(FY27 = 2027-01-31). FQ3 FY27 = 8~10월"},
-   "reaction_basis": "after_hours"},
-  {"ticker": "GS", "name": "Goldman Sachs", "region": "US", "sector": "은행", "currency": "USD", "order": 8,
-   "fiscal": {"calendar": true}, "operating_income": false, "reaction_basis": "after_hours",
-   "revenue_label": "순매출(net revenues)"},
-  {"ticker": "JPM", "name": "JPMorgan Chase", "region": "US", "sector": "은행", "currency": "USD", "order": 9,
-   "fiscal": {"calendar": true}, "operating_income": false, "reaction_basis": "after_hours"},
-  {"ticker": "NFLX", "name": "Netflix", "region": "US", "sector": "스트리밍", "currency": "USD", "order": 10,
-   "fiscal": {"calendar": true}, "reaction_basis": "after_hours"},
-  {"ticker": "TSLA", "name": "Tesla", "region": "US", "sector": "자동차/AI", "currency": "USD", "order": 11,
-   "fiscal": {"calendar": true}, "reaction_basis": "after_hours"},
-  {"ticker": "005930", "name": "삼성전자", "name_en": "Samsung Electronics", "region": "KR", "sector": "반도체/전자", "currency": "KRW", "order": 12,
-   "fiscal": {"calendar": true}, "two_stage": true, "reaction_basis": "intraday"},
-  {"ticker": "000660", "name": "SK하이닉스", "name_en": "SK hynix", "region": "KR", "sector": "반도체(메모리)", "currency": "KRW", "order": 13,
-   "fiscal": {"calendar": true}, "reaction_basis": "intraday"},
-  {"ticker": "TSM", "name": "TSMC", "region": "TW", "sector": "반도체(파운드리)", "currency": "USD", "order": 14,
+  {
+   "ticker": "AAPL",
+   "name": "Apple",
+   "region": "US",
+   "sector": "빅테크",
+   "currency": "USD",
+   "order": 1,
+   "fiscal": {
+    "calendar": false,
+    "rule": "회계연도 9월 마지막 토요일 마감. FQ4 = 7~9월"
+   },
+   "yahoo": "AAPL"
+  },
+  {
+   "ticker": "AMZN",
+   "name": "Amazon",
+   "region": "US",
+   "sector": "빅테크",
+   "currency": "USD",
+   "order": 2,
+   "fiscal": {
+    "calendar": true
+   },
+   "yahoo": "AMZN"
+  },
+  {
+   "ticker": "GOOGL",
+   "name": "Alphabet",
+   "region": "US",
+   "sector": "빅테크",
+   "currency": "USD",
+   "order": 3,
+   "fiscal": {
+    "calendar": true
+   },
+   "yahoo": "GOOGL"
+  },
+  {
+   "ticker": "META",
+   "name": "Meta Platforms",
+   "region": "US",
+   "sector": "빅테크",
+   "currency": "USD",
+   "order": 4,
+   "fiscal": {
+    "calendar": true
+   },
+   "yahoo": "META"
+  },
+  {
+   "ticker": "MSFT",
+   "name": "Microsoft",
+   "region": "US",
+   "sector": "빅테크",
+   "currency": "USD",
+   "order": 5,
+   "fiscal": {
+    "calendar": false,
+    "rule": "회계연도 6/30 마감. FQ1 = 7~9월"
+   },
+   "yahoo": "MSFT"
+  },
+  {
+   "ticker": "MU",
+   "name": "Micron Technology",
+   "region": "US",
+   "sector": "반도체(메모리)",
+   "currency": "USD",
+   "order": 6,
+   "fiscal": {
+    "calendar": false,
+    "rule": "회계연도 8/31에 가장 가까운 목요일 마감(FY26 = 2026-09-03, 53주). 역년 분기와 약 1~2개월 어긋남"
+   },
+   "yahoo": "MU"
+  },
+  {
+   "ticker": "NVDA",
+   "name": "Nvidia",
+   "region": "US",
+   "sector": "반도체(GPU/AI가속기)",
+   "currency": "USD",
+   "order": 7,
+   "fiscal": {
+    "calendar": false,
+    "rule": "회계연도 1월 마지막 일요일 마감(FY27 = 2027-01-31). FQ3 FY27 = 8~10월"
+   },
+   "yahoo": "NVDA"
+  },
+  {
+   "ticker": "GS",
+   "name": "Goldman Sachs",
+   "region": "US",
+   "sector": "은행",
+   "currency": "USD",
+   "order": 8,
+   "fiscal": {
+    "calendar": true
+   },
+   "operating_income": false,
+   "revenue_label": "순매출(net revenues)",
+   "yahoo": "GS"
+  },
+  {
+   "ticker": "JPM",
+   "name": "JPMorgan Chase",
+   "region": "US",
+   "sector": "은행",
+   "currency": "USD",
+   "order": 9,
+   "fiscal": {
+    "calendar": true
+   },
+   "operating_income": false,
+   "yahoo": "JPM"
+  },
+  {
+   "ticker": "NFLX",
+   "name": "Netflix",
+   "region": "US",
+   "sector": "스트리밍",
+   "currency": "USD",
+   "order": 10,
+   "fiscal": {
+    "calendar": true
+   },
+   "yahoo": "NFLX"
+  },
+  {
+   "ticker": "TSLA",
+   "name": "Tesla",
+   "region": "US",
+   "sector": "자동차/AI",
+   "currency": "USD",
+   "order": 11,
+   "fiscal": {
+    "calendar": true
+   },
+   "yahoo": "TSLA"
+  },
+  {
+   "ticker": "005930",
+   "name": "삼성전자",
+   "name_en": "Samsung Electronics",
+   "region": "KR",
+   "sector": "반도체/전자",
+   "currency": "KRW",
+   "order": 12,
+   "fiscal": {
+    "calendar": true
+   },
+   "two_stage": true,
+   "yahoo": "005930.KS",
+   "timing_default": "bmo"
+  },
+  {
+   "ticker": "000660",
+   "name": "SK하이닉스",
+   "name_en": "SK hynix",
+   "region": "KR",
+   "sector": "반도체(메모리)",
+   "currency": "KRW",
+   "order": 13,
+   "fiscal": {
+    "calendar": true
+   },
+   "yahoo": "000660.KS",
+   "timing_default": "bmo"
+  },
+  {
+   "ticker": "TSM",
+   "name": "TSMC",
+   "region": "TW",
+   "sector": "반도체(파운드리)",
+   "currency": "USD",
+   "order": 14,
    "currency_note": "TWD로 보고하지만 USD(ADR 환산) 기준으로 입력",
-   "fiscal": {"calendar": true}, "reaction_basis": null},
-  {"ticker": "ASML", "name": "ASML", "region": "NL", "sector": "반도체(장비)", "currency": "EUR", "order": 15,
-   "fiscal": {"calendar": true}, "reaction_basis": null}
+   "fiscal": {
+    "calendar": true
+   },
+   "yahoo": "TSM",
+   "timing_default": "bmo"
+  },
+  {
+   "ticker": "ASML",
+   "name": "ASML",
+   "region": "NL",
+   "sector": "반도체(장비)",
+   "currency": "EUR",
+   "order": 15,
+   "fiscal": {
+    "calendar": true
+   },
+   "yahoo": "ASML.AS",
+   "timing_default": "bmo"
+  }
  ]
 }

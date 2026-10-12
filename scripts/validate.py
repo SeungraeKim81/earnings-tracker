@@ -66,6 +66,9 @@ def check_metric(where, key, m, company):
     for f in ("note", "caution", "reason", "alts_note"):
         if f in m and not isinstance(m[f], str):
             errors.append(f"{where} {key}: {f}는 문자열이어야 함")
+    if "window" in m and not (isinstance(m["window"], list) and len(m["window"]) == 2
+                              and all(is_date(d) for d in m["window"]) and m["window"][0] < m["window"][1]):
+        errors.append(f"{where} {key}: window는 [기준일, 반응일] 날짜 두 개")
     if "asOf" in m and not is_date(m["asOf"]):
         errors.append(f"{where} {key}: asOf 날짜 형식 오류")
     if key == "price_reaction" and is_num(v) and abs(v) >= 1:

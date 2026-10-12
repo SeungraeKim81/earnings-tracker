@@ -56,8 +56,15 @@ class ValidateTest(unittest.TestCase):
         _, w = self.run_event("2026Q2", e)
         self.assertTrue(any("revenue_surprise" in x for x in w), w)
 
+    def scheduled(self, t):
+        """데이터가 갱신돼도 깨지지 않게, 미발표 상태로 만든 사본"""
+        e = copy.deepcopy(self.q3[t])
+        e["status"], e["stage"] = "scheduled", None
+        e["metrics"] = {k: None for k in e["metrics"]}
+        return e
+
     def test_scheduled_with_values_is_error(self):
-        e = copy.deepcopy(self.q3["JPM"])
+        e = self.scheduled("JPM")
         e["metrics"]["revenue"] = {"value": 50.0}
         err, _ = self.run_event("2026Q3", e)
         self.assertTrue(any("미발표인데" in x for x in err), err)
@@ -81,7 +88,8 @@ class ValidateTest(unittest.TestCase):
         self.assertTrue(any("영업이익 비적용" in x for x in err), err)
 
     def test_past_date_still_scheduled_warns(self):
-        e = copy.deepcopy(self.q3["JPM"])
+        e = self.scheduled("JPM")
+        e["announce"]["date"] = "2026-10-13"
         validate.check_event("2026Q3", e, self.companies["JPM"], "2026-10-14")
         self.assertTrue(any("입력대기" in x for x in validate.warnings), validate.warnings)
 

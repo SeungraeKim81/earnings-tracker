@@ -55,7 +55,7 @@
       footer: [
         '<b>단위</b> · 매출·영업이익은 보고통화 기준(USD·EUR은 십억, 원화는 위 버튼으로 조원/십억원 선택). TSMC는 USD(ADR 환산) 기준. 통화가 다르면 절대값 대신 서프라이즈·YoY·영업이익률·주가반응(%)으로 비교합니다.',
         '<b>계산</b> · 서프라이즈 = (실적 − 컨센) ÷ |컨센|, 영업이익률 = 영업이익 ÷ 매출. 입력이 하나라도 비면 계산하지 않습니다. 은행(JPM·GS)은 영업이익 비적용.',
-        '<b>주가반응</b> · 미국 기업은 시간외, 한국 기업은 발표 당일 장중 기준. 같은 날 시장 전체가 급락했으면 비고에 적었습니다.',
+        '<b>주가반응</b> · 발표 후 첫 거래일 종가 ÷ 직전 거래일 종가 − 1(Yahoo Finance 종가로 매일 자동 반영, 2026-10-12부터). 그 전에 입력한 값은 미국 시간외·한국 장중 기준이며, 값마다 기준을 표시합니다. 같은 날 시장 전체가 급락했으면 비고에 적었습니다.',
         '<b>회계기간</b> · 마이크론·엔비디아·애플·마이크로소프트는 역년 분기와 기간이 달라 회계기간 아래에 날짜를 적었습니다(≈는 회계 규칙으로 계산한 날짜).',
         '<b>출처</b> · 각사 실적발표·IR·공시(10-Q, 8-K, DART 등)와 공개 보도. 컨센서스는 집계기관·기준일에 따라 다르며, 고른 값과 다른 집계값을 함께 남겼습니다. 특정 종목의 매수·매도를 권하는 자료가 아닙니다.',
       ],
@@ -99,7 +99,7 @@
       footer: [
         '<b>Units</b> · Revenue and operating income are in the reporting currency (USD and EUR in billions; KRW in trillions or billions via the toggle above). TSMC is in USD (ADR-converted). Across currencies, compare percentages — surprise, YoY, operating margin and price reaction — not absolute amounts.',
         '<b>Calculations</b> · Surprise = (actual − consensus) ÷ |consensus|; operating margin = operating income ÷ revenue. Not calculated if any input is blank. Operating income does not apply to banks (JPM, GS).',
-        '<b>Price reaction</b> · After-hours for US companies; intraday on the report day for Korean companies. If the whole market fell sharply the same day, it is noted.',
+        '<b>Price reaction</b> · Close on the first trading day after the report ÷ previous close − 1 (filled daily from Yahoo Finance closing prices since 2026-10-12). Earlier entries use US after-hours / Korean intraday moves; each value shows its basis. If the whole market fell sharply the same day, it is noted.',
         '<b>Fiscal periods</b> · Micron, Nvidia, Apple and Microsoft do not follow calendar quarters, so their period dates are shown under the fiscal period (≈ means computed from the fiscal calendar rule).',
         '<b>Sources</b> · Company earnings releases, IR materials and filings (10-Q, 8-K, DART, etc.) and public reporting. Consensus varies by aggregator and date; the chosen value and other estimates are both kept. Not investment advice.',
       ],
@@ -143,7 +143,7 @@
       footer: [
         '<b>หน่วย</b> · รายได้และกำไรจากการดำเนินงานเป็นสกุลเงินที่รายงาน (USD และ EUR เป็นพันล้าน วอนเลือกล้านล้านหรือพันล้านได้จากปุ่มด้านบน) TSMC เป็น USD (แปลงตามเกณฑ์ ADR) เมื่อสกุลเงินต่างกัน ให้เปรียบเทียบด้วยร้อยละ — เซอร์ไพรส์ YoY อัตรากำไรจากการดำเนินงาน และราคาหุ้น — ไม่ใช่มูลค่าสัมบูรณ์',
         '<b>การคำนวณ</b> · เซอร์ไพรส์ = (จริง − คอนเซนซัส) ÷ |คอนเซนซัส| อัตรากำไรจากการดำเนินงาน = กำไรจากการดำเนินงาน ÷ รายได้ ไม่คำนวณหากข้อมูลใดว่าง กำไรจากการดำเนินงานไม่ใช้กับธนาคาร (JPM, GS)',
-        '<b>ราคาหุ้น</b> · บริษัทสหรัฐฯ ใช้ราคาหลังตลาดปิด บริษัทเกาหลีใช้ราคาระหว่างวันในวันประกาศ หากตลาดทั้งหมดร่วงหนักในวันเดียวกันจะระบุไว้ในหมายเหตุ',
+        '<b>ราคาหุ้น</b> · ราคาปิดวันทำการแรกหลังประกาศ ÷ ราคาปิดวันทำการก่อนหน้า − 1 (บันทึกอัตโนมัติทุกวันจากราคาปิดของ Yahoo Finance ตั้งแต่ 2026-10-12) ค่าที่บันทึกก่อนหน้านั้นใช้ราคาหลังตลาดปิดของสหรัฐฯ / ราคาระหว่างวันของเกาหลี และแสดงเกณฑ์ไว้ทุกค่า หากตลาดทั้งหมดร่วงหนักในวันเดียวกันจะระบุไว้ในหมายเหตุ',
         '<b>งวดบัญชี</b> · Micron, Nvidia, Apple และ Microsoft มีงวดบัญชีไม่ตรงกับไตรมาสปฏิทิน จึงแสดงวันที่ไว้ใต้งวดบัญชี (≈ คือวันที่คำนวณจากปฏิทินบัญชี)',
         '<b>แหล่งที่มา</b> · ประกาศผลประกอบการ เอกสาร IR และเอกสารที่ยื่นต่อหน่วยงาน (10-Q, 8-K, DART ฯลฯ) และข่าวสาธารณะ คอนเซนซัสแตกต่างตามผู้รวบรวมและวันที่ จึงเก็บทั้งค่าที่เลือกและประมาณการอื่นไว้ ไม่ใช่คำแนะนำการลงทุน',
       ],

@@ -28,7 +28,8 @@ migration/                (최초 이관 기록, 더 이상 쓰지 않음)
 | `fiscal.calendar` | 역년 분기면 true. false면 `fiscal.rule`에 규칙 설명 |
 | `operating_income: false` | 영업이익 비적용 (은행) |
 | `two_stage: true` | 잠정 → 확정 2단계 공시 (삼성전자) |
-| `reaction_basis` | 주가반응 기본 기준. `after_hours`(시간외) / `intraday`(장중) / `close`(종가) |
+| `yahoo` | Yahoo Finance 종목 기호(주가반응 자동 수집용). 예: `005930.KS`, `ASML.AS` |
+| `timing_default` | 이벤트에 발표 시점이 없을 때 쓰는 기본값(한국·대만·네덜란드 = `bmo`) |
 
 ## seasons/{id}.json
 
@@ -79,6 +80,7 @@ migration/                (최초 이관 기록, 더 이상 쓰지 않음)
 | `provider`, `asOf` | 컨센서스 집계기관과 기준일 |
 | `alts[]` | 다른 집계기관 값 `{provider, value}` |
 | `src[]` | 출처 `{title, url, asOf}` |
+| `window` | 주가반응 종가 기준일 `[직전 거래일, 반응일]` (자동 수집 값) |
 | `note` | 참고 메모 (예: GAAP 기준 값) |
 | `caution` | 해석 주의 (예: 지분평가이익 포함 — 컨센과 직접 비교 부적절). 화면에서 계산 필드 옆 ※로 표시 |
 

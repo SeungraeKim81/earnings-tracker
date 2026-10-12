@@ -12,7 +12,7 @@
 | 2 | MVP 화면: 시즌 비교표 | 완료 — `index.html`, `assets/` |
 | 2+ | 다국어(한국어·영어·태국어), 한국 종목명 표시, 배포 설정 | 완료 — `assets/i18n.js`, `data/i18n/`, `docs/DEPLOY.md` |
 | 3 | 요약·일정·차트 | 예정 |
-| 4 | 자동화: 검증·엑셀 생성·배포·알림 | 예정 |
+| 4 | 자동화: 검증·배포·주가반응·미입력 알림, Claude 정기 루틴 | 완료 (엑셀 생성은 예정) |
 | 5 | 기업 상세, 가이던스 대비 실적 | 예정 |
 
 ## 폴더 구조
@@ -30,6 +30,9 @@
 | `scripts/import_sheet.py` | (최초 이관용) 스냅샷 + overlay → `data/` |
 | `scripts/validate.py` | 데이터 검증 |
 | `scripts/i18n.py` | 데이터 문장 번역 관리 (`data/i18n/en.json`, `th.json`) |
+| `scripts/price_reaction.py` | 주가반응 자동 수집(첫 거래일 종가, GitHub Actions에서 매일) |
+| `scripts/overdue.py` | 발표가 지났는데 미반영인 회사 목록(미입력 알림 이슈) |
+| `.github/workflows/` | `pages.yml` 검증·배포, `daily.yml` 매일 자동 갱신 |
 | `docs/` | 결정 사항, 데이터 이슈, 데이터 구조, 작성 기준, 인수인계 문서 |
 
 ## 실행

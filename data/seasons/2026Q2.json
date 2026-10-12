@@ -336,7 +336,7 @@
    "currency": "USD",
    "announce": {
     "date": "2026-07-14",
-    "timing": null,
+    "timing": "bmo",
     "certainty": "confirmed"
    },
    "metrics": {
@@ -403,7 +403,7 @@
    "currency": "USD",
    "announce": {
     "date": "2026-07-14",
-    "timing": null,
+    "timing": "bmo",
     "certainty": "confirmed"
    },
    "metrics": {
