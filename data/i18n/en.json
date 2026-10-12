@@ -17,10 +17,6 @@
    "src": "ac460f02",
    "text": "Final results (nearly identical to preliminary). Revenue KRW 171.5T (+130%), operating income KRW 89.5T (+1,814%, operating margin 52.2%), net income KRW 71.3T (+1,230%). Revenue slightly missed consensus (-1.7%); operating income beat by +5.5% (per reports). ★The DS (semiconductor) division alone posted revenue of KRW 127.5T and operating income of KRW 89.2T (70% margin, 99.7% of company operating income) — record DRAM and NAND sales to AI servers. ★The DX (devices) division posted its first operating loss since the 2021 integration (-KRW 0.8T) due to rising component costs ('chipflation'). Display: revenue KRW 7.5T / operating income KRW 0.7T; Harman: revenue KRW 4.6T / operating income KRW 0.4T. A stronger dollar added KRW 3.1T to operating income; R&D a record KRW 16T. EPS not confirmed (check against DART filing). Shares spiked as much as +7.1% intraday (KRW 223,250) right after the final results but gave back all gains on worries about a semiconductor peak, closing roughly flat — the price-reaction column is left blank because the net effect is unclear. On the call, management said the memory shortage would 'persist through 2028'; an ADR listing is not under consideration."
   },
-  "2026Q2/005930/price_reaction/reason": {
-   "src": "db614439",
-   "text": "Rose as much as +7.1% intraday, then gave it back to close roughly flat; net effect unclear"
-  },
   "2026Q2/AAPL/notes": {
    "src": "e908cf14",
    "text": "Record June quarter. Revenue $109.4B (+16%); iPhone $54.25B (+22%) beat, while Services $30.74B slightly missed consensus ($31.22B). EPS $2.02 (+29%) includes a $0.11 benefit from tariff refunds. Gross margin 50.1% (includes ~+2pp from tariff refunds; underlying margin is lower). R&D $11.7B (+32%), total operating expenses $19.1B → operating income $35.695B (confirmed in 10-Q: gross margin $54.77B - operating expenses $19.075B). The main driver of the share decline was a conservative Q4 guide citing 'supply constraints': FX headwind of -2.5pp and gross margin of 47–48% (initial reaction to the Services miss -3–4% → widened to -8% after the guidance, varies by source). Tim Cook's last earnings call (successor: John Ternus)."
@@ -53,10 +49,6 @@
    "src": "27862f78",
    "text": "Converted by multiplying revenue of €9.326B by the official 37.1% operating margin (Q2 IR materials)"
   },
-  "2026Q2/ASML/price_reaction/reason": {
-   "src": "4b3f66c6",
-   "text": "Not obtained"
-  },
   "2026Q2/ASML/revenue/reason": {
    "src": "997fe182",
    "text": "ASML's official earnings release shows net sales of €9,326M. The sheet value 9.03 was a typo"
@@ -85,10 +77,6 @@
    "src": "b27b42f8",
    "text": "Best quarter ever. Lead underwriter on the SpaceX IPO. Revenue = net revenues. ※Operating income not applicable to banks. EPS consensus $14.47 (Zacks; another aggregator $14.54). Revenue consensus $16.49B (Zacks via AP; 247wallst $16.40B) — the earlier sheet's revenue consensus of 14.47 was the EPS consensus entered by mistake"
   },
-  "2026Q2/GS/price_reaction/reason": {
-   "src": "6cf8afa7",
-   "text": "Price reaction not obtained"
-  },
   "2026Q2/GS/revenue_consensus/provider": {
    "src": "8a673025",
    "text": "Zacks (via AP)"
@@ -100,10 +88,6 @@
   "2026Q2/JPM/notes": {
    "src": "d3b8f0d4",
    "text": "Quarterly net income $21.2B — the largest ever for a US bank. Strong IB and trading; SpaceX IPO fees contributed. ※Operating income not applicable to banks — judge by net income. (Price reaction not obtained)"
-  },
-  "2026Q2/JPM/price_reaction/reason": {
-   "src": "6cf8afa7",
-   "text": "Price reaction not obtained"
   },
   "2026Q2/META/notes": {
    "src": "0e98ad5d",
@@ -189,10 +173,6 @@
    "src": "2ac861ac",
    "text": "★Preliminary results (consolidated, IFRS, filed 10/8): revenue KRW 195T (+126.6% YoY, +13.7% QoQ), operating income KRW 107.4T (+782.5% YoY, +20.0% QoQ), operating margin about 55%. Consensus (WiseReport broker average, 10/4): revenue KRW 201.7T, operating income KRW 108.1T → revenue missed by 3.3%; operating income was -0.7% vs this aggregate but above LSEG (KRW 106.1T) and FnGuide (KRW 105.2T) (reported as a 'beat'). The consensus of KRW 110.6–111.8T noted earlier was an error. Segment results, net income and EPS are not in the preliminary filing; final results are due at the end of October (to be updated then). Shares: reported down about 2% on the day, with foreigners net sellers for 8 straight sessions, but the exact closing change was not confirmed, so left blank."
   },
-  "2026Q3/005930/price_reaction/reason": {
-   "src": "91557c70",
-   "text": "Only reports of a 'roughly 2% drop' on the day; the exact closing change was not confirmed"
-  },
   "2026Q3/005930/revenue_consensus/provider": {
    "src": "df4c1d12",
    "text": "WiseReport (broker average)"
@@ -245,9 +225,9 @@
    "src": "69fbc05a",
    "text": "The $44.6B / 82.3% in the company's prepared remarks is not clearly labeled GAAP or non-GAAP"
   },
-  "2026Q3/MU/price_reaction/reason": {
-   "src": "4c5c4509",
-   "text": "After-hours reports conflicted (+1.3% vs -0.8%) and the next-day close was not confirmed"
+  "2026Q3/NFLX/announce/note": {
+   "src": "162839f5",
+   "text": "Announced in company press release on 9/14"
   },
   "2026Q3/NFLX/notes": {
    "src": "d6fef8c8",
@@ -266,8 +246,8 @@
    "text": "Date confirmed (8-K): 10/21 at 5:30pm US Eastern after the close → Bangkok 10/22 04:30. Check EPS distortions such as equity-investment gains."
   },
   "2026Q3/TSM/announce/note": {
-   "src": "557d1443",
-   "text": "Not yet on the official calendar"
+   "src": "c95ed7af",
+   "text": "Posted on IR site. Time is the earnings conference (Taiwan); pre-market for the US ADR"
   },
   "2026Q3/TSM/notes": {
    "src": "0475d779",

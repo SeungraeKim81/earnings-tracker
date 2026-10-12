@@ -251,7 +251,9 @@
    "announce": {
     "date": "2026-10-13",
     "timing": "bmo",
-    "certainty": "verified"
+    "certainty": "verified",
+    "time": "07:30",
+    "tz": "America/New_York"
    },
    "metrics": {
     "revenue": null,
@@ -277,7 +279,9 @@
    "announce": {
     "date": "2026-10-13",
     "timing": "bmo",
-    "certainty": "verified"
+    "certainty": "verified",
+    "time": "07:00",
+    "tz": "America/New_York"
    },
    "metrics": {
     "revenue": null,
@@ -303,7 +307,10 @@
    "announce": {
     "date": "2026-10-20",
     "timing": "amc",
-    "certainty": "estimated"
+    "certainty": "verified",
+    "time": "13:01",
+    "tz": "America/Los_Angeles",
+    "note": "9/14 회사 보도자료 공지"
    },
    "metrics": {
     "revenue": null,
@@ -438,9 +445,11 @@
    "currency": "USD",
    "announce": {
     "date": "2026-10-15",
-    "timing": null,
-    "certainty": "estimated",
-    "note": "공식 캘린더 미게시"
+    "timing": "bmo",
+    "certainty": "verified",
+    "note": "IR 사이트 게시. 시각은 실적설명회(대만), 미국 ADR 기준 장 전",
+    "time": "14:00",
+    "tz": "Asia/Taipei"
    },
    "metrics": {
     "revenue": null,
