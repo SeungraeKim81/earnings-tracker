@@ -281,13 +281,57 @@
    "src": "4c32e2cd",
    "text": "Date estimated (some expect 11/3). Watch: Cloud growth and backlog, CapEx guidance of $195–205B, separating EPS distortion from equity-investment gains."
   },
+  "2026Q3/GS/eps_consensus/alts/0/provider": {
+   "src": "4b47560b",
+   "text": "FactSet (cited by Barron's)"
+  },
+  "2026Q3/GS/eps_consensus/alts/1/provider": {
+   "src": "7cb2f290",
+   "text": "Other aggregator (GuruFocus)"
+  },
+  "2026Q3/GS/eps_consensus/note": {
+   "src": "91b722f8",
+   "text": "The +32% surprise is genuine. Actual EPS beat all three aggregators (12.86–13.08) by a wide margin, as in Q2 ($20.98 vs $14.47)"
+  },
   "2026Q3/GS/notes": {
-   "src": "3b4ada08",
-   "text": "Date verified (company calendar, before the US open). Bank: operating income not applicable → judge by net income / EPS."
+   "src": "4e20b86f",
+   "text": "EPS $17.01 (prior year $12.25), well above the $12.90 consensus (Zacks). Net revenues $18.68B (+23% YoY, −8% QoQ), net earnings $5.29B (+29%), ROE 18.7%. GBM net revenues $13.46B, AWM $5.05B. Platform Solutions $170M (−72%) on Apple Card loan markdowns. Revenue = net revenues. ※Operating income not applicable to banks."
+  },
+  "2026Q3/GS/revenue/note": {
+   "src": "1a17609e",
+   "text": "Net revenues $18,679M"
+  },
+  "2026Q3/GS/revenue_consensus/alts/0/provider": {
+   "src": "4b47560b",
+   "text": "FactSet (cited by Barron's)"
+  },
+  "2026Q3/JPM/eps/caution": {
+   "src": "12f8848c",
+   "text": "EPS excluding significant items (same basis as Q2). Reported EPS $5.57 (includes $658M net investment securities losses, −$0.18 per share). On reported EPS the miss vs consensus is larger"
+  },
+  "2026Q3/JPM/eps_consensus/alts/1/provider": {
+   "src": "b8da33a8",
+   "text": "LSEG (cited by CNBC)"
   },
   "2026Q3/JPM/notes": {
-   "src": "3b4ada08",
-   "text": "Date verified (company calendar, before the US open). Bank: operating income not applicable → judge by net income / EPS."
+   "src": "1ed3fcb2",
+   "text": "A rare consensus miss. Net income $15.3B (prior year $14.4B), reported EPS $5.57 (prior year $5.07) — $5.75 excluding $658M net investment securities losses (EPS in the table). Managed revenue $50.9B (+8%) below FactSet $51.23B (range $50.85–52.21B by aggregator). Segment net income: CCB $5.67B (+13%), CIB $8.25B (+20%), AWM $1.84B (+11%). QoQ decline reflects Q2's $4.6B Visa share gain and $1.0B equity investment gains. ※Operating income not applicable to banks — judge on net income and EPS."
+  },
+  "2026Q3/JPM/revenue/note": {
+   "src": "a81b64f4",
+   "text": "Managed basis $50,907M. Reported net revenue $50.17B (prior year $46.43B)"
+  },
+  "2026Q3/JPM/revenue_consensus/alts/0/provider": {
+   "src": "b8da33a8",
+   "text": "LSEG (cited by CNBC)"
+  },
+  "2026Q3/JPM/revenue_consensus/reason": {
+   "src": "238aea5c",
+   "text": "Large spread across aggregators (50.85–52.21). A slight beat vs Hudson Labs, a miss vs the others"
+  },
+  "2026Q3/JPM/revenue_yoy/note": {
+   "src": "b9d2d314",
+   "text": "Managed basis (prior-year quarter $47.12B). Reported net revenue +8.1%"
   },
   "2026Q3/META/notes": {
    "src": "1e265c75",

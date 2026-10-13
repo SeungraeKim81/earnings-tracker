@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-10-12",
+ "updated": "2026-10-13",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -240,7 +240,7 @@
   },
   {
    "ticker": "GS",
-   "status": "scheduled",
+   "status": "reported",
    "stage": null,
    "label": "Q3 2026",
    "period": {
@@ -251,24 +251,122 @@
    "announce": {
     "date": "2026-10-13",
     "timing": "bmo",
-    "certainty": "verified",
+    "certainty": "confirmed",
     "time": "07:30",
     "tz": "America/New_York"
    },
    "metrics": {
-    "revenue": null,
-    "revenue_consensus": null,
-    "revenue_yoy": null,
+    "revenue": {
+     "value": 18.68,
+     "flag": "verified",
+     "note": "순매출(net revenues) $18,679M",
+     "src": [
+      {
+       "title": "Goldman Sachs 8-K (Q3 2026 earnings results)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000529/a3q26gsearningsresults.htm",
+       "asOf": "2026-10-13"
+      },
+      {
+       "title": "Goldman Sachs press release: 2026 Q3 EPS $17.01, ROE 18.7%",
+       "url": "https://www.goldmansachs.com/pressroom/press-releases/2026/2026-10-13-q3-results",
+       "asOf": "2026-10-13"
+      }
+     ]
+    },
+    "revenue_consensus": {
+     "value": 16.87,
+     "provider": "Zacks",
+     "asOf": "2026-10-13",
+     "alts": [
+      {
+       "provider": "FactSet(Barron's 인용)",
+       "value": 16.83
+      }
+     ],
+     "src": [
+      {
+       "title": "Zacks: Seeking Clues to Goldman (GS) Q3 Earnings (Yahoo Finance)",
+       "url": "https://finance.yahoo.com/markets/stocks/articles/seeking-clues-goldman-gs-q3-121518628.html"
+      },
+      {
+       "title": "Quartz: Goldman Sachs Q3 2026 earnings beat Wall Street estimates (Barron's/FactSet)",
+       "url": "https://qz.com/goldman-sachs-third-quarter-earnings-beat-101326",
+       "asOf": "2026-10-13"
+      }
+     ]
+    },
+    "revenue_yoy": {
+     "value": 0.23,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Goldman Sachs 8-K (Q3 2026 earnings results)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000529/a3q26gsearningsresults.htm",
+       "asOf": "2026-10-13"
+      },
+      {
+       "title": "Goldman Sachs press release: 2026 Q3 EPS $17.01, ROE 18.7%",
+       "url": "https://www.goldmansachs.com/pressroom/press-releases/2026/2026-10-13-q3-results",
+       "asOf": "2026-10-13"
+      }
+     ]
+    },
     "operating_income": null,
-    "eps": null,
-    "eps_consensus": null,
+    "eps": {
+     "value": 17.01,
+     "basis": "GAAP",
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Goldman Sachs 8-K (Q3 2026 earnings results)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000529/a3q26gsearningsresults.htm",
+       "asOf": "2026-10-13"
+      },
+      {
+       "title": "Goldman Sachs press release: 2026 Q3 EPS $17.01, ROE 18.7%",
+       "url": "https://www.goldmansachs.com/pressroom/press-releases/2026/2026-10-13-q3-results",
+       "asOf": "2026-10-13"
+      }
+     ]
+    },
+    "eps_consensus": {
+     "value": 12.9,
+     "provider": "Zacks",
+     "asOf": "2026-10-13",
+     "alts": [
+      {
+       "provider": "FactSet(Barron's 인용)",
+       "value": 12.86
+      },
+      {
+       "provider": "기타 집계(GuruFocus)",
+       "value": 13.08
+      }
+     ],
+     "src": [
+      {
+       "title": "Zacks: Seeking Clues to Goldman (GS) Q3 Earnings (Yahoo Finance)",
+       "url": "https://finance.yahoo.com/markets/stocks/articles/seeking-clues-goldman-gs-q3-121518628.html"
+      },
+      {
+       "title": "Quartz: Goldman Sachs Q3 2026 earnings beat Wall Street estimates (Barron's/FactSet)",
+       "url": "https://qz.com/goldman-sachs-third-quarter-earnings-beat-101326",
+       "asOf": "2026-10-13"
+      },
+      {
+       "title": "GuruFocus: GS EPS $17.01 vs $13.08 estimates",
+       "url": "https://www.gurufocus.com/news/9120649/is-goldman-sachs-gs-stock-overvalued-after-q3-earnings-beat-eps-reaches-1701-vs-1308-estimates-gf-score-82100"
+      }
+     ],
+     "note": "서프라이즈 +32%는 실제 값. 집계 3곳(12.86~13.08) 모두 크게 하회했고 2분기에도 큰 폭 상회($20.98 vs $14.47)"
+    },
     "price_reaction": null
    },
-   "notes": "일정 확인(캘린더 기준, 장 시작 전). 은행: 영업이익 개념 비적용 → 순이익/EPS 기준."
+   "notes": "EPS $17.01(전년 $12.25)로 컨센 $12.90(Zacks) 크게 상회. 순매출 $18.68B(+23% YoY, 2분기 대비 −8%), 순이익 $5.29B(+29%), ROE 18.7%. GBM 순매출 $13.46B, AWM $5.05B. Platform Solutions는 Apple Card 대출 평가손으로 $170M(−72%). 매출=순매출 기준. ※은행 영업이익 비적용."
   },
   {
    "ticker": "JPM",
-   "status": "scheduled",
+   "status": "reported",
    "stage": null,
    "label": "Q3 2026",
    "period": {
@@ -279,20 +377,136 @@
    "announce": {
     "date": "2026-10-13",
     "timing": "bmo",
-    "certainty": "verified",
+    "certainty": "confirmed",
     "time": "07:00",
     "tz": "America/New_York"
    },
    "metrics": {
-    "revenue": null,
-    "revenue_consensus": null,
-    "revenue_yoy": null,
+    "revenue": {
+     "value": 50.91,
+     "flag": "verified",
+     "note": "관리회계(managed) 기준 $50,907M. 보고 기준 순매출 $50.17B(전년 $46.43B)",
+     "src": [
+      {
+       "title": "JPMorgan Chase 8-K Ex.99.1 (Q3 2026 earnings release)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000019617/000162828026065582/a3q26erfexhibit991narrative.htm",
+       "asOf": "2026-10-13"
+      },
+      {
+       "title": "TradingView: JPMorgan Chase reports 3Q26 net income $15.3B; managed revenue $50.9B, EPS $5.57",
+       "url": "https://www.tradingview.com/news/tradingview:abaf269a1cc08:0-jpmorgan-chase-reports-3q26-net-income-15-3b-managed-revenue-50-9b-eps-5-57/",
+       "asOf": "2026-10-13"
+      }
+     ]
+    },
+    "revenue_consensus": {
+     "value": 51.23,
+     "provider": "FactSet",
+     "asOf": "2026-10-13",
+     "flag": "disputed",
+     "alts": [
+      {
+       "provider": "LSEG(CNBC 인용)",
+       "value": 51.22
+      },
+      {
+       "provider": "Zacks",
+       "value": 52.21
+      },
+      {
+       "provider": "Hudson Labs",
+       "value": 50.85
+      }
+     ],
+     "reason": "집계기관 간 차이 큼(50.85~52.21). Hudson Labs 기준이면 소폭 상회, 나머지 기준이면 하회",
+     "src": [
+      {
+       "title": "JPMorgan Posts Rare Q3 2026 Miss as EPS, Revenue Fall Short of Estimates",
+       "url": "https://tradersagency.com/blog/jpmorgan-posts-rare-q3-2026-miss-as-eps-revenue-fall-short-of-estimates",
+       "asOf": "2026-10-13"
+      },
+      {
+       "title": "Zacks: JPM Q3 Earnings Preview (Yahoo Finance)",
+       "url": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-chase-co-jpm-q3-121521889.html"
+      },
+      {
+       "title": "Hudson Labs: JPMorgan Q3 2026 Earnings Preview",
+       "url": "https://www.hudson-labs.com/research/jpmorgan-q3-2026-earnings-preview-revenue-guidance-outlook"
+      }
+     ]
+    },
+    "revenue_yoy": {
+     "value": 0.08,
+     "note": "관리회계 기준(전년 동기 $47.12B). 보고 기준 순매출 +8.1%",
+     "src": [
+      {
+       "title": "JPMorgan Posts Rare Q3 2026 Miss as EPS, Revenue Fall Short of Estimates",
+       "url": "https://tradersagency.com/blog/jpmorgan-posts-rare-q3-2026-miss-as-eps-revenue-fall-short-of-estimates",
+       "asOf": "2026-10-13"
+      },
+      {
+       "title": "JPMorgan Chase 8-K Ex.99.1 (Q3 2026 earnings release)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000019617/000162828026065582/a3q26erfexhibit991narrative.htm",
+       "asOf": "2026-10-13"
+      }
+     ]
+    },
     "operating_income": null,
-    "eps": null,
-    "eps_consensus": null,
+    "eps": {
+     "value": 5.75,
+     "basis": "non-GAAP",
+     "flag": "verified",
+     "caution": "중요 항목 제외 EPS(2분기와 같은 기준). 보고 EPS $5.57(투자증권 순손실 $658M, 주당 −$0.18 포함). 보고 EPS 기준으로는 컨센 대비 하회 폭이 더 큼",
+     "src": [
+      {
+       "title": "JPMorgan Chase 8-K Ex.99.1 (Q3 2026 earnings release)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000019617/000162828026065582/a3q26erfexhibit991narrative.htm",
+       "asOf": "2026-10-13"
+      },
+      {
+       "title": "Investing.com: JPMorgan Chase misses Q3 2026 forecasts",
+       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-jpmorgan-chase-misses-q3-2026-forecasts-as-profits-stay-strong-93CH-4946956",
+       "asOf": "2026-10-13"
+      }
+     ]
+    },
+    "eps_consensus": {
+     "value": 5.93,
+     "provider": "FactSet",
+     "asOf": "2026-10-13",
+     "alts": [
+      {
+       "provider": "Zacks",
+       "value": 5.94
+      },
+      {
+       "provider": "LSEG(CNBC 인용)",
+       "value": 5.9
+      },
+      {
+       "provider": "Hudson Labs",
+       "value": 5.86
+      }
+     ],
+     "src": [
+      {
+       "title": "JPMorgan Posts Rare Q3 2026 Miss as EPS, Revenue Fall Short of Estimates",
+       "url": "https://tradersagency.com/blog/jpmorgan-posts-rare-q3-2026-miss-as-eps-revenue-fall-short-of-estimates",
+       "asOf": "2026-10-13"
+      },
+      {
+       "title": "Zacks: JPM Q3 Earnings Preview (Yahoo Finance)",
+       "url": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-chase-co-jpm-q3-121521889.html"
+      },
+      {
+       "title": "Hudson Labs: JPMorgan Q3 2026 Earnings Preview",
+       "url": "https://www.hudson-labs.com/research/jpmorgan-q3-2026-earnings-preview-revenue-guidance-outlook"
+      }
+     ]
+    },
     "price_reaction": null
    },
-   "notes": "일정 확인(캘린더 기준, 장 시작 전). 은행: 영업이익 개념 비적용 → 순이익/EPS 기준."
+   "notes": "드문 컨센 하회. 순이익 $15.3B(전년 $14.4B), 보고 EPS $5.57(전년 $5.07) — 투자증권 순손실 $658M 제외 시 $5.75(표의 EPS). 관리회계 매출 $50.9B(+8%)로 FactSet $51.23B 하회(집계별 $50.85~52.21B). 부문 순이익: CCB $5.67B(+13%), CIB $8.25B(+20%), AWM $1.84B(+11%). 2분기 대비 감소는 2분기 Visa 주식 이익 $4.6B·지분투자 이익 $1.0B 기저 영향. ※은행은 영업이익 개념 비적용 — 순이익·EPS 기준 판단."
   },
   {
    "ticker": "NFLX",
