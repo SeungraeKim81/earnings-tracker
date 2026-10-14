@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-10-13",
+ "updated": "2026-10-14",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -360,7 +360,21 @@
      ],
      "note": "서프라이즈 +32%는 실제 값. 집계 3곳(12.86~13.08) 모두 크게 하회했고 2분기에도 큰 폭 상회($20.98 vs $14.47)"
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.0023,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-12",
+      "2026-10-13"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (GS)",
+       "url": "https://finance.yahoo.com/quote/GS/history"
+      }
+     ]
+    }
    },
    "notes": "EPS $17.01(전년 $12.25)로 컨센 $12.90(Zacks) 크게 상회. 순매출 $18.68B(+23% YoY, 2분기 대비 −8%), 순이익 $5.29B(+29%), ROE 18.7%. GBM 순매출 $13.46B, AWM $5.05B. Platform Solutions는 Apple Card 대출 평가손으로 $170M(−72%). 매출=순매출 기준. ※은행 영업이익 비적용."
   },
@@ -504,7 +518,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.0086,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-12",
+      "2026-10-13"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (JPM)",
+       "url": "https://finance.yahoo.com/quote/JPM/history"
+      }
+     ]
+    }
    },
    "notes": "드문 컨센 하회. 순이익 $15.3B(전년 $14.4B), 보고 EPS $5.57(전년 $5.07) — 투자증권 순손실 $658M 제외 시 $5.75(표의 EPS). 관리회계 매출 $50.9B(+8%)로 FactSet $51.23B 하회(집계별 $50.85~52.21B). 부문 순이익: CCB $5.67B(+13%), CIB $8.25B(+20%), AWM $1.84B(+11%). 2분기 대비 감소는 2분기 Visa 주식 이익 $4.6B·지분투자 이익 $1.0B 기저 영향. ※은행은 영업이익 개념 비적용 — 순이익·EPS 기준 판단."
   },
