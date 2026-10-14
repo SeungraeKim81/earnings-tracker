@@ -706,7 +706,7 @@
   },
   {
    "ticker": "ASML",
-   "status": "scheduled",
+   "status": "reported",
    "stage": null,
    "label": "Q3 2026",
    "period": {
@@ -717,18 +717,130 @@
    "announce": {
     "date": "2026-10-14",
     "timing": "bmo",
-    "certainty": "verified"
+    "certainty": "confirmed"
    },
    "metrics": {
-    "revenue": null,
-    "revenue_consensus": null,
-    "revenue_yoy": null,
-    "operating_income": null,
-    "eps": null,
-    "eps_consensus": null,
+    "revenue": {
+     "value": 11.662,
+     "flag": "verified",
+     "note": "총 순매출 €11,662M(사상 최대)",
+     "src": [
+      {
+       "title": "ASML Q3 2026 press release (GlobeNewswire)",
+       "url": "https://www.globenewswire.com/news-release/2026/10/14/3380319/0/en/asml-reports-11-7-billion-total-net-sales-and-5-0-billion-net-income-in-q3-2026.html",
+       "asOf": "2026-10-14"
+      },
+      {
+       "title": "ASML 6-K (Q3 2026 press release)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000162828026065813/pressreleasefinancialresul.htm",
+       "asOf": "2026-10-14"
+      },
+      {
+       "title": "ASML IR: Q3 2026 results",
+       "url": "https://investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026",
+       "asOf": "2026-10-14"
+      }
+     ]
+    },
+    "revenue_consensus": {
+     "value": 11.72,
+     "provider": "독일 보도(집계기관 미기재)",
+     "asOf": "2026-10-14",
+     "flag": "unverified",
+     "alts": [
+      {
+       "provider": "Tickeron(발표 전 프리뷰)",
+       "value": 11.7
+      }
+     ],
+     "reason": "유로 기준 컨센은 집계기관이 밝혀진 값을 찾지 못함. 보도 2곳 모두 약 €11.7B로 사실상 부합",
+     "src": [
+      {
+       "title": "goldesel.de: ASML Rekordumsatz hebt Prognose",
+       "url": "https://goldesel.de/aktien/news/asml-holding-aktie-rekordumsatz-hebt-prognose-kapazitatsengpasse-bleiben",
+       "asOf": "2026-10-14"
+      },
+      {
+       "title": "Tickeron: ASML Q3 2026 Earnings Preview",
+       "url": "https://tickeron.com/blogs/asml-asml-q3-2026-earnings-preview-key-metrics-investors-are-watching-18601/"
+      }
+     ]
+    },
+    "revenue_yoy": {
+     "value": 0.552,
+     "flag": "derived",
+     "reason": "Q3 2025 순매출 €7.516B 대비로 계산",
+     "src": [
+      {
+       "title": "ASML Q3 2026 press release (GlobeNewswire)",
+       "url": "https://www.globenewswire.com/news-release/2026/10/14/3380319/0/en/asml-reports-11-7-billion-total-net-sales-and-5-0-billion-net-income-in-q3-2026.html",
+       "asOf": "2026-10-14"
+      }
+     ]
+    },
+    "operating_income": {
+     "value": 5.173,
+     "flag": "unverified",
+     "reason": "공식 보도자료 영업이익 줄을 검색으로 확인하지 못해 제3자 분석 값(€5,172.8M, 영업이익률 44.4%) 사용. 다음 IR 자료로 대조 필요",
+     "src": [
+      {
+       "title": "StockTitan: ASML Q3 2026 6-K",
+       "url": "https://www.stocktitan.net/sec-filings/ASML/6-k-asml-holding-nv-current-report-foreign-issuer-d706c81f3750.html",
+       "asOf": "2026-10-14"
+      }
+     ]
+    },
+    "eps": {
+     "value": 12.95,
+     "basis": "GAAP",
+     "flag": "verified",
+     "note": "기본 EPS",
+     "caution": "순이익 €4.96B에 Mistral AI 1차 투자분 재평가 이익 약 €500M 포함(영업외). EPS 서프라이즈는 이 이익만큼 부풀려짐 — 영업이익·영업이익률로 판단",
+     "src": [
+      {
+       "title": "ASML Q3 2026 press release (GlobeNewswire)",
+       "url": "https://www.globenewswire.com/news-release/2026/10/14/3380319/0/en/asml-reports-11-7-billion-total-net-sales-and-5-0-billion-net-income-in-q3-2026.html",
+       "asOf": "2026-10-14"
+      },
+      {
+       "title": "ASML 6-K (Q3 2026 press release)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000162828026065813/pressreleasefinancialresul.htm",
+       "asOf": "2026-10-14"
+      }
+     ]
+    },
+    "eps_consensus": {
+     "value": 10.58,
+     "provider": "독일 보도(집계기관 미기재)",
+     "asOf": "2026-10-14",
+     "flag": "unverified",
+     "alts": [
+      {
+       "provider": "Tickeron(발표 전 프리뷰)",
+       "value": 10.66
+      }
+     ],
+     "note": "달러 기준 보도는 조정 EPS $14.65 vs 컨센 $12.13(Investing.com)",
+     "src": [
+      {
+       "title": "Investing.com DE: ASML übertrifft Erwartungen im Q3 2026",
+       "url": "https://de.investing.com/news/transcripts/asml-ubertrifft-erwartungen-im-q3-2026--aktie-gerat-dennoch-unter-druck-93CH-3702645",
+       "asOf": "2026-10-14"
+      },
+      {
+       "title": "Tickeron: ASML Q3 2026 Earnings Preview",
+       "url": "https://tickeron.com/blogs/asml-asml-q3-2026-earnings-preview-key-metrics-investors-are-watching-18601/"
+      },
+      {
+       "title": "Investing.com: ASML tops Q3 2026 estimates but shares fall",
+       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-asml-tops-q3-2026-estimates-but-shares-fall-93CH-4948118",
+       "asOf": "2026-10-14"
+      }
+     ]
+    },
     "price_reaction": null
    },
-   "notes": "일정 확인. Q3 가이던스(매출 €11.0–12.0B, 총이익률 55–57%) 및 2026 매출 €43–45B 가이던스(Q2 때 €36–40B에서 상향) 대비. 2027 수주(bookings) 코멘트 체크."
+   "notes": "사상 최대 매출 €11.66B(+55% YoY, Q3 가이던스 €11.0–12.0B 상단), 매출총이익률 57.5%(가이던스 55–57% 상회), 순이익 €4.96B. EPS €12.95는 Mistral AI 투자 재평가 이익 약 €500M 포함 — 영업 기준 상회 폭은 더 작음. 리소그래피 시스템 113대 판매(Q2 86대). Q4 가이던스 매출 €14.2–15.2B·총이익률 약 57%, 2026 연간 €43–45B → €44–45B(하단 상향)·총이익률 약 56%. 이번 분기도 수주액(bookings)은 공개하지 않음. 실적 상회에도 발표일 주가는 약세(보도 기준 −1.9%). 영업이익은 제3자 분석 값(미확인)."
   }
  ]
 }

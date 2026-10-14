@@ -273,9 +273,53 @@
    "src": "5dcc838c",
    "text": "Date estimated. Watch: AWS growth (Q2 +37%), whether the $220B CapEx guidance holds, operating margin."
   },
+  "2026Q3/ASML/eps/caution": {
+   "src": "4e4ae8ea",
+   "text": "Net income of €4.96B includes a ~€500M revaluation gain on the first tranche of the Mistral AI investment (non-operating). The EPS surprise is inflated by this gain — judge on operating income and operating margin"
+  },
+  "2026Q3/ASML/eps/note": {
+   "src": "7f9d7ffb",
+   "text": "Basic EPS"
+  },
+  "2026Q3/ASML/eps_consensus/alts/0/provider": {
+   "src": "aa16db45",
+   "text": "Tickeron (pre-release preview)"
+  },
+  "2026Q3/ASML/eps_consensus/note": {
+   "src": "27713d33",
+   "text": "Dollar-based report: adjusted EPS $14.65 vs consensus $12.13 (Investing.com)"
+  },
+  "2026Q3/ASML/eps_consensus/provider": {
+   "src": "0b792024",
+   "text": "German press (aggregator not named)"
+  },
   "2026Q3/ASML/notes": {
-   "src": "76e74272",
-   "text": "Date verified. Results vs Q3 guidance (revenue €11.0–12.0B, gross margin 55–57%) and 2026 revenue guidance of €43–45B (raised from €36–40B at Q2). Watch comments on 2027 bookings."
+   "src": "17b6674e",
+   "text": "Record sales of €11.66B (+55% YoY, top of Q3 guidance €11.0–12.0B), gross margin 57.5% (above 55–57% guidance), net income €4.96B. EPS €12.95 includes a ~€500M Mistral AI investment revaluation gain — the operating beat is smaller. 113 lithography systems sold (Q2: 86). Q4 guidance: sales €14.2–15.2B, gross margin ~57%; FY2026 €43–45B → €44–45B (low end raised), gross margin ~56%. Bookings again not disclosed. Shares fell on the day despite the beat (−1.9% per reports). Operating income is a third-party analysis value (unconfirmed)."
+  },
+  "2026Q3/ASML/operating_income/reason": {
+   "src": "d6866f04",
+   "text": "The official income-from-operations line could not be confirmed via search; third-party analysis value used (€5,172.8M, 44.4% operating margin). To be checked against the next IR materials"
+  },
+  "2026Q3/ASML/revenue/note": {
+   "src": "49a1e205",
+   "text": "Total net sales €11,662M (record)"
+  },
+  "2026Q3/ASML/revenue_consensus/alts/0/provider": {
+   "src": "aa16db45",
+   "text": "Tickeron (pre-release preview)"
+  },
+  "2026Q3/ASML/revenue_consensus/provider": {
+   "src": "0b792024",
+   "text": "German press (aggregator not named)"
+  },
+  "2026Q3/ASML/revenue_consensus/reason": {
+   "src": "7a268ebd",
+   "text": "No euro consensus with a named aggregator found. Both reports put it at about €11.7B — effectively in line"
+  },
+  "2026Q3/ASML/revenue_yoy/reason": {
+   "src": "e9fcfc9d",
+   "text": "Calculated against Q3 2025 net sales of €7.516B"
   },
   "2026Q3/GOOGL/notes": {
    "src": "4c32e2cd",
