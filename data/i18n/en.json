@@ -422,12 +422,32 @@
    "text": "Date confirmed (8-K): 10/21 at 5:30pm US Eastern after the close → Bangkok 10/22 04:30. Check EPS distortions such as equity-investment gains."
   },
   "2026Q3/TSM/announce/note": {
-   "src": "c95ed7af",
-   "text": "Posted on IR site. Time is the earnings conference (Taiwan); pre-market for the US ADR"
+   "src": "029c2592",
+   "text": "Time is the earnings conference (Taiwan); pre-market for the US ADR"
+  },
+  "2026Q3/TSM/eps/note": {
+   "src": "c3d6ca68",
+   "text": "Per ADR (5 common shares), USD-converted. Diluted EPS per common share NT$29.43"
   },
   "2026Q3/TSM/notes": {
-   "src": "0475d779",
-   "text": "Date estimated (not yet on TSMC's official calendar). Entered in USD as in the Q2 sheet. Watch: AI accelerator share of revenue, gross margin, whether full-year guidance is raised."
+   "src": "e8f39932",
+   "text": "Record revenue of $46.72B (+41.2% YoY in USD; +50.9% in NT$), above the $45.62B consensus (Zacks). Net income NT$763.1B (+69%), above the LSEG SmartEstimate of NT$746.3B. Gross margin 66.4%, operating margin 58.7% (down from 67.7% and 60.3% in Q2) — dilution from the initial 2nm ramp. Q4 guidance: revenue $52.3–54.3B, gross margin 65–67%, operating margin 56.5–58.5% (assuming NT$31.8 per USD). Operating income column is USD revenue × 58.7%. EPS is per ADR, USD-converted."
+  },
+  "2026Q3/TSM/operating_income/reason": {
+   "src": "29f1383f",
+   "text": "Converted by applying the 58.7% operating margin from TSMC's 3Q26 earnings release to USD revenue of 46.72"
+  },
+  "2026Q3/TSM/revenue/note": {
+   "src": "acc4df91",
+   "text": "USD-converted (per earnings release). NT$1,494.24B"
+  },
+  "2026Q3/TSM/revenue_consensus/note": {
+   "src": "f0ba6f26",
+   "text": "LSEG SmartEstimate in NT$: 1.46T (beat)"
+  },
+  "2026Q3/TSM/revenue_yoy/note": {
+   "src": "b8b0b79a",
+   "text": "USD basis (NT$ basis +50.9%)"
   },
   "2026Q3/highlights/0": {
    "src": "da5149df",

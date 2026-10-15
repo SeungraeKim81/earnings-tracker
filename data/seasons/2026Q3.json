@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-10-14",
+ "updated": "2026-10-15",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -677,7 +677,7 @@
   },
   {
    "ticker": "TSM",
-   "status": "scheduled",
+   "status": "reported",
    "stage": null,
    "label": "Q3 2026",
    "period": {
@@ -688,21 +688,136 @@
    "announce": {
     "date": "2026-10-15",
     "timing": "bmo",
-    "certainty": "verified",
-    "note": "IR 사이트 게시. 시각은 실적설명회(대만), 미국 ADR 기준 장 전",
+    "certainty": "confirmed",
+    "note": "시각은 실적설명회(대만), 미국 ADR 기준 장 전",
     "time": "14:00",
     "tz": "Asia/Taipei"
    },
    "metrics": {
-    "revenue": null,
-    "revenue_consensus": null,
-    "revenue_yoy": null,
-    "operating_income": null,
-    "eps": null,
-    "eps_consensus": null,
+    "revenue": {
+     "value": 46.72,
+     "flag": "verified",
+     "note": "USD 환산(실적발표 기준). NT$ 1,494.24B",
+     "src": [
+      {
+       "title": "TSMC 3Q26 earnings release (EPS NT$29.43)",
+       "url": "https://pr.tsmc.com/english/news/3346",
+       "asOf": "2026-10-15"
+      },
+      {
+       "title": "TSMC 6-K (3Q26 earnings release)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000726/a3q26e_withguidancexfinal.htm",
+       "asOf": "2026-10-15"
+      }
+     ]
+    },
+    "revenue_consensus": {
+     "value": 45.62,
+     "provider": "Zacks",
+     "asOf": "2026-10-15",
+     "alts": [
+      {
+       "provider": "Investing.com",
+       "value": 45.41
+      }
+     ],
+     "note": "LSEG SmartEstimate는 NT$ 기준 1.46조(상회)",
+     "src": [
+      {
+       "title": "AP: TSMC Q3 Earnings Snapshot (Zacks)",
+       "url": "https://finance.yahoo.com/markets/stocks/articles/tsmc-q3-earnings-snapshot-055852237.html",
+       "asOf": "2026-10-15"
+      },
+      {
+       "title": "Investing.com: TSMC beats Q3 2026 estimates",
+       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-tsmc-beats-q3-2026-estimates-as-stock-slips-93CH-4950695",
+       "asOf": "2026-10-15"
+      },
+      {
+       "title": "Quartz: TSMC Q3 2026 net income rises 69% (LSEG)",
+       "url": "https://qz.com/tsmc-record-profit-ai-chip-demand-101526",
+       "asOf": "2026-10-15"
+      }
+     ]
+    },
+    "revenue_yoy": {
+     "value": 0.412,
+     "flag": "verified",
+     "note": "USD 기준(NT$ 기준 +50.9%)",
+     "src": [
+      {
+       "title": "TSMC 3Q26 earnings release (EPS NT$29.43)",
+       "url": "https://pr.tsmc.com/english/news/3346",
+       "asOf": "2026-10-15"
+      },
+      {
+       "title": "TSMC 6-K (3Q26 earnings release)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000726/a3q26e_withguidancexfinal.htm",
+       "asOf": "2026-10-15"
+      }
+     ]
+    },
+    "operating_income": {
+     "value": 27.425,
+     "flag": "derived",
+     "reason": "TSMC 3Q26 실적발표 영업이익률 58.7%를 USD 매출 46.72에 곱해 환산",
+     "src": [
+      {
+       "title": "TSMC 3Q26 earnings release (EPS NT$29.43)",
+       "url": "https://pr.tsmc.com/english/news/3346",
+       "asOf": "2026-10-15"
+      }
+     ]
+    },
+    "eps": {
+     "value": 4.6,
+     "basis": "IFRS",
+     "flag": "verified",
+     "note": "ADR 1주(보통주 5주) 기준 USD 환산. 보통주 희석 EPS NT$29.43",
+     "src": [
+      {
+       "title": "TSMC 3Q26 earnings release (EPS NT$29.43)",
+       "url": "https://pr.tsmc.com/english/news/3346",
+       "asOf": "2026-10-15"
+      },
+      {
+       "title": "TSMC 6-K (3Q26 earnings release)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000726/a3q26e_withguidancexfinal.htm",
+       "asOf": "2026-10-15"
+      }
+     ]
+    },
+    "eps_consensus": {
+     "value": 4.45,
+     "provider": "Zacks",
+     "asOf": "2026-10-15",
+     "alts": [
+      {
+       "provider": "Investing.com",
+       "value": 4.42
+      }
+     ],
+     "src": [
+      {
+       "title": "AP: TSMC Q3 Earnings Snapshot (Zacks)",
+       "url": "https://finance.yahoo.com/markets/stocks/articles/tsmc-q3-earnings-snapshot-055852237.html",
+       "asOf": "2026-10-15"
+      },
+      {
+       "title": "Benzinga: TSMC beats Q3 earnings and revenue estimates",
+       "url": "https://www.benzinga.com/markets/tech/26/10/62373268/tsmc-beats-q3-earnings-and-revenue-estimates-as-ai-chip-demand-drives-41-sales-growth",
+       "asOf": "2026-10-15"
+      },
+      {
+       "title": "Investing.com: TSMC beats Q3 2026 estimates",
+       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-tsmc-beats-q3-2026-estimates-as-stock-slips-93CH-4950695",
+       "asOf": "2026-10-15"
+      }
+     ]
+    },
     "price_reaction": null
    },
-   "notes": "일정 추정(TSMC 공식 캘린더 미게시). Q2 시트와 동일하게 USD 기준 입력. 체크: AI 가속기 매출 비중, 총이익률, 연간 가이던스 상향 여부."
+   "notes": "사상 최대 매출 $46.72B(+41.2% YoY, USD 기준·NT$ 기준 +50.9%)로 컨센 $45.62B(Zacks) 상회. 순이익 NT$763.1B(+69%)로 LSEG SmartEstimate NT$746.3B 상회. 총이익률 66.4%·영업이익률 58.7%(2분기 67.7%·60.3%에서 하락) — 2나노 초기 양산에 따른 마진 희석. Q4 가이던스 매출 $52.3–54.3B, 총이익률 65–67%, 영업이익률 56.5–58.5%(환율 NT$31.8 가정). 영업이익 열은 USD 매출 × 58.7%로 환산한 값. EPS는 ADR 기준 USD 환산."
   },
   {
    "ticker": "ASML",
