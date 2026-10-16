@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-10-15",
+ "updated": "2026-10-16",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -815,7 +815,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.018,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-14",
+      "2026-10-15"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (TSM)",
+       "url": "https://finance.yahoo.com/quote/TSM/history"
+      }
+     ]
+    }
    },
    "notes": "사상 최대 매출 $46.72B(+41.2% YoY, USD 기준·NT$ 기준 +50.9%)로 컨센 $45.62B(Zacks) 상회. 순이익 NT$763.1B(+69%)로 LSEG SmartEstimate NT$746.3B 상회. 총이익률 66.4%·영업이익률 58.7%(2분기 67.7%·60.3%에서 하락) — 2나노 초기 양산에 따른 마진 희석. Q4 가이던스 매출 $52.3–54.3B, 총이익률 65–67%, 영업이익률 56.5–58.5%(환율 NT$31.8 가정). 영업이익 열은 USD 매출 × 58.7%로 환산한 값. EPS는 ADR 기준 USD 환산."
   },
@@ -953,7 +967,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": 0.0123,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-13",
+      "2026-10-14"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (ASML.AS)",
+       "url": "https://finance.yahoo.com/quote/ASML.AS/history"
+      }
+     ]
+    }
    },
    "notes": "사상 최대 매출 €11.66B(+55% YoY, Q3 가이던스 €11.0–12.0B 상단), 매출총이익률 57.5%(가이던스 55–57% 상회), 순이익 €4.96B. EPS €12.95는 Mistral AI 투자 재평가 이익 약 €500M 포함 — 영업 기준 상회 폭은 더 작음. 리소그래피 시스템 113대 판매(Q2 86대). Q4 가이던스 매출 €14.2–15.2B·총이익률 약 57%, 2026 연간 €43–45B → €44–45B(하단 상향)·총이익률 약 56%. 이번 분기도 수주액(bookings)은 공개하지 않음. 실적 상회에도 발표일 주가는 약세(보도 기준 −1.9%). 영업이익은 제3자 분석 값(미확인)."
   }
