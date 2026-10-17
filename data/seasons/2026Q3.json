@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-10-16",
+ "updated": "2026-10-17",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -660,9 +660,13 @@
    },
    "currency": "KRW",
    "announce": {
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "timing": null,
-    "certainty": "estimated"
+    "certainty": "verified",
+    "alt_dates": [
+     "2026-10-29"
+    ],
+    "note": "SEC 6-K(10/14): 3분기 컨퍼런스콜 자료를 10/28(서울) IR 사이트에 게시. 시각 미확인, 일부 캘린더는 컨퍼런스콜 10/29 09:00로 표기"
    },
    "metrics": {
     "revenue": null,
@@ -673,7 +677,7 @@
     "eps_consensus": null,
     "price_reaction": null
    },
-   "notes": "일정 추정(10월 말). 컨센(FnGuide): 매출 약 99.4조, 영업이익 약 78조."
+   "notes": "일정: 10/28(SEC 6-K 기준). 컨센(FnGuide): 매출 약 99.4조, 영업이익 약 78조."
   },
   {
    "ticker": "TSM",
