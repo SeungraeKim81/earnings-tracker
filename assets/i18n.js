@@ -169,6 +169,47 @@
     '반도체(장비)': { en: 'Semiconductors (equipment)', th: 'เซมิคอนดักเตอร์ (อุปกรณ์)' },
   };
 
+  // 화면 개편(카드·비교 차트·상세 시트) 문구
+  Object.assign(UI.ko, {
+    secUpcoming: '다가오는 발표', secCompare: '한눈에 비교', secResults: '기업별 실적', secNotes: '시즌 메모',
+    mYoy: '매출 YoY', mMargin: '영업이익률', mReaction: '주가반응',
+    fAll: '전체', fRegion: '지역', fStatus: '상태', fReported: '발표완료', fUpcoming: '발표 예정',
+    sortLabel: '정렬', sortDefault: '기본 순서', viewCards: '카드', viewTable: '표', viewSel: '보기',
+    cardOp: '영업이익', marginShort: '이익률', consShort: '컨센', details: '자세히', close: '닫기',
+    notYet: '아직 발표 전', noneMatch: '조건에 맞는 기업이 없습니다', moreUpcoming: '{n}개 날짜 더 보기', lessUpcoming: '접기',
+    cmpEmpty: '아직 비교할 값이 없습니다', cmpMissing: '{n}개사는 값이 없어 빠졌습니다',
+    cmpCap: '막대는 ±{cap}까지 그렸습니다. 넘는 값은 ≫ 표시', cmpCapPos: '막대는 {cap}까지 그렸습니다',
+    overCap: '범위 초과', methodology: '기준·출처', settings: '설정', reportedOf: '발표완료 {a} · 예정 {b}',
+    beatRate: '{n}개사 중 상회 {b}', keyFigures: '핵심 수치', openDetail: '{x} 자세히 보기',
+    disclaimer: '특정 종목의 매수·매도를 권하는 자료가 아닙니다.',
+  });
+  Object.assign(UI.en, {
+    secUpcoming: 'Upcoming reports', secCompare: 'At a glance', secResults: 'Results by company', secNotes: 'Season notes',
+    mYoy: 'Revenue YoY', mMargin: 'Operating margin', mReaction: 'Price reaction',
+    fAll: 'All', fRegion: 'Region', fStatus: 'Status', fReported: 'Reported', fUpcoming: 'Upcoming',
+    sortLabel: 'Sort', sortDefault: 'Default order', viewCards: 'Cards', viewTable: 'Table', viewSel: 'View',
+    cardOp: 'Op. income', marginShort: 'Margin', consShort: 'Cons.', details: 'Details', close: 'Close',
+    notYet: 'Not reported yet', noneMatch: 'No companies match these filters', moreUpcoming: 'Show {n} more dates', lessUpcoming: 'Show less',
+    cmpEmpty: 'Nothing to compare yet', cmpMissing: '{n} companies left out (no value)',
+    cmpCap: 'Bars drawn up to ±{cap}; ≫ marks values beyond', cmpCapPos: 'Bars drawn up to {cap}',
+    overCap: 'beyond range', methodology: 'Methodology & sources', settings: 'Settings', reportedOf: '{a} reported · {b} upcoming',
+    beatRate: '{b} of {n} beat', keyFigures: 'Key figures', openDetail: 'Open details for {x}',
+    disclaimer: 'Not investment advice.',
+  });
+  Object.assign(UI.th, {
+    secUpcoming: 'กำหนดประกาศที่จะถึง', secCompare: 'เปรียบเทียบภาพรวม', secResults: 'ผลประกอบการรายบริษัท', secNotes: 'บันทึกประจำรอบ',
+    mYoy: 'รายได้ YoY', mMargin: 'อัตรากำไรจากการดำเนินงาน', mReaction: 'ราคาหุ้น',
+    fAll: 'ทั้งหมด', fRegion: 'ภูมิภาค', fStatus: 'สถานะ', fReported: 'ประกาศแล้ว', fUpcoming: 'กำลังจะประกาศ',
+    sortLabel: 'เรียงตาม', sortDefault: 'ลำดับเริ่มต้น', viewCards: 'การ์ด', viewTable: 'ตาราง', viewSel: 'มุมมอง',
+    cardOp: 'กำไรดำเนินงาน', marginShort: 'อัตรากำไร', consShort: 'คาดการณ์', details: 'รายละเอียด', close: 'ปิด',
+    notYet: 'ยังไม่ประกาศ', noneMatch: 'ไม่มีบริษัทที่ตรงเงื่อนไข', moreUpcoming: 'ดูเพิ่มอีก {n} วัน', lessUpcoming: 'ย่อ',
+    cmpEmpty: 'ยังไม่มีข้อมูลให้เปรียบเทียบ', cmpMissing: 'ไม่แสดง {n} บริษัทเพราะไม่มีข้อมูล',
+    cmpCap: 'แท่งแสดงถึง ±{cap} ค่าที่เกินมีเครื่องหมาย ≫', cmpCapPos: 'แท่งแสดงถึง {cap}',
+    overCap: 'เกินช่วง', methodology: 'เกณฑ์และแหล่งที่มา', settings: 'ตั้งค่า', reportedOf: 'ประกาศแล้ว {a} · กำลังจะประกาศ {b}',
+    beatRate: 'สูงกว่าคาด {b} จาก {n} บริษัท', keyFigures: 'ตัวเลขสำคัญ', openDetail: 'ดูรายละเอียด {x}',
+    disclaimer: 'ไม่ใช่คำแนะนำการลงทุน',
+  });
+
   const api = { hash, LANGS, UI, REGION, SECTOR };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.I18N = api;

@@ -41,6 +41,8 @@ python -m unittest discover -s tests
 - 화면 문구는 `assets/i18n.js`의 `UI.ko/en/th`에 같이 추가한다.
 - 계산 규칙을 바꾸면 `scripts/lib.py`와 `assets/calc.js`를 함께 고친다 — `tests/test_calc_parity.py`가 비교한다.
 - 한국 종목(숫자 코드)은 화면에서 종목명으로 보인다. 새 한국 종목은 `companies.json`에 `name`(한글)과 `name_en`을 꼭 넣는다.
+- 모바일 우선: 기본은 카드 1열, 760px 이상에서 카드/표 전환. 페이지 전체에 가로 스크롤이 생기면 안 된다(표만 자체 스크롤). 상세는 `<dialog>` 시트, 주소 `#시즌/티커`.
+- 색은 초록=상회·상승, 빨강=하회·하락. 항상 ▲▼·부호를 같이 붙여 색만으로 구분하지 않는다. 새 색은 `style.css`의 `:root` 토큰(라이트·다크 둘 다)으로 추가한다.
 
 ## 지켜야 할 것
 
