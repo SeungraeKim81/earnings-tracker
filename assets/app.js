@@ -6,7 +6,8 @@ const ST = {
   index: null, companies: null, regions: null, seasons: {}, tr: {},
   sid: null, unit: 'jo', lang: 'ko',
   view: null,            // 'cards' | 'table' (null = 화면 너비로 자동)
-  region: 'all', status: 'all', sort: null, metric: 'revenue_surprise', moreUpcoming: false,
+  region: 'all', status: 'all', sort: null,
+  metric: 'revenue_surprise', cmpDir: -1,   // 한눈에 비교 정렬 열·방향(-1 높은 순)
   sheet: null,           // 상세 시트에 연 티커
 };
 const store = {
@@ -214,25 +215,21 @@ function renderSummary(s, today) {
     ${last}`;
 }
 
-// ---------- 다가오는 발표 (날짜별 타임라인) ----------
+// ---------- 다가오는 발표 (날짜별: 좁은 화면은 세로 타임라인, 넓은 화면은 날짜 열) ----------
 function renderUpcoming(s, today) {
   const sch = s.events.filter(e => e.status === 'scheduled').sort((a, b) => a.announce.date.localeCompare(b.announce.date) || ST.companies[a.ticker].order - ST.companies[b.ticker].order);
   $('upSec').hidden = !sch.length;
-  $('duo').classList.toggle('single', !sch.length);   // 남은 발표가 없으면 비교 차트가 전체 폭
   if (!sch.length) return;
   const groups = [];
   sch.forEach(e => { const g = groups[groups.length - 1]; if (g && g.date === e.announce.date) g.evs.push(e); else groups.push({ date: e.announce.date, evs: [e] }); });
-  const LIMIT = 4, shown = ST.moreUpcoming ? groups : groups.slice(0, LIMIT);
-  const html = shown.map(g => {
+  $('upcoming').innerHTML = `<ol class="timeline">${groups.map(g => {
     const dd = dayDiff(g.date, today);
     const [, m, d] = g.date.split('-');
     return `<li class="tl ${dd < 0 ? 'over' : dd <= 2 ? 'soon' : ''}">
       <div class="tld"><span class="tlm">${+m}/${+d}</span><span class="tlw">${weekday(g.date)}</span><span class="tldd">${ddText(dd)}</span></div>
       <div class="tle">${g.evs.map(e => `<button type="button" class="tlc" data-open="${esc(e.ticker)}" aria-label="${esc(t('openDetail', { x: label(e.ticker) }))}">
           <span class="tk">${esc(label(e.ticker))}</span><span class="tls">${esc(schedBits(e).join(' · '))}</span>${certChip(e.announce)}</button>`).join('')}</div></li>`;
-  }).join('');
-  const more = groups.length > LIMIT ? `<button type="button" class="linkbtn" id="moreUp">${ST.moreUpcoming ? t('lessUpcoming') : t('moreUpcoming', { n: groups.length - LIMIT })}</button>` : '';
-  $('upcoming').innerHTML = `<ol class="timeline">${html}</ol>${more}`;
+  }).join('')}</ol>`;
 }
 
 // ---------- 필터 ----------
@@ -250,29 +247,53 @@ function renderFilters() {
 }
 const curView = () => (WIDE() ? (ST.view || 'cards') : 'cards');   // 좁은 화면은 항상 카드
 
-// ---------- 한눈에 비교 (막대 순위) ----------
+// ---------- 한눈에 비교 (회사 × 지표 5개) ----------
+// 같은 행에 지표 5개를 나란히 둔다. 넓으면 열마다 막대, 좁으면 색 농도(히트맵)로 그린다(CSS 컨테이너 쿼리).
+// 열 이름을 누르면 그 지표로 정렬. 눈금은 열마다 따로(cap까지, 넘으면 ≫).
+const CMP = Object.keys(METRIC);
+function cmpNum(v, polar, compact) {
+  const a = Math.abs(v) * 100;
+  const n = (compact ? (a >= 10 ? a.toFixed(0) : a.toFixed(1)) : (a >= 100 ? a.toFixed(0) : a.toFixed(1))) + '%';
+  return polar ? `<span class="ar">${arrow(v)}</span>${n}` : (v < 0 ? '−' : '') + n;
+}
+function cmpCell(e, k, v, scale) {
+  const M = METRIC[k], on = k === ST.metric ? ' on' : '';
+  if (v == null) return `<span class="mxc nil${on}">—</span>`;
+  const r = Math.min(Math.abs(v) / scale, 1), over = Math.abs(v) > scale + 1e-12;
+  const cls = M.polar ? dir(v) : 'acc';
+  const pos = M.polar ? (v >= 0 ? 'left:50%' : 'right:50%') : 'left:0';
+  const warn = cautionOf(e, M.keys), weak = weakOf(e, M.keys);
+  return `<span class="mxc ${cls}${weak ? ' weak' : ''}${on}" style="--p:${Math.round(8 + r * 30)}%">
+    <span class="ct${M.polar ? ' polar' : ''}"><i class="${cls}" style="${pos};width:${(r * (M.polar ? 50 : 100)).toFixed(2)}%"></i>${over ? `<b class="cap ${v < 0 ? 'neg' : ''}" title="${esc(t('overCap'))}">≫</b>` : ''}</span>
+    <span class="cv"><span class="v1">${cmpNum(v, M.polar)}</span><span class="v0">${cmpNum(v, M.polar, true)}</span>${warn.length ? `<sup class="warn" title="${esc(warn.join(' / '))}">※</sup>` : ''}</span></span>`;
+}
 function renderCompare(list) {
-  const M = METRIC[ST.metric];
-  $('cmpTabs').innerHTML = Object.keys(METRIC).map(k => `<button type="button" class="fchip" data-metric="${k}" aria-pressed="${ST.metric === k}">${t(METRIC[k].label)}</button>`).join('');
-  const rows = list.map(e => ({ e, v: M.get(e, Calc.derived(e.metrics)) })).filter(r => r.v != null).sort((a, b) => b.v - a.v);
-  const missing = list.filter(e => e.status !== 'scheduled').length - rows.length;
+  const rows = list.filter(e => e.status !== 'scheduled').map(e => {
+    const d = Calc.derived(e.metrics);
+    return { e, v: Object.fromEntries(CMP.map(k => [k, METRIC[k].get(e, d)])) };
+  }).filter(r => CMP.some(k => r.v[k] != null));
   if (!rows.length) { $('compare').innerHTML = `<p class="empty">${t('cmpEmpty')}</p>`; return; }
-  const maxAbs = Math.max(...rows.map(r => Math.abs(r.v)));
-  const scale = Math.min(M.cap, maxAbs) || 1;
-  const html = rows.map(({ e, v }) => {
-    const over = Math.abs(v) > scale + 1e-12;
-    const w = Math.min(Math.abs(v) / scale, 1) * (M.polar ? 50 : 100);
-    const pos = M.polar ? (v >= 0 ? `left:50%` : `right:50%`) : 'left:0';
-    const cls = M.polar ? dir(v) : 'acc';
-    const warn = cautionOf(e, M.keys), weak = weakOf(e, M.keys);
-    const txtv = M.polar ? `${arrow(v)} ${pctPlain(Math.abs(v))}` : pctPlain(v);
-    return `<button type="button" class="crow${weak ? ' weak' : ''}" data-open="${esc(e.ticker)}" aria-label="${esc(label(e.ticker) + ' ' + t(M.label) + ' ' + pct(v))}">
-      <span class="cl">${esc(label(e.ticker))}</span>
-      <span class="ct${M.polar ? ' polar' : ''}"><i class="${cls}${over ? ' over' : ''}" style="${pos};width:${w.toFixed(2)}%"></i>${over ? `<b class="cap ${v < 0 ? 'neg' : ''}" title="${esc(t('overCap'))}">≫</b>` : ''}</span>
-      <span class="cv">${txtv}${warn.length ? `<sup class="warn" title="${esc(warn.join(' / '))}">※</sup>` : ''}</span></button>`;
+  const k0 = ST.metric, order = e => ST.companies[e.ticker].order;
+  rows.sort((a, b) => {
+    const x = a.v[k0], y = b.v[k0];
+    if (x == null || y == null) return x == null && y == null ? order(a.e) - order(b.e) : x == null ? 1 : -1;
+    return (ST.cmpDir < 0 ? y - x : x - y) || order(a.e) - order(b.e);
+  });
+  const scale = Object.fromEntries(CMP.map(k => {
+    const vs = rows.map(r => r.v[k]).filter(v => v != null).map(Math.abs);
+    return [k, Math.min(METRIC[k].cap, Math.max(0, ...vs)) || 1];
+  }));
+  const head = CMP.map(k => {
+    const M = METRIC[k], on = k === k0, sc = (M.polar ? '±' : '') + pctPlain(scale[k], 0);
+    const how = on ? t(ST.cmpDir < 0 ? 'sortHi' : 'sortLo') : '';
+    return `<button type="button" class="mxk${on ? ' on' : ''}" data-metric="${k}" aria-pressed="${on}" title="${esc(t(M.label) + (how ? ' · ' + how : ''))}">
+      <span class="lf">${t(M.label)}</span><span class="ls">${t('cmpShort.' + k)}</span>${on ? `<span class="so" aria-hidden="true">${ST.cmpDir < 0 ? '↓' : '↑'}</span>` : ''}<small class="sc">${t('scaleTxt', { cap: sc })}</small></button>`;
   }).join('');
-  const capTxt = M.polar ? t('cmpCap', { cap: pctPlain(scale, 0) }) : t('cmpCapPos', { cap: pctPlain(scale, 0) });
-  $('compare').innerHTML = `<div class="cmp">${html}</div><p class="cap">${capTxt}${missing > 0 ? ' · ' + t('cmpMissing', { n: missing }) : ''}</p>`;
+  const body = rows.map(({ e, v }) => {
+    const aria = label(e.ticker) + ': ' + CMP.map(k => `${t(METRIC[k].label)} ${v[k] == null ? '—' : pct(v[k])}`).join(', ');
+    return `<button type="button" class="mxr" data-open="${esc(e.ticker)}" aria-label="${esc(aria)}"><span class="mxl">${esc(label(e.ticker))}</span>${CMP.map(k => cmpCell(e, k, v[k], scale[k])).join('')}</button>`;
+  }).join('');
+  $('compare').innerHTML = `<div class="mx"><div class="mxh"><span class="mxl"></span>${head}</div>${body}</div><p class="cap">${t('cmpNote')}</p>`;
 }
 
 // ---------- 기업 카드 ----------
@@ -314,15 +335,8 @@ function metricBlock(e, c, kind) {
     <span class="mc">${t('consShort')} ${v('eps_consensus') != null ? eps(v('eps_consensus'), cur) + flagSup(m.eps_consensus) : '—'}</span>
     ${pill(d.eps_surprise, e, ['eps', 'eps_consensus'])}</div>`;
 }
-function card(e, today) {
+function card(e) {
   const c = ST.companies[e.ticker], a = e.announce, open = t('openDetail', { x: label(e.ticker) });
-  if (e.status === 'scheduled') {
-    const dd = dayDiff(a.date, today);
-    return `<article class="card sched" tabindex="0" role="button" data-open="${esc(e.ticker)}" aria-label="${esc(open)}">
-      <div class="ch"><div class="cn">${nameBlock(e, c)}</div><span class="chip ${dd < 0 ? 'over' : dd <= 2 ? 'dd' : ''}">${ddText(dd)}</span></div>
-      <div class="cp">${fmtDate(a.date)} · ${esc(schedBits(e).join(' · '))} ${certChip(a)}</div>
-      <div class="cp mute">${periodText(e, c)}</div></article>`;
-  }
   const yoy = val(e, 'revenue_yoy'), rx = val(e, 'price_reaction');
   return `<article class="card" tabindex="0" role="button" data-open="${esc(e.ticker)}" aria-label="${esc(open)}">
     <div class="ch"><div class="cn">${nameBlock(e, c)}</div><div class="cs">${statusChips(e)}</div></div>
@@ -333,9 +347,19 @@ function card(e, today) {
       <span><span class="ml">${t('mReaction')}</span> <b class="${rx != null ? dir(rx) + 't' : ''}">${rx != null ? `${arrow(rx)} ${pctPlain(Math.abs(rx))}` : '—'}</b></span>
       <span class="more">${t('details')} ›</span></div></article>`;
 }
+// 발표 예정 회사는 카드 대신 한 묶음의 짧은 줄로(세로 길이 절약)
+function schedRow(e, today) {
+  const a = e.announce, dd = dayDiff(a.date, today);
+  return `<button type="button" class="srow" data-open="${esc(e.ticker)}" aria-label="${esc(t('openDetail', { x: label(e.ticker) }))}">
+    <span class="cn">${nameBlock(e, ST.companies[e.ticker])}</span>
+    <span class="sw"><b>${fmtDate(a.date)}</b> <span class="chip ${dd < 0 ? 'over' : dd <= 2 ? 'dd' : ''}">${ddText(dd)}</span></span>
+    <span class="sx">${esc(schedBits(e).concat(e.label).join(' · '))} ${certChip(a)}</span></button>`;
+}
 function renderCards(list, today) {
-  const items = sorted(list);
-  $('cards').innerHTML = items.length ? items.map(e => card(e, today)).join('') : `<p class="empty">${t('noneMatch')}</p>`;
+  const items = sorted(list), rep = items.filter(e => e.status !== 'scheduled'), sch = items.filter(e => e.status === 'scheduled');
+  if (!items.length) { $('cards').innerHTML = `<p class="empty">${t('noneMatch')}</p>`; return; }
+  $('cards').innerHTML = rep.map(card).join('') + (sch.length
+    ? `<section class="slist"><h3>${t('schedList', { n: sch.length })}</h3><div class="srows">${sch.map(e => schedRow(e, today)).join('')}</div></section>` : '');
 }
 
 // ---------- 표 (넓은 화면) ----------
@@ -500,9 +524,15 @@ function bind() {
     if (b.dataset.sid) { location.hash = b.dataset.sid; return; }
     if (b.dataset.region) { ST.region = b.dataset.region; renderBody(); return; }
     if (b.dataset.status) { ST.status = b.dataset.status; renderBody(); return; }
-    if (b.dataset.metric) { ST.metric = b.dataset.metric; renderCompare(filtered(season())); return; }
+    if (b.dataset.metric) {
+      const k = b.dataset.metric;
+      if (ST.metric === k) ST.cmpDir = -ST.cmpDir; else { ST.metric = k; ST.cmpDir = -1; }
+      renderCompare(filtered(season()));
+      const nb = $('compare').querySelector(`[data-metric="${k}"]`);
+      if (nb) nb.focus({ preventScroll: true });   // 다시 그린 뒤에도 키보드 위치 유지
+      return;
+    }
     if (b.dataset.view) { ST.view = b.dataset.view; store.set('view', ST.view); renderBody(); return; }
-    if (b.id === 'moreUp') { ST.moreUpcoming = !ST.moreUpcoming; renderUpcoming(season(), todayIn(TZ_VIEW)); return; }
     if (b.id === 'csvBtn') { csv(season()); return; }
     if (b.dataset.open) openSheet(b.dataset.open);
   });

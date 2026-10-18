@@ -30,17 +30,15 @@
 
   <section class="summary" id="summary" aria-live="polite"></section>
 
-  <div class="duo" id="duo">
-    <section class="card-sec" id="upSec" hidden>
-      <h2 data-i18n="secUpcoming"></h2>
-      <div id="upcoming"></div>
-    </section>
-    <section class="card-sec">
-      <h2 data-i18n="secCompare"></h2>
-      <div class="chiprow scroll-x" role="group" id="cmpTabs" data-i18n-aria="secCompare"></div>
-      <div id="compare"></div>
-    </section>
-  </div>
+  <section class="card-sec" id="upSec" hidden>
+    <h2 data-i18n="secUpcoming"></h2>
+    <div id="upcoming"></div>
+  </section>
+
+  <section class="card-sec">
+    <h2 data-i18n="secCompare"></h2>
+    <div id="compare"></div>
+  </section>
 
   <section class="results">
     <div class="rh">
@@ -50,7 +48,7 @@
       </div>
     </div>
     <div class="filters">
-      <div class="chiprow scroll-x" role="group" id="fRegion" data-i18n-aria="fRegion"></div>
+      <div class="chiprow" role="group" id="fRegion" data-i18n-aria="fRegion"></div>
       <div class="frow">
         <div class="chiprow" role="group" id="fStatus" data-i18n-aria="fStatus"></div>
         <label class="sel small"><span data-i18n="sortLabel"></span><select id="sortSel"></select></label>
