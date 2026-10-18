@@ -381,17 +381,21 @@
    "src": "b9d2d314",
    "text": "Managed basis (prior-year quarter $47.12B). Reported net revenue +8.1%"
   },
+  "2026Q3/META/announce/note": {
+   "src": "1d84755d",
+   "text": "Announced in company press release on 10/12. Time is the conference call (results released after the close)"
+  },
   "2026Q3/META/notes": {
-   "src": "1e265c75",
-   "text": "Date estimated. Watch: results vs Q3 revenue guidance of $61–64B, full-year expenses of $165–169B, CapEx of $130–145B."
+   "src": "e148338c",
+   "text": "Schedule confirmed (10/21 after the close, company announcement — one week earlier than the previously estimated 10/28). Watch: results vs Q3 revenue guidance of $61–64B, full-year expenses $165–169B, CapEx $130–145B."
   },
   "2026Q3/MSFT/announce/note": {
-   "src": "deb8559c",
-   "text": "Not yet announced"
+   "src": "908fa819",
+   "text": "Announced in company press release on 10/7. Time is the conference call (results released after the close)"
   },
   "2026Q3/MSFT/notes": {
-   "src": "46e579c4",
-   "text": "Date not announced (estimated). Jul–Sep quarter. Watch: Azure growth, CapEx trend (separating accounting effects), guidance for higher FY27 CapEx."
+   "src": "ade19b09",
+   "text": "Schedule confirmed (10/28 after the close, company announcement). July–September quarter. Watch: Azure growth, CapEx trend (separate accounting effects), FY27 CapEx growth guidance."
   },
   "2026Q3/MU/eps_consensus/alts/0/provider": {
    "src": "061ff1f2",
