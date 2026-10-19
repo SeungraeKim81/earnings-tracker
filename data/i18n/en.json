@@ -269,13 +269,21 @@
    "src": "df4c1d12",
    "text": "WiseReport (broker average)"
   },
+  "2026Q3/AAPL/announce/note": {
+   "src": "346f872d",
+   "text": "Apple IR announcement (reported 10/7). Time is the conference call (results released after the close)"
+  },
   "2026Q3/AAPL/notes": {
-   "src": "e2aef1d5",
-   "text": "Date estimated (before Apple's official confirmation). Jun–Sep → Jul–Sep quarter. Watch: iPhone revenue, Services growth, China, tariff impact."
+   "src": "8fd65b62",
+   "text": "Schedule confirmed (Mon 11/2 after the close, Apple IR announcement — changed from the previously estimated 10/29). Jun–Sep → Jul–Sep quarter. Watch: iPhone revenue, Services growth, China, tariff impact."
+  },
+  "2026Q3/AMZN/announce/note": {
+   "src": "4496ef90",
+   "text": "Announced in company press release on 10/15. Time is the conference call (results released after the close)"
   },
   "2026Q3/AMZN/notes": {
-   "src": "5dcc838c",
-   "text": "Date estimated. Watch: AWS growth (Q2 +37%), whether the $220B CapEx guidance holds, operating margin."
+   "src": "4940871e",
+   "text": "Schedule confirmed (10/29 after the close, company announcement). Watch: AWS growth (Q2 +37%), whether the $220B CapEx guidance holds, operating margin."
   },
   "2026Q3/ASML/eps/caution": {
    "src": "4e4ae8ea",
