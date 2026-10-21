@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F4F6F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F161B" media="(prefers-color-scheme: dark)">
 <title>어닝 트래커</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -12,43 +14,70 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1><small data-i18n="kicker"></small><span data-i18n="title"></span></h1>
-    <div class="stamp"><span data-i18n="season"></span> <b id="seasonTxt"></b><br><span data-i18n="updated"></span> <b id="updTxt"></b><br><button type="button" class="linkbtn" id="csvBtn" data-i18n="csv"></button></div>
-  </header>
-
-  <nav class="bar">
-    <div class="seg" role="group" data-i18n-aria="seasonSel" id="seasonSeg"></div>
-    <div class="bar-r">
-      <div class="seg" role="group" data-i18n-aria="unitSel">
-        <button type="button" data-unit="jo" aria-pressed="true" data-i18n="unitJo"></button><button type="button" data-unit="bil" aria-pressed="false" data-i18n="unitBil"></button>
-      </div>
-      <div class="seg" role="group" data-i18n-aria="langSel" id="langSeg"></div>
+<header class="topbar">
+  <div class="tb-in">
+    <div class="brand"><span class="logo" aria-hidden="true"></span><div><h1 data-i18n="title"></h1><span class="kicker" data-i18n="kicker"></span></div></div>
+    <div class="tb-ctl">
+      <div class="seg" role="group" data-i18n-aria="seasonSel" id="seasonSeg"></div>
+      <label class="sel"><span class="vh" data-i18n="langSel"></span><select id="langSel"></select></label>
+      <label class="sel"><span class="vh" data-i18n="unitSel"></span><select id="unitSel"></select></label>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <section class="summary" id="summary"></section>
+<main class="wrap">
+  <div class="meta"><span id="updTxt"></span><button type="button" class="linkbtn" id="csvBtn" data-i18n="csv"></button></div>
 
-  <section class="sec">
-    <div class="sec-head"><h2 data-i18n="tableTitle"></h2><span class="cap" id="tblCap"></span></div>
-    <div class="panel scroll" id="tblWrap"><table id="tbl"></table></div>
+  <section class="summary" id="summary" aria-live="polite"></section>
+
+  <section class="card-sec" id="upSec" hidden>
+    <h2 data-i18n="secUpcoming"></h2>
+    <div id="upcoming"></div>
+  </section>
+
+  <section class="card-sec">
+    <h2 data-i18n="secCompare"></h2>
+    <div id="compare"></div>
+  </section>
+
+  <section class="results">
+    <div class="rh">
+      <h2 data-i18n="secResults"></h2>
+      <div class="seg wide-only" role="group" data-i18n-aria="viewSel">
+        <button type="button" data-view="cards" data-i18n="viewCards"></button><button type="button" data-view="table" data-i18n="viewTable"></button>
+      </div>
+    </div>
+    <div class="filters">
+      <div class="chiprow" role="group" id="fRegion" data-i18n-aria="fRegion"></div>
+      <div class="frow">
+        <div class="chiprow" role="group" id="fStatus" data-i18n-aria="fStatus"></div>
+        <label class="sel small"><span data-i18n="sortLabel"></span><select id="sortSel"></select></label>
+      </div>
+    </div>
+    <div class="cards" id="cards"></div>
+    <div class="panel scroll" id="tblWrap" hidden><table id="tbl"></table></div>
     <div class="legend">
-      <span><i class="sw up"></i><span data-i18n="lgBeat"></span></span><span><i class="sw down"></i><span data-i18n="lgMiss"></span></span>
-      <span><sup class="fl derived" data-i18n="flagShort.derived"></sup><span data-i18n="lgDerived"></span></span>
-      <span><sup class="fl unverified" data-i18n="flagShort.unverified"></sup><span data-i18n="lgUnverified"></span></span>
-      <span><sup class="fl disputed" data-i18n="flagShort.disputed"></sup><span data-i18n="lgDisputed"></span></span>
-      <span><span class="info" data-i18n="lgInfoA"></span> <span data-i18n="lgInfoB"></span></span><span data-i18n="lgCaution"></span>
+      <span><span class="pill up">▲</span> <span data-i18n="lgBeat"></span></span><span><span class="pill down">▼</span> <span data-i18n="lgMiss"></span></span>
+      <span><sup class="fl derived" data-i18n="flagShort.derived"></sup> <span data-i18n="lgDerived"></span></span>
+      <span><sup class="fl unverified" data-i18n="flagShort.unverified"></sup> <span data-i18n="lgUnverified"></span></span>
+      <span><sup class="fl disputed" data-i18n="flagShort.disputed"></sup> <span data-i18n="lgDisputed"></span></span>
+      <span data-i18n="lgCaution"></span>
     </div>
   </section>
 
-  <section class="sec" id="hlSec" hidden>
-    <div class="sec-head"><h2 data-i18n="highlightsH"></h2></div>
+  <section class="card-sec" id="hlSec" hidden>
+    <h2 data-i18n="secNotes"></h2>
     <ul class="hl" id="highlights"></ul>
   </section>
 
-  <footer class="notes" id="footer"></footer>
-</div>
+  <footer class="foot">
+    <details><summary data-i18n="methodology"></summary><div class="notes" id="footer"></div></details>
+    <p class="mute" data-i18n="disclaimer"></p>
+  </footer>
+</main>
+
+<dialog id="sheet" class="sheet"></dialog>
+
 <script src="assets/i18n.js"></script>
 <script src="assets/calc.js"></script>
 <script src="assets/app.js"></script>

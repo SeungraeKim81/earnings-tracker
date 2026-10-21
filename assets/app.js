@@ -1,12 +1,20 @@
-// 어닝 트래커 화면. data/*.json을 읽어 시즌 비교표를 그린다.
+// 어닝 트래커 화면. data/*.json을 읽어 요약·일정·비교 차트·기업 카드(또는 표)·상세 시트를 그린다.
 'use strict';
 const $ = id => document.getElementById(id);
 const TZ_VIEW = 'Asia/Bangkok';
-const ST = { index: null, companies: null, regions: null, seasons: {}, tr: {}, sid: null, unit: 'jo', lang: 'ko', sort: null, open: new Set() };
+const ST = {
+  index: null, companies: null, regions: null, seasons: {}, tr: {},
+  sid: null, unit: 'jo', lang: 'ko',
+  view: null,            // 'cards' | 'table' (null = 화면 너비로 자동)
+  region: 'all', status: 'all', sort: null,
+  metric: 'revenue_surprise', cmpDir: -1,   // 한눈에 비교 정렬 열·방향(-1 높은 순)
+  sheet: null,           // 상세 시트에 연 티커
+};
 const store = {
   get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
   set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* 저장 불가 환경 */ } },
 };
+const WIDE = () => window.matchMedia('(min-width: 760px)').matches;
 
 // ---------- 언어 ----------
 const HANGUL = /[가-힣]/;
@@ -37,6 +45,7 @@ const regionName = id => (ST.lang === 'ko' ? ST.regions[id].label : (I18N.REGION
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const sign = v => (v > 0 ? '+' : v < 0 ? '−' : '');
 const pct = (v, d = 1) => sign(v) + Math.abs(v * 100).toFixed(d) + '%';
+const pctPlain = (v, d = 1) => (v < 0 ? '−' : '') + Math.abs(v * 100).toFixed(d) + '%';
 const num = (v, d) => v.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
 const SYM = { USD: '$', EUR: '€' };
 function money(v, cur) {                       // 매출·영업이익 (십억 단위 저장)
@@ -53,10 +62,13 @@ function eps(v, cur) {
   return neg + SYM[cur] + num(a, 2);
 }
 const fmtM = (k, v, cur) => (k === 'revenue_yoy' || k === 'price_reaction' ? pct(v) : k.startsWith('eps') ? eps(v, cur) : money(v, cur));
+const weekday = iso => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return new Intl.DateTimeFormat(locale(), { weekday: 'short', timeZone: 'UTC' }).format(new Date(Date.UTC(y, m - 1, d)));
+};
 function fmtDate(iso, withYear) {
   const [y, m, d] = iso.split('-').map(Number);
-  const w = new Intl.DateTimeFormat(locale(), { weekday: 'short', timeZone: 'UTC' }).format(new Date(Date.UTC(y, m - 1, d)));
-  return `${withYear ? y + '.' : ''}${String(m).padStart(2, '0')}.${String(d).padStart(2, '0')} (${w})`;
+  return `${withYear ? y + '.' : ''}${String(m).padStart(2, '0')}.${String(d).padStart(2, '0')} (${weekday(iso)})`;
 }
 const shortDate = iso => `${+iso.slice(5, 7)}/${+iso.slice(8, 10)}`;
 function todayIn(tz) {
@@ -65,6 +77,7 @@ function todayIn(tz) {
   return `${p.year}-${p.month}-${p.day}`;
 }
 const dayDiff = (a, b) => Math.round((Date.parse(a) - Date.parse(b)) / 864e5);
+const ddText = dd => (dd === 0 ? t('today') : dd > 0 ? 'D-' + dd : t('pastDate'));
 // 현지 시각(tz) → 방콕 시각
 function tzOffset(ts, tz) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
@@ -94,8 +107,21 @@ async function loadTr(lang) {
   if (lang === 'ko' || ST.tr[lang]) return;
   ST.tr[lang] = await getJSON(`data/i18n/${lang}.json`).then(d => d.items).catch(() => ({}));
 }
+const val = (e, k) => (e.metrics[k] ? e.metrics[k].value : null);
+const season = () => ST.seasons[ST.sid];
+const findEvent = tk => season().events.find(e => e.ticker === tk);
 
-// ---------- 셀 ----------
+// 비교·정렬에 쓰는 지표. polar = 부호가 의미(상회/하회, 증감), cap = 막대 최대 범위
+const METRIC = {
+  revenue_surprise: { label: 'revSurprise', get: (e, d) => d.revenue_surprise, polar: true, cap: 0.25, keys: ['revenue', 'revenue_consensus'] },
+  eps_surprise: { label: 'epsSurprise', get: (e, d) => d.eps_surprise, polar: true, cap: 0.25, keys: ['eps', 'eps_consensus'] },
+  revenue_yoy: { label: 'mYoy', get: e => val(e, 'revenue_yoy'), polar: true, cap: 1.5, keys: ['revenue_yoy'] },
+  op_margin: { label: 'mMargin', get: (e, d) => d.op_margin, polar: false, cap: 1, keys: ['operating_income', 'revenue'] },
+  price_reaction: { label: 'mReaction', get: e => val(e, 'price_reaction'), polar: true, cap: 0.15, keys: ['price_reaction'] },
+};
+const dir = v => (v > 0 ? 'up' : v < 0 ? 'down' : 'flat');
+const arrow = v => (v > 0 ? '▲' : v < 0 ? '▼' : '·');
+
 // 지표 메모(툴팁·상세 공통). base = '{시즌}/{티커}/{지표}'
 function metricBits(m, base, k, cur, html) {
   const b = [], e = html ? esc : s => s;
@@ -110,127 +136,270 @@ function metricBits(m, base, k, cur, html) {
   if (m.reason) b.push((m.value == null ? t('blankReason') : '') + e(txt(base + '/reason', m.reason)));
   return b;
 }
-function valueCell(ev, co, key, fmt, extra = '') {
-  const m = ev.metrics[key], base = `${ST.sid}/${ev.ticker}/${key}`;
-  const v = m ? m.value : null;
-  if (v == null) {
-    if (ev.status === 'scheduled') return `<td class="${extra}"></td>`;
-    if (key === 'operating_income' && co.operating_income === false) return `<td class="${extra}"><span class="na">${t('na')}</span></td>`;
-    if (m && m.reason) return `<td class="${extra}"><span class="miss info" title="${esc(txt(base + '/reason', m.reason))}">—</span></td>`;
-    return `<td class="${extra}"><span class="miss">—</span></td>`;
-  }
-  const tip = metricBits(m, base, key, ev.currency, false).join(' · ');
-  const fl = m.flag && t('flagShort.' + m.flag) ? `<sup class="fl ${m.flag}">${t('flagShort.' + m.flag)}</sup>` : '';
-  const body = tip ? `<span class="info" title="${esc(tip)}">${fmt(v)}</span>` : fmt(v);
-  const cls = key === 'price_reaction' ? `${extra} ${v > 0 ? 'up' : v < 0 ? 'down' : ''}` : extra;
-  return `<td class="${cls}">${body}${fl}</td>`;
+const flagSup = m => (m && m.flag && t('flagShort.' + m.flag) ? `<sup class="fl ${m.flag}">${t('flagShort.' + m.flag)}</sup>` : '');
+const cautionOf = (e, keys) => keys.map(k => [k, e.metrics[k]]).filter(([, m]) => m && m.caution)
+  .map(([k, m]) => txt(`${ST.sid}/${e.ticker}/${k}/caution`, m.caution));
+const weakOf = (e, keys) => keys.some(k => e.metrics[k] && ['unverified', 'disputed'].includes(e.metrics[k].flag));
+
+// 상회/하회 알약: ▲ 0.7% (색 + 기호 + 부호 — 색만으로 뜻을 전하지 않음)
+function pill(v, e, keys) {
+  if (v == null) return '';
+  const warn = cautionOf(e, keys);
+  const weak = weakOf(e, keys);
+  return `<span class="pill ${dir(v)}${weak ? ' weak' : ''}"${weak ? ` title="${esc(t('weakTitle'))}"` : ''}>${arrow(v)} ${pctPlain(Math.abs(v))}${warn.length ? `<sup class="warn" title="${esc(warn.join(' / '))}">※</sup>` : ''}</span>`;
 }
-// 계산 필드 셀: 색, 입력값 표시(미확인·불일치면 흐리게), 해석 주의(※)
-function derivedCell(v, ev, keys, extra = '', colored = true) {
-  if (v == null) return `<td class="${extra}"></td>`;
-  const ms = keys.map(k => [k, ev.metrics[k]]).filter(x => x[1]);
-  const weak = ms.some(([, m]) => m.flag === 'unverified' || m.flag === 'disputed');
-  const cautions = ms.filter(([, m]) => m.caution).map(([k, m]) => txt(`${ST.sid}/${ev.ticker}/${k}/caution`, m.caution));
-  const cls = [extra, colored ? (v > 0 ? 'up' : v < 0 ? 'down' : '') : '', weak ? 'weak' : ''].join(' ');
-  const warn = cautions.length ? `<sup class="warn" title="${esc(cautions.join(' / '))}">※</sup>` : '';
-  const title = weak ? ` title="${esc(t('weakTitle'))}"` : '';
-  const s = colored ? pct(v) : (v * 100).toFixed(1) + '%';
-  return `<td class="${cls}"><span${title}>${s}</span>${warn}</td>`;
+// 비어 있는 값 표시
+function blank(e, c, key) {
+  const m = e.metrics[key];
+  if (key === 'operating_income' && c.operating_income === false) return `<span class="na">${t('na')}</span>`;
+  if (m && m.reason) return `<span class="na" title="${esc(txt(`${ST.sid}/${e.ticker}/${key}/reason`, m.reason))}">—</span>`;
+  return '<span class="na">—</span>';
 }
 
-function whenCell(ev, today) {
-  const a = ev.announce, chips = [];
-  let sub = '';
-  if (ev.status === 'scheduled') {
-    const dd = dayDiff(a.date, today);
-    if (dd < 0) chips.push(`<span class="chip over">${t('pastDate')}</span>`);
-    else chips.push(`<span class="chip ${dd <= 2 ? 'dd' : ''}">${dd === 0 ? t('today') : 'D-' + dd}</span>`);
-    chips.push(`<span class="chip ${a.certainty === 'estimated' ? 'est' : ''}" title="${esc(t('certTitle'))}">${t('cert.' + a.certainty)}</span>`);
-    const bits = [];
-    if (a.timing) bits.push(t('timing.' + a.timing));
-    if (a.time && a.tz) { const b = toView(a.date, a.time, a.tz); bits.push(`${t('bkk')} ${shortDate(b.date)} ${b.time}`); }
-    if (a.alt_dates && a.alt_dates.length) bits.push(t('or') + ' ' + a.alt_dates.map(shortDate).join('·'));
-    sub = bits.join(' · ');
-  } else {
-    if (ev.status !== 'reported') chips.push(`<span class="chip ${ev.status === 'awaiting_input' ? 'wait' : 'check'}">${t('status.' + ev.status)}</span>`);
-    else chips.push(`<span class="chip done">${t('status.reported')}</span>`);
-    if (ev.stage) chips.push(`<span class="chip ${ev.stage === 'preliminary' ? 'prelim' : 'final'}">${t('stage.' + ev.stage)}</span>`);
-    if (ev.stage === 'preliminary' && a.final_expected) sub = t('finalExp', { x: txt(`${ST.sid}/${ev.ticker}/announce/final_expected`, a.final_expected) });
-  }
-  return `<td class="when l"><span class="d">${fmtDate(a.date)}</span><div class="chips">${sub ? `<span class="sub">${esc(sub)}</span>` : ''}${chips.join('')}</div></td>`;
+// ---------- 칩·배지 ----------
+function statusChips(e) {
+  const c = [];
+  if (e.status === 'reported') c.push(`<span class="chip done">${t('status.reported')}</span>`);
+  else if (e.status !== 'scheduled') c.push(`<span class="chip ${e.status === 'awaiting_input' ? 'wait' : 'check'}">${t('status.' + e.status)}</span>`);
+  if (e.stage) c.push(`<span class="chip ${e.stage === 'preliminary' ? 'prelim' : 'final'}">${t('stage.' + e.stage)}</span>`);
+  return c.join('');
 }
-function periodCell(ev, co) {
-  const p = ev.period;
-  const rule = co.fiscal.rule ? txt(`co/${co.ticker}/rule`, co.fiscal.rule) : '';
-  const sub = co.fiscal.calendar ? '' : `<span class="sub" title="${esc(rule)}">${p.approx ? '≈' : ''}${shortDate(p.start)}–${shortDate(p.end)}</span>`;
-  return `<td class="l">${esc(ev.label)}${sub}</td>`;
+function schedBits(e, withDate) {
+  const a = e.announce, bits = [];
+  if (withDate) bits.push(fmtDate(a.date));
+  if (a.timing) bits.push(t('timing.' + a.timing));
+  if (a.time && a.tz) { const b = toView(a.date, a.time, a.tz); bits.push(`${t('bkk')} ${shortDate(b.date)} ${b.time}`); }
+  if (a.alt_dates && a.alt_dates.length) bits.push(t('or') + ' ' + a.alt_dates.map(shortDate).join('·'));
+  return bits;
 }
-// 기업 셀: 숫자 코드(한국 종목)는 종목명을 크게, 코드는 작게
-function companyCell(e, c, open) {
+const certChip = a => `<span class="chip ${a.certainty === 'estimated' ? 'est' : 'ok'}" title="${esc(t('certTitle'))}">${t('cert.' + a.certainty)}</span>`;
+const periodText = (e, c) => esc(e.label) + (c.fiscal.calendar ? '' : ` · ${e.period.approx ? '≈' : ''}${shortDate(e.period.start)}–${shortDate(e.period.end)}`);
+function nameBlock(e, c) {
   const main = isCode(e.ticker) ? coName(c) : e.ticker;
   const sub = isCode(e.ticker) ? `${e.ticker} · ${sectorName(c.sector)}` : `${coName(c)} · ${sectorName(c.sector)}`;
-  return `<td class="co"><button type="button" class="tog" aria-expanded="${open}" aria-controls="det-${esc(e.ticker)}"><span class="car">▶</span><span class="tk">${esc(main)}</span><span class="nm">${esc(sub)}</span></button></td>`;
+  return `<span class="tk">${esc(main)}</span><span class="nm">${esc(sub)}</span>`;
 }
 
-// ---------- 표 ----------
-const SORTABLE = {
-  revenue_surprise: { label: 'colSurprise', get: (e, d) => d.revenue_surprise },
-  revenue_yoy: { label: 'colYoy', get: e => e.metrics.revenue_yoy && e.metrics.revenue_yoy.value },
-  op_margin: { label: 'colMargin', get: (e, d) => d.op_margin },
-  eps_surprise: { label: 'colSurprise', get: (e, d) => d.eps_surprise },
-  price_reaction: { label: 'colReaction', get: e => e.metrics.price_reaction && e.metrics.price_reaction.value },
-};
-const sortBtn = k => {
-  const dir = ST.sort && ST.sort.key === k ? ST.sort.dir : '', l = t(SORTABLE[k].label);
-  return `<button type="button" class="sort" data-sort="${k}" data-dir="${dir}" aria-label="${esc(t('sortBy', { x: l }))}">${esc(l)}</button>`;
-};
-const NCOL = 13;
+// ---------- 요약 ----------
+function splitBar(b, m) {
+  const n = b + m;
+  if (!n) return '<div class="split empty"></div>';
+  return `<div class="split" aria-hidden="true"><i class="up" style="flex:${b}"></i><i class="down" style="flex:${m}"></i></div>`;
+}
+function renderSummary(s, today) {
+  const evs = s.events, total = evs.length;
+  const done = evs.filter(e => e.status !== 'scheduled').length;
+  const ds = evs.map(e => Calc.derived(e.metrics));
+  const tally = k => { const v = ds.map(d => d[k]).filter(x => x != null); return [v.filter(x => x > 0).length, v.filter(x => x < 0).length]; };
+  const [rb, rm] = tally('revenue_surprise'), [eb, em] = tally('eps_surprise');
+  const upcoming = evs.filter(e => e.status === 'scheduled' && e.announce.date >= today).sort((a, b) => a.announce.date.localeCompare(b.announce.date));
+  const overdue = evs.filter(e => e.status === 'scheduled' && e.announce.date < today);
+  const bm = (b, m) => (b + m ? `<span class="nb"><b class="up">${b}</b><small>${t('beat')}</small></span> <span class="nb"><b class="down">${m}</b><small>${t('miss')}</small></span>` : '—');
+  let last;
+  if (overdue.length) {
+    last = `<div class="tile alert"><span class="tt">${t('overdueTitle')}</span><span class="tv">${overdue.length}</span>
+      <span class="ts"><b>${overdue.map(e => esc(label(e.ticker))).join(' · ')}</b> — ${t('overdueNote')}</span></div>`;
+  } else if (upcoming.length) {
+    const d0 = upcoming[0].announce.date, same = upcoming.filter(e => e.announce.date === d0);
+    last = `<div class="tile"><span class="tt">${t('nextTitle')}</span><span class="tv">${fmtDate(d0)} <small>${ddText(dayDiff(d0, today))}</small></span>
+      <span class="ts"><b>${same.map(e => esc(label(e.ticker))).join(' · ')}</b></span></div>`;
+  } else {
+    last = `<div class="tile"><span class="tt">${t('nextTitle')}</span><span class="tv">—</span><span class="ts">${t('noneLeft')}</span></div>`;
+  }
+  $('summary').innerHTML = `
+    <div class="tile"><span class="tt">${t('progress')}</span><span class="tv">${done}<small>${t('ofCompanies', { n: total })}</small></span>
+      <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${done}"><i style="width:${(done / total * 100).toFixed(1)}%"></i></div>
+      <span class="ts">${t('reportedOf', { a: done, b: total - done })}</span></div>
+    <div class="tile"><span class="tt">${t('revSurprise')}</span><span class="tv">${bm(rb, rm)}</span>${splitBar(rb, rm)}<span class="ts">${t('basedOn', { n: rb + rm })}</span></div>
+    <div class="tile"><span class="tt">${t('epsSurprise')}</span><span class="tv">${bm(eb, em)}</span>${splitBar(eb, em)}<span class="ts">${t('epsNote')}</span></div>
+    ${last}`;
+}
 
-function renderTable(season, today) {
-  const rows = season.events.map(e => ({ e, c: ST.companies[e.ticker], d: Calc.derived(e.metrics) }));
+// ---------- 다가오는 발표 (날짜별: 좁은 화면은 세로 타임라인, 넓은 화면은 날짜 열) ----------
+function renderUpcoming(s, today) {
+  const sch = s.events.filter(e => e.status === 'scheduled').sort((a, b) => a.announce.date.localeCompare(b.announce.date) || ST.companies[a.ticker].order - ST.companies[b.ticker].order);
+  $('upSec').hidden = !sch.length;
+  if (!sch.length) return;
+  const groups = [];
+  sch.forEach(e => { const g = groups[groups.length - 1]; if (g && g.date === e.announce.date) g.evs.push(e); else groups.push({ date: e.announce.date, evs: [e] }); });
+  $('upcoming').innerHTML = `<ol class="timeline">${groups.map(g => {
+    const dd = dayDiff(g.date, today);
+    const [, m, d] = g.date.split('-');
+    return `<li class="tl ${dd < 0 ? 'over' : dd <= 2 ? 'soon' : ''}">
+      <div class="tld"><span class="tlm">${+m}/${+d}</span><span class="tlw">${weekday(g.date)}</span><span class="tldd">${ddText(dd)}</span></div>
+      <div class="tle">${g.evs.map(e => `<button type="button" class="tlc" data-open="${esc(e.ticker)}" aria-label="${esc(t('openDetail', { x: label(e.ticker) }))}">
+          <span class="tk">${esc(label(e.ticker))}</span><span class="tls">${esc(schedBits(e).join(' · '))}</span>${certChip(e.announce)}</button>`).join('')}</div></li>`;
+  }).join('')}</ol>`;
+}
+
+// ---------- 필터 ----------
+function filtered(s) {
+  return s.events.filter(e => (ST.region === 'all' || ST.companies[e.ticker].region === ST.region)
+    && (ST.status === 'all' || (ST.status === 'reported' ? e.status !== 'scheduled' : e.status === 'scheduled')));
+}
+function renderFilters() {
+  const regs = Object.keys(ST.regions);
+  const chip = (grp, v, l, on) => `<button type="button" class="fchip" data-${grp}="${v}" aria-pressed="${on}">${l}</button>`;
+  $('fRegion').innerHTML = chip('region', 'all', t('fAll'), ST.region === 'all') + regs.map(r => chip('region', r, `${ST.regions[r].flag} ${esc(regionName(r))}`, ST.region === r)).join('');
+  $('fStatus').innerHTML = [['all', t('fAll')], ['reported', t('fReported')], ['scheduled', t('fUpcoming')]].map(([v, l]) => chip('status', v, l, ST.status === v)).join('');
+  $('sortSel').innerHTML = `<option value="">${t('sortDefault')}</option>` + Object.keys(METRIC).map(k => `<option value="${k}" ${ST.sort === k ? 'selected' : ''}>${t(METRIC[k].label)}</option>`).join('');
+  document.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === curView()));
+}
+const curView = () => (WIDE() ? (ST.view || 'cards') : 'cards');   // 좁은 화면은 항상 카드
+
+// ---------- 한눈에 비교 (회사 × 지표 5개) ----------
+// 같은 행에 지표 5개를 나란히 둔다. 넓으면 열마다 막대, 좁으면 색 농도(히트맵)로 그린다(CSS 컨테이너 쿼리).
+// 열 이름을 누르면 그 지표로 정렬. 눈금은 열마다 따로(cap까지, 넘으면 ≫).
+const CMP = Object.keys(METRIC);
+function cmpNum(v, polar, compact) {
+  const a = Math.abs(v) * 100;
+  const n = (compact ? (a >= 10 ? a.toFixed(0) : a.toFixed(1)) : (a >= 100 ? a.toFixed(0) : a.toFixed(1))) + '%';
+  return polar ? `<span class="ar">${arrow(v)}</span>${n}` : (v < 0 ? '−' : '') + n;
+}
+function cmpCell(e, k, v, scale) {
+  const M = METRIC[k], on = k === ST.metric ? ' on' : '';
+  if (v == null) return `<span class="mxc nil${on}">—</span>`;
+  const r = Math.min(Math.abs(v) / scale, 1), over = Math.abs(v) > scale + 1e-12;
+  const cls = M.polar ? dir(v) : 'acc';
+  const pos = M.polar ? (v >= 0 ? 'left:50%' : 'right:50%') : 'left:0';
+  const warn = cautionOf(e, M.keys), weak = weakOf(e, M.keys);
+  return `<span class="mxc ${cls}${weak ? ' weak' : ''}${on}" style="--p:${Math.round(8 + r * 30)}%">
+    <span class="ct${M.polar ? ' polar' : ''}"><i class="${cls}" style="${pos};width:${(r * (M.polar ? 50 : 100)).toFixed(2)}%"></i>${over ? `<b class="cap ${v < 0 ? 'neg' : ''}" title="${esc(t('overCap'))}">≫</b>` : ''}</span>
+    <span class="cv"><span class="v1">${cmpNum(v, M.polar)}</span><span class="v0">${cmpNum(v, M.polar, true)}</span>${warn.length ? `<sup class="warn" title="${esc(warn.join(' / '))}">※</sup>` : ''}</span></span>`;
+}
+function renderCompare(list) {
+  const rows = list.filter(e => e.status !== 'scheduled').map(e => {
+    const d = Calc.derived(e.metrics);
+    return { e, v: Object.fromEntries(CMP.map(k => [k, METRIC[k].get(e, d)])) };
+  }).filter(r => CMP.some(k => r.v[k] != null));
+  if (!rows.length) { $('compare').innerHTML = `<p class="empty">${t('cmpEmpty')}</p>`; return; }
+  const k0 = ST.metric, order = e => ST.companies[e.ticker].order;
+  rows.sort((a, b) => {
+    const x = a.v[k0], y = b.v[k0];
+    if (x == null || y == null) return x == null && y == null ? order(a.e) - order(b.e) : x == null ? 1 : -1;
+    return (ST.cmpDir < 0 ? y - x : x - y) || order(a.e) - order(b.e);
+  });
+  const scale = Object.fromEntries(CMP.map(k => {
+    const vs = rows.map(r => r.v[k]).filter(v => v != null).map(Math.abs);
+    return [k, Math.min(METRIC[k].cap, Math.max(0, ...vs)) || 1];
+  }));
+  const head = CMP.map(k => {
+    const M = METRIC[k], on = k === k0, sc = (M.polar ? '±' : '') + pctPlain(scale[k], 0);
+    const how = on ? t(ST.cmpDir < 0 ? 'sortHi' : 'sortLo') : '';
+    return `<button type="button" class="mxk${on ? ' on' : ''}" data-metric="${k}" aria-pressed="${on}" title="${esc(t(M.label) + (how ? ' · ' + how : ''))}">
+      <span class="lf">${t(M.label)}</span><span class="ls">${t('cmpShort.' + k)}</span>${on ? `<span class="so" aria-hidden="true">${ST.cmpDir < 0 ? '↓' : '↑'}</span>` : ''}<small class="sc">${t('scaleTxt', { cap: sc })}</small></button>`;
+  }).join('');
+  const body = rows.map(({ e, v }) => {
+    const aria = label(e.ticker) + ': ' + CMP.map(k => `${t(METRIC[k].label)} ${v[k] == null ? '—' : pct(v[k])}`).join(', ');
+    return `<button type="button" class="mxr" data-open="${esc(e.ticker)}" aria-label="${esc(aria)}"><span class="mxl">${esc(label(e.ticker))}</span>${CMP.map(k => cmpCell(e, k, v[k], scale[k])).join('')}</button>`;
+  }).join('');
+  $('compare').innerHTML = `<div class="mx"><div class="mxh"><span class="mxl"></span>${head}</div>${body}</div><p class="cap">${t('cmpNote')}</p>`;
+}
+
+// ---------- 기업 카드 ----------
+function sorted(list) {
+  const base = list.slice().sort((a, b) => {
+    const sa = a.status === 'scheduled', sb = b.status === 'scheduled';
+    if (sa !== sb) return sa ? 1 : -1;                         // 발표한 회사 먼저
+    if (sa) return a.announce.date.localeCompare(b.announce.date) || ST.companies[a.ticker].order - ST.companies[b.ticker].order;
+    return ST.companies[a.ticker].order - ST.companies[b.ticker].order;
+  });
+  if (!ST.sort) return base;
+  const get = METRIC[ST.sort].get;
+  return base.slice().sort((a, b) => {
+    const x = get(a, Calc.derived(a.metrics)), y = get(b, Calc.derived(b.metrics));
+    if (x == null && y == null) return 0;
+    if (x == null) return 1;
+    if (y == null) return -1;
+    return y - x;
+  });
+}
+function metricBlock(e, c, kind) {
+  const cur = e.currency, m = e.metrics, d = Calc.derived(m);
+  const v = k => (m[k] && m[k].value != null ? m[k].value : null);
+  if (kind === 'rev') {
+    return `<div class="mb"><span class="ml">${t('bandRevenue')}</span>
+      <span class="mv">${v('revenue') != null ? money(v('revenue'), cur) + flagSup(m.revenue) : blank(e, c, 'revenue')}</span>
+      <span class="mc">${t('consShort')} ${v('revenue_consensus') != null ? money(v('revenue_consensus'), cur) + flagSup(m.revenue_consensus) : '—'}</span>
+      ${pill(d.revenue_surprise, e, ['revenue', 'revenue_consensus'])}</div>`;
+  }
+  if (kind === 'op') {
+    const mg = d.op_margin;
+    return `<div class="mb"><span class="ml">${t('cardOp')}</span>
+      <span class="mv">${v('operating_income') != null ? money(v('operating_income'), cur) + flagSup(m.operating_income) : blank(e, c, 'operating_income')}</span>
+      <span class="mc">${t('marginShort')} ${mg != null ? pctPlain(mg) : '—'}</span>
+      ${mg != null ? `<span class="meter" aria-hidden="true"><i style="width:${Math.max(0, Math.min(mg, 1)) * 100}%"></i></span>` : ''}</div>`;
+  }
+  return `<div class="mb"><span class="ml">EPS</span>
+    <span class="mv">${v('eps') != null ? eps(v('eps'), cur) + flagSup(m.eps) : blank(e, c, 'eps')}</span>
+    <span class="mc">${t('consShort')} ${v('eps_consensus') != null ? eps(v('eps_consensus'), cur) + flagSup(m.eps_consensus) : '—'}</span>
+    ${pill(d.eps_surprise, e, ['eps', 'eps_consensus'])}</div>`;
+}
+function card(e) {
+  const c = ST.companies[e.ticker], a = e.announce, open = t('openDetail', { x: label(e.ticker) });
+  const yoy = val(e, 'revenue_yoy'), rx = val(e, 'price_reaction');
+  return `<article class="card" tabindex="0" role="button" data-open="${esc(e.ticker)}" aria-label="${esc(open)}">
+    <div class="ch"><div class="cn">${nameBlock(e, c)}</div><div class="cs">${statusChips(e)}</div></div>
+    <div class="cp">${fmtDate(a.date)} · ${periodText(e, c)}</div>
+    <div class="mg">${metricBlock(e, c, 'rev')}${metricBlock(e, c, 'op')}${metricBlock(e, c, 'eps')}</div>
+    <div class="cf">
+      <span><span class="ml">${t('mYoy')}</span> <b class="${yoy != null ? dir(yoy) + 't' : ''}">${yoy != null ? pct(yoy) : '—'}</b></span>
+      <span><span class="ml">${t('mReaction')}</span> <b class="${rx != null ? dir(rx) + 't' : ''}">${rx != null ? `${arrow(rx)} ${pctPlain(Math.abs(rx))}` : '—'}</b></span>
+      <span class="more">${t('details')} ›</span></div></article>`;
+}
+// 발표 예정 회사는 카드 대신 한 묶음의 짧은 줄로(세로 길이 절약)
+function schedRow(e, today) {
+  const a = e.announce, dd = dayDiff(a.date, today);
+  return `<button type="button" class="srow" data-open="${esc(e.ticker)}" aria-label="${esc(t('openDetail', { x: label(e.ticker) }))}">
+    <span class="cn">${nameBlock(e, ST.companies[e.ticker])}</span>
+    <span class="sw"><b>${fmtDate(a.date)}</b> <span class="chip ${dd < 0 ? 'over' : dd <= 2 ? 'dd' : ''}">${ddText(dd)}</span></span>
+    <span class="sx">${esc(schedBits(e).concat(e.label).join(' · '))} ${certChip(a)}</span></button>`;
+}
+function renderCards(list, today) {
+  const items = sorted(list), rep = items.filter(e => e.status !== 'scheduled'), sch = items.filter(e => e.status === 'scheduled');
+  if (!items.length) { $('cards').innerHTML = `<p class="empty">${t('noneMatch')}</p>`; return; }
+  $('cards').innerHTML = rep.map(card).join('') + (sch.length
+    ? `<section class="slist"><h3>${t('schedList', { n: sch.length })}</h3><div class="srows">${sch.map(e => schedRow(e, today)).join('')}</div></section>` : '');
+}
+
+// ---------- 표 (넓은 화면) ----------
+function renderTable(list, today) {
+  const rows = sorted(list);
   const head = `<thead>
     <tr class="band"><th colspan="3">${t('bandBasic')}</th><th colspan="4">${t('bandRevenue')}</th><th colspan="2">${t('bandOp')}</th><th colspan="3">${t('bandEps')}</th><th>${t('bandMarket')}</th></tr>
     <tr class="hd"><th class="l">${t('colCompany')}</th><th class="l">${t('colDate')}</th><th class="l">${t('colPeriod')}</th>
-      <th class="g">${t('colActual')}</th><th>${t('colCons')}</th><th>${sortBtn('revenue_surprise')}</th><th>${sortBtn('revenue_yoy')}</th>
-      <th class="g">${t('colActual')}</th><th>${sortBtn('op_margin')}</th>
-      <th class="g">${t('colActual')}</th><th>${t('colCons')}</th><th>${sortBtn('eps_surprise')}</th>
-      <th class="g">${sortBtn('price_reaction')}</th></tr></thead>`;
-
-  let list = rows;
-  if (ST.sort) {
-    const { key, dir } = ST.sort, get = SORTABLE[key].get;
-    list = rows.slice().sort((a, b) => {
-      const x = get(a.e, a.d), y = get(b.e, b.d);
-      if (x == null && y == null) return a.c.order - b.c.order;
-      if (x == null) return 1;
-      if (y == null) return -1;
-      return dir === 'desc' ? y - x : x - y;
-    });
-  }
-  let html = '', region = null;
-  for (const { e, c, d } of list) {
-    if (!ST.sort && c.region !== region) {
-      region = c.region;
-      const n = rows.filter(x => x.c.region === region).length;
-      html += `<tr class="grp"><td colspan="${NCOL}"><span>${ST.regions[region].flag} ${esc(regionName(region))} · ${t('companies', { n })}</span></td></tr>`;
-    }
-    const cur = e.currency, open = ST.open.has(e.ticker);
-    html += `<tr class="ev ${e.status === 'scheduled' ? 'pending' : ''} ${open ? 'open' : ''}" data-t="${esc(e.ticker)}">
-      ${companyCell(e, c, open)}${whenCell(e, today)}${periodCell(e, c)}
-      ${valueCell(e, c, 'revenue', v => money(v, cur), 'g')}${valueCell(e, c, 'revenue_consensus', v => money(v, cur))}
-      ${derivedCell(d.revenue_surprise, e, ['revenue', 'revenue_consensus'])}${valueCell(e, c, 'revenue_yoy', v => pct(v))}
-      ${valueCell(e, c, 'operating_income', v => money(v, cur), 'g')}${derivedCell(d.op_margin, e, ['operating_income', 'revenue'], '', false)}
-      ${valueCell(e, c, 'eps', v => eps(v, cur), 'g')}${valueCell(e, c, 'eps_consensus', v => eps(v, cur))}
-      ${derivedCell(d.eps_surprise, e, ['eps', 'eps_consensus'])}
-      ${valueCell(e, c, 'price_reaction', v => pct(v), 'g')}
-    </tr>
-    <tr class="det" id="det-${esc(e.ticker)}" ${open ? '' : 'hidden'}><td colspan="${NCOL}">${open ? detail(e, c) : ''}</td></tr>`;
-  }
-  $('tbl').innerHTML = head + '<tbody>' + html + '</tbody>';
+      <th class="g">${t('colActual')}</th><th>${t('colCons')}</th><th>${t('colSurprise')}</th><th>${t('colYoy')}</th>
+      <th class="g">${t('colActual')}</th><th>${t('colMargin')}</th>
+      <th class="g">${t('colActual')}</th><th>${t('colCons')}</th><th>${t('colSurprise')}</th>
+      <th class="g">${t('colReaction')}</th></tr></thead>`;
+  const cell = (e, c, k, fmt, cls = '') => {
+    const m = e.metrics[k];
+    if (!m || m.value == null) return `<td class="${cls}">${e.status === 'scheduled' ? '' : blank(e, c, k)}</td>`;
+    const tip = metricBits(m, `${ST.sid}/${e.ticker}/${k}`, k, e.currency, false).join(' · ');
+    return `<td class="${cls}">${tip ? `<span class="info" title="${esc(tip)}">${fmt(m.value)}</span>` : fmt(m.value)}${flagSup(m)}</td>`;
+  };
+  const body = rows.map(e => {
+    const c = ST.companies[e.ticker], d = Calc.derived(e.metrics), cur = e.currency, a = e.announce;
+    const when = e.status === 'scheduled'
+      ? `<span class="chip ${dayDiff(a.date, today) <= 2 ? 'dd' : ''}">${ddText(dayDiff(a.date, today))}</span> ${certChip(a)}`
+      : statusChips(e);
+    const rx = val(e, 'price_reaction');
+    return `<tr class="ev ${e.status === 'scheduled' ? 'pending' : ''}" data-open="${esc(e.ticker)}" tabindex="0">
+      <td class="co">${nameBlock(e, c)}</td>
+      <td class="l"><span class="d">${fmtDate(a.date)}</span><div class="chips">${when}</div></td>
+      <td class="l">${periodText(e, c)}</td>
+      ${cell(e, c, 'revenue', v => money(v, cur), 'g')}${cell(e, c, 'revenue_consensus', v => money(v, cur))}
+      <td>${pill(d.revenue_surprise, e, ['revenue', 'revenue_consensus'])}</td>${cell(e, c, 'revenue_yoy', v => pct(v))}
+      ${cell(e, c, 'operating_income', v => money(v, cur), 'g')}<td>${d.op_margin != null ? pctPlain(d.op_margin) : ''}</td>
+      ${cell(e, c, 'eps', v => eps(v, cur), 'g')}${cell(e, c, 'eps_consensus', v => eps(v, cur))}
+      <td>${pill(d.eps_surprise, e, ['eps', 'eps_consensus'])}</td>
+      <td class="g">${rx != null ? `<b class="${dir(rx)}t">${arrow(rx)} ${pctPlain(Math.abs(rx))}</b>` : (e.status === 'scheduled' ? '' : blank(e, c, 'price_reaction'))}</td></tr>`;
+  }).join('');
+  $('tbl').innerHTML = rows.length ? head + '<tbody>' + body + '</tbody>' : `<tbody><tr><td class="empty">${t('noneMatch')}</td></tr></tbody>`;
 }
 
-// 펼친 상세: 비고 + 지표별 출처·기준 + 일정·기간 + 정정 기록
-function detail(e, c) {
+// ---------- 상세 시트 ----------
+function detailHTML(e, c) {
   const p0 = `${ST.sid}/${e.ticker}`;
   const n = tx(p0 + '/notes', e.notes || '');
   const notes = esc(n.text).replace(/\s(?=[★※])/g, '<br>');
@@ -241,7 +410,7 @@ function detail(e, c) {
     const bits = metricBits(m, `${p0}/${k}`, k, e.currency, true);
     (m.src || []).forEach(s => bits.push(`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`));
     if (!bits.length) return '';
-    return `<div class="mrow"><b>${t('metric.' + k)}</b><span>${m.value == null ? '—' : fmtM(k, m.value, e.currency)}</span><span class="x">${bits.join(' · ')}</span></div>`;
+    return `<li><b>${t('metric.' + k)}</b> <span class="v">${m.value == null ? '—' : fmtM(k, m.value, e.currency)}</span><span class="x">${bits.join(' · ')}</span></li>`;
   }).join('');
   const a = e.announce, p = e.period;
   const sched = [fmtDate(a.date, true), a.timing && t('timing.' + a.timing), t('schedCert', { x: t('cert.' + a.certainty) }),
@@ -250,58 +419,55 @@ function detail(e, c) {
     a.note && txt(p0 + '/announce/note', a.note),
     a.final_expected && `${t('finalResults')} ${txt(p0 + '/announce/final_expected', a.final_expected)}`].filter(Boolean).map(esc).join(' · ');
   const rule = c.fiscal.rule ? txt(`co/${c.ticker}/rule`, c.fiscal.rule) : '';
-  const chg = (e.changes || []).map((x, i) => `<div class="chg">${esc(t('metric.' + x.field) || (x.field === 'notes' ? t('notesField') : x.field))}${'from' in x ? `: ${esc(x.from ?? '—')} → ${esc(x.to)}` : ''} — ${esc(txt(`${p0}/changes/${i}/reason`, x.reason || ''))}</div>`).join('');
-  return `<div class="detin">
-    <div><h3>${t('notesH')}${origTag}</h3><p>${notes || `<span class="na">${t('noneYet')}</span>`}</p></div>
-    <dl>
-      <div><dt>${t('schedH')}</dt><dd>${sched}</dd></div>
-      <div><dt>${t('periodH')}</dt><dd>${esc(e.label)} · ${p.start} ~ ${p.end}${p.approx ? ` (${t('byRule')})` : ''}${rule ? `<br><span class="chg">${esc(rule)}</span>` : ''}</dd></div>
-      ${mrows ? `<div><dt>${t('metricsH')}</dt><dd>${mrows}</dd></div>` : ''}
-      ${chg ? `<div><dt>${t('changesH')}</dt><dd>${chg}</dd></div>` : ''}
-    </dl></div>`;
+  const chg = (e.changes || []).map((x, i) => `<li>${esc(t('metric.' + x.field) || (x.field === 'notes' ? t('notesField') : x.field))}${'from' in x ? `: ${esc(x.from ?? '—')} → ${esc(x.to)}` : ''} — ${esc(txt(`${p0}/changes/${i}/reason`, x.reason || ''))}</li>`).join('');
+  const yoy = val(e, 'revenue_yoy'), rx = val(e, 'price_reaction');
+  const figs = e.status === 'scheduled' ? `<p class="na">${t('notYet')}</p>` : `
+    <div class="mg big">${metricBlock(e, c, 'rev')}${metricBlock(e, c, 'op')}${metricBlock(e, c, 'eps')}</div>
+    <div class="cf"><span><span class="ml">${t('mYoy')}</span> <b class="${yoy != null ? dir(yoy) + 't' : ''}">${yoy != null ? pct(yoy) : '—'}</b></span>
+      <span><span class="ml">${t('mReaction')}</span> <b class="${rx != null ? dir(rx) + 't' : ''}">${rx != null ? `${arrow(rx)} ${pctPlain(Math.abs(rx))}` : '—'}</b></span></div>`;
+  return `
+    <header class="sh" tabindex="-1"><div class="cn">${nameBlock(e, c)}</div><div class="cs">${statusChips(e)}${e.status === 'scheduled' ? certChip(a) : ''}</div>
+      <button type="button" class="x" id="sheetClose" aria-label="${esc(t('close'))}">✕</button></header>
+    <div class="sb">
+      <section><h3>${t('keyFigures')}</h3>${figs}</section>
+      <section><h3>${t('notesH')}${origTag}</h3><p class="notes-txt">${notes || `<span class="na">${t('noneYet')}</span>`}</p></section>
+      <section><h3>${t('schedH')}</h3><p>${sched}</p></section>
+      <section><h3>${t('periodH')}</h3><p>${esc(e.label)} · ${p.start} ~ ${p.end}${p.approx ? ` (${t('byRule')})` : ''}${rule ? `<br><span class="mute">${esc(rule)}</span>` : ''}</p></section>
+      ${mrows ? `<section><h3>${t('metricsH')}</h3><ul class="mlist">${mrows}</ul></section>` : ''}
+      ${chg ? `<section><h3>${t('changesH')}</h3><ul class="mlist">${chg}</ul></section>` : ''}
+    </div>`;
 }
-
-// ---------- 요약 ----------
-function renderSummary(season, today) {
-  const evs = season.events, total = evs.length;
-  const done = evs.filter(e => e.status !== 'scheduled');
-  const ds = evs.map(e => Calc.derived(e.metrics));
-  const tally = k => { const v = ds.map(d => d[k]).filter(x => x != null); return [v.filter(x => x > 0).length, v.filter(x => x < 0).length]; };
-  const [rb, rm] = tally('revenue_surprise'), [eb, em] = tally('eps_surprise');
-  const upcoming = evs.filter(e => e.status === 'scheduled' && e.announce.date >= today).sort((a, b) => a.announce.date.localeCompare(b.announce.date));
-  const overdue = evs.filter(e => e.status === 'scheduled' && e.announce.date < today);
-  const bm = (b, m) => (b + m ? `${b}<small>${t('beat')}</small> ${m}<small>${t('miss')}</small>` : '—');
-  let next = `<span class="v">—</span><span class="s">${t('noneLeft')}</span>`;
-  if (upcoming.length) {
-    const d0 = upcoming[0].announce.date, same = upcoming.filter(e => e.announce.date === d0), dd = dayDiff(d0, today);
-    const after = upcoming.filter(e => e.announce.date > d0).slice(0, 4).map(e => `${esc(label(e.ticker))} ${shortDate(e.announce.date)}`).join(' · ');
-    const how = same.map(e => [e.announce.timing && t('timing.' + e.announce.timing), t('cert.' + e.announce.certainty)].filter(Boolean).join(' ')).filter((x, i, arr) => arr.indexOf(x) === i).join(' / ');
-    next = `<span class="v">${fmtDate(d0)}<small>${dd === 0 ? t('today') : 'D-' + dd}</small></span>
-      <span class="s"><b>${same.map(e => esc(label(e.ticker))).join(' · ')}</b> ${esc(how)}${after ? `<br>${t('then')} ${after}` : ''}</span>`;
-  }
-  const tiles = [
-    `<div class="stat"><span class="t">${t('progress')}</span><span class="v">${done.length}<small>${t('ofCompanies', { n: total })}</small></span><div class="prog"><i style="width:${(done.length / total * 100).toFixed(1)}%"></i></div></div>`,
-    `<div class="stat"><span class="t">${t('revSurprise')}</span><span class="v">${bm(rb, rm)}</span><span class="s">${t('basedOn', { n: rb + rm })}</span></div>`,
-    `<div class="stat"><span class="t">${t('epsSurprise')}</span><span class="v">${bm(eb, em)}</span><span class="s">${t('epsNote')}</span></div>`,
-    overdue.length
-      ? `<div class="stat alert"><span class="t">${t('overdueTitle')}</span><span class="v">${overdue.length}</span><span class="s"><b>${overdue.map(e => esc(label(e.ticker))).join(' · ')}</b> — ${t('overdueNote')}</span></div>`
-      : `<div class="stat"><span class="t">${t('nextTitle')}</span>${next}</div>`,
-  ];
-  $('summary').innerHTML = tiles.join('');
+function openSheet(tk, push = true) {
+  const e = findEvent(tk);
+  if (!e) return;
+  ST.sheet = tk;
+  const dlg = $('sheet');
+  dlg.innerHTML = detailHTML(e, ST.companies[tk]);
+  dlg.setAttribute('aria-label', label(tk));
+  $('sheetClose').addEventListener('click', () => closeSheet());
+  if (!dlg.open) dlg.showModal();
+  dlg.querySelector('.sh').focus({ preventScroll: true });   // 닫기 버튼 대신 제목에 포커스
+  dlg.scrollTop = 0;
+  if (push && location.hash !== `#${ST.sid}/${tk}`) history.pushState(null, '', `#${ST.sid}/${tk}`);
+}
+function closeSheet(fromHash) {
+  const dlg = $('sheet');
+  ST.sheet = null;
+  if (dlg.open) dlg.close();
+  if (!fromHash && location.hash.includes('/')) history.pushState(null, '', `#${ST.sid}`);
 }
 
 // ---------- CSV (시트와 같은 18열, 숫자는 십억 단위, 현재 언어) ----------
-function csv(season) {
-  const q = s => (s == null ? '' : /[",\n]/.test(String(s)) ? `"${String(s).replace(/"/g, '""')}"` : String(s));
-  const v = (e, k) => (e.metrics[k] ? e.metrics[k].value : null);
-  const lines = [t('csvHead').join(',')].concat(season.events.map(e => {
+function csv(s) {
+  const q = x => (x == null ? '' : /[",\n]/.test(String(x)) ? `"${String(x).replace(/"/g, '""')}"` : String(x));
+  const lines = [t('csvHead').join(',')].concat(s.events.map(e => {
     const c = ST.companies[e.ticker], d = Calc.derived(e.metrics);
     return [t('status.' + e.status) + (e.stage ? `(${t('stage.' + e.stage)})` : ''), e.ticker, coName(c), sectorName(c.sector), e.announce.date, e.label, e.currency,
-      v(e, 'revenue'), v(e, 'revenue_consensus'), d.revenue_surprise, v(e, 'revenue_yoy'), v(e, 'operating_income'), d.op_margin,
-      v(e, 'eps'), v(e, 'eps_consensus'), d.eps_surprise, v(e, 'price_reaction'), txt(`${season.id}/${e.ticker}/notes`, e.notes)].map(q).join(',');
+      val(e, 'revenue'), val(e, 'revenue_consensus'), d.revenue_surprise, val(e, 'revenue_yoy'), val(e, 'operating_income'), d.op_margin,
+      val(e, 'eps'), val(e, 'eps_consensus'), d.eps_surprise, val(e, 'price_reaction'), txt(`${s.id}/${e.ticker}/notes`, e.notes)].map(q).join(',');
   }));
   const blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
-  const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `earnings_${season.id}_${ST.lang}.csv` });
+  const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `earnings_${s.id}_${ST.lang}.csv` });
   document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
 
@@ -312,58 +478,77 @@ function renderStatic() {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll('[data-i18n-aria]').forEach(el => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
   $('footer').innerHTML = t('footer').map(p => `<p>${p}</p>`).join('');
-  document.querySelectorAll('#langSeg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === ST.lang));
-  document.querySelectorAll('[data-unit]').forEach(b => b.setAttribute('aria-pressed', b.dataset.unit === ST.unit));
+  $('langSel').value = ST.lang;
+  $('unitSel').innerHTML = `<option value="jo">${t('unitJo')}</option><option value="bil">${t('unitBil')}</option>`;
+  $('unitSel').value = ST.unit;
+}
+function renderBody() {
+  const s = season(), today = todayIn(TZ_VIEW), list = filtered(s);
+  renderFilters();
+  renderCompare(list);
+  const v = curView();
+  $('cards').hidden = v !== 'cards';
+  $('tblWrap').hidden = v !== 'table';
+  if (v === 'cards') renderCards(list, today); else renderTable(list, today);
 }
 async function render() {
   await loadTr(ST.lang);
-  const season = await loadSeason(ST.sid);
+  const s = await loadSeason(ST.sid);
   const today = todayIn(TZ_VIEW);
   renderStatic();
-  $('seasonTxt').textContent = season.label;
-  $('updTxt').textContent = season.updated;
+  $('updTxt').textContent = `${t('updated')} ${s.updated}`;
   document.querySelectorAll('#seasonSeg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.sid === ST.sid));
-  renderSummary(season, today);
-  renderTable(season, today);
-  $('tblCap').textContent = ST.sort ? t('capSorted') : t('capDefault');
-  $('hlSec').hidden = !season.highlights.length;
-  $('highlights').innerHTML = season.highlights.map((h, i) => `<li>${esc(txt(`${season.id}/highlights/${i}`, h))}</li>`).join('');
+  renderSummary(s, today);
+  renderUpcoming(s, today);
+  renderBody();
+  $('hlSec').hidden = !s.highlights.length;
+  $('highlights').innerHTML = s.highlights.map((h, i) => `<li>${esc(txt(`${s.id}/highlights/${i}`, h))}</li>`).join('');
+  if (ST.sheet) openSheet(ST.sheet, false);
+}
+
+// 주소: #2026Q3 또는 #2026Q3/AAPL (상세 시트)
+function parseHash() {
+  const [sid, tk] = location.hash.slice(1).split('/');
+  return { sid: ST.index.seasons.some(s => s.id === sid) ? sid : null, tk: tk || null };
+}
+async function onHash() {
+  const { sid, tk } = parseHash();
+  if (sid && sid !== ST.sid) { ST.sid = sid; ST.sheet = null; await render(); }
+  if (tk && findEvent(tk)) openSheet(tk, false); else if ($('sheet').open) closeSheet(true);
 }
 
 function bind() {
-  $('seasonSeg').addEventListener('click', e => {
-    const b = e.target.closest('button'); if (!b) return;
-    location.hash = b.dataset.sid;
-  });
-  window.addEventListener('hashchange', () => {
-    const sid = location.hash.slice(1);
-    if (ST.index.seasons.some(s => s.id === sid) && sid !== ST.sid) { ST.sid = sid; ST.open.clear(); render(); }
-  });
-  document.querySelectorAll('[data-unit]').forEach(b => b.addEventListener('click', () => {
-    ST.unit = b.dataset.unit; store.set('unit', ST.unit); render();
-  }));
-  $('langSeg').addEventListener('click', e => {
-    const b = e.target.closest('button'); if (!b) return;
-    ST.lang = b.dataset.lang; store.set('lang', ST.lang); render();
-  });
-  $('tbl').addEventListener('click', e => {
-    const s = e.target.closest('.sort');
-    if (s) {
-      const k = s.dataset.sort, cur = ST.sort && ST.sort.key === k ? ST.sort.dir : null;
-      ST.sort = cur === null ? { key: k, dir: 'desc' } : cur === 'desc' ? { key: k, dir: 'asc' } : null;
-      render(); return;
+  document.addEventListener('click', e => {
+    const b = e.target.closest('button, [data-open]');
+    if (!b || e.target.closest('a')) return;
+    if (b.dataset.sid) { location.hash = b.dataset.sid; return; }
+    if (b.dataset.region) { ST.region = b.dataset.region; renderBody(); return; }
+    if (b.dataset.status) { ST.status = b.dataset.status; renderBody(); return; }
+    if (b.dataset.metric) {
+      const k = b.dataset.metric;
+      if (ST.metric === k) ST.cmpDir = -ST.cmpDir; else { ST.metric = k; ST.cmpDir = -1; }
+      renderCompare(filtered(season()));
+      const nb = $('compare').querySelector(`[data-metric="${k}"]`);
+      if (nb) nb.focus({ preventScroll: true });   // 다시 그린 뒤에도 키보드 위치 유지
+      return;
     }
-    const row = e.target.closest('tr.ev');
-    if (!row || e.target.closest('a')) return;
-    const tk = row.dataset.t;
-    ST.open.has(tk) ? ST.open.delete(tk) : ST.open.add(tk);
-    const det = row.nextElementSibling, open = ST.open.has(tk);
-    row.classList.toggle('open', open);
-    row.querySelector('.tog').setAttribute('aria-expanded', open);
-    det.hidden = !open;
-    if (open) det.firstElementChild.innerHTML = detail(ST.seasons[ST.sid].events.find(x => x.ticker === tk), ST.companies[tk]);
+    if (b.dataset.view) { ST.view = b.dataset.view; store.set('view', ST.view); renderBody(); return; }
+    if (b.id === 'csvBtn') { csv(season()); return; }
+    if (b.dataset.open) openSheet(b.dataset.open);
   });
-  $('csvBtn').addEventListener('click', () => csv(ST.seasons[ST.sid]));
+  document.addEventListener('keydown', e => {
+    const el = e.target.closest && e.target.closest('[data-open][role="button"], tr[data-open]');
+    if (el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openSheet(el.dataset.open); }
+  });
+  $('sheet').addEventListener('click', e => { if (e.target === $('sheet')) closeSheet(); });   // 바깥(배경) 누르면 닫기
+  $('sheet').addEventListener('close', () => { if (ST.sheet) closeSheet(); });
+  $('langSel').addEventListener('change', e => { ST.lang = e.target.value; store.set('lang', ST.lang); render(); });
+  $('unitSel').addEventListener('change', e => { ST.unit = e.target.value; store.set('unit', ST.unit); render(); });
+  $('sortSel').addEventListener('change', e => { ST.sort = e.target.value || null; renderBody(); });
+  window.addEventListener('hashchange', onHash);
+  window.addEventListener('popstate', onHash);
+  let wide = WIDE();
+  window.addEventListener('resize', () => { if (WIDE() !== wide) { wide = WIDE(); renderBody(); } });
 }
 
 function initialLang() {
@@ -380,15 +565,18 @@ async function boot() {
     ST.index = index;
     ST.companies = Object.fromEntries(comp.companies.map(c => [c.ticker, c]));
     ST.regions = Object.fromEntries(comp.regions.map(r => [r.id, r]));
-    const h = location.hash.slice(1);
-    ST.sid = index.seasons.some(s => s.id === h) ? h : index.current;
+    const { sid, tk } = parseHash();
+    ST.sid = sid || index.current;
+    ST.sheet = tk;
     ST.unit = store.get('unit') === 'bil' ? 'bil' : 'jo';
+    ST.view = ['cards', 'table'].includes(store.get('view')) ? store.get('view') : null;
     $('seasonSeg').innerHTML = index.seasons.map(s => `<button type="button" data-sid="${s.id}" aria-pressed="false">${esc(s.label)}</button>`).join('');
-    $('langSeg').innerHTML = I18N.LANGS.map(l => `<button type="button" data-lang="${l.id}" lang="${l.id}" aria-pressed="false">${l.label}</button>`).join('');
+    $('langSel').innerHTML = I18N.LANGS.map(l => `<option value="${l.id}" lang="${l.id}">${l.label}</option>`).join('');
     bind();
     await render();
   } catch (e) {
-    document.querySelector('.wrap').insertAdjacentHTML('afterbegin', `<p class="err">${t('loadErr', { x: esc(e.message) })}</p>`);
+    document.querySelector('main').insertAdjacentHTML('afterbegin', `<p class="err">${t('loadErr', { x: esc(e.message) })}</p>`);
+    throw e;
   }
 }
 boot();
