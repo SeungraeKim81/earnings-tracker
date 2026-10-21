@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-10-19",
+ "updated": "2026-10-21",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -549,7 +549,7 @@
   },
   {
    "ticker": "NFLX",
-   "status": "scheduled",
+   "status": "reported",
    "stage": null,
    "label": "Q3 2026",
    "period": {
@@ -560,21 +560,123 @@
    "announce": {
     "date": "2026-10-20",
     "timing": "amc",
-    "certainty": "verified",
+    "certainty": "confirmed",
     "time": "13:01",
     "tz": "America/Los_Angeles",
     "note": "9/14 회사 보도자료 공지"
    },
    "metrics": {
-    "revenue": null,
-    "revenue_consensus": null,
-    "revenue_yoy": null,
-    "operating_income": null,
-    "eps": null,
-    "eps_consensus": null,
+    "revenue": {
+     "value": 12.874,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Netflix 8-K exhibit 99.1 (Q3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000290/ex991_q326.htm",
+       "asOf": "2026-10-20"
+      },
+      {
+       "title": "Variety: Netflix Q3 revenue meets estimates (LSEG)",
+       "url": "https://variety.com/2026/tv/news/netflix-q3-2026-earnings-wall-street-layoffs-exec-firings-1236917438/",
+       "asOf": "2026-10-20"
+      }
+     ]
+    },
+    "revenue_consensus": {
+     "value": 12.87,
+     "provider": "LSEG",
+     "asOf": "2026-10-20",
+     "note": "회사 가이던스 $12.86B",
+     "src": [
+      {
+       "title": "Variety: Netflix Q3 revenue meets estimates (LSEG)",
+       "url": "https://variety.com/2026/tv/news/netflix-q3-2026-earnings-wall-street-layoffs-exec-firings-1236917438/",
+       "asOf": "2026-10-20"
+      }
+     ]
+    },
+    "revenue_yoy": {
+     "value": 0.118,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Netflix 8-K exhibit 99.1 (Q3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000290/ex991_q326.htm",
+       "asOf": "2026-10-20"
+      },
+      {
+       "title": "Variety: Netflix Q3 revenue meets estimates (LSEG)",
+       "url": "https://variety.com/2026/tv/news/netflix-q3-2026-earnings-wall-street-layoffs-exec-firings-1236917438/",
+       "asOf": "2026-10-20"
+      }
+     ]
+    },
+    "operating_income": {
+     "value": 4.454,
+     "flag": "derived",
+     "reason": "실적발표 영업이익률 34.6% × 매출 $12.874B로 환산(보도는 약 $4.5B로 반올림 표기)",
+     "src": [
+      {
+       "title": "Netflix 8-K exhibit 99.1 (Q3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000290/ex991_q326.htm",
+       "asOf": "2026-10-20"
+      },
+      {
+       "title": "Deadline: Netflix Q3 2026 earnings",
+       "url": "https://deadline.com/2026/10/netflix-q3-2026-earnings-layoffs-streaming-1237168825/",
+       "asOf": "2026-10-20"
+      }
+     ]
+    },
+    "eps": {
+     "value": 0.87,
+     "basis": "GAAP",
+     "flag": "verified",
+     "note": "희석 EPS(전년 $0.59)",
+     "src": [
+      {
+       "title": "Netflix 8-K exhibit 99.1 (Q3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000290/ex991_q326.htm",
+       "asOf": "2026-10-20"
+      },
+      {
+       "title": "AP: Netflix Q3 Earnings Snapshot (Zacks)",
+       "url": "https://wtop.com/national/2026/10/netflix-q3-earnings-snapshot/",
+       "asOf": "2026-10-20"
+      }
+     ]
+    },
+    "eps_consensus": {
+     "value": 0.82,
+     "provider": "Zacks",
+     "asOf": "2026-10-20",
+     "alts": [
+      {
+       "provider": "LSEG",
+       "value": 0.82
+      }
+     ],
+     "src": [
+      {
+       "title": "AP: Netflix Q3 Earnings Snapshot (Zacks)",
+       "url": "https://wtop.com/national/2026/10/netflix-q3-earnings-snapshot/",
+       "asOf": "2026-10-20"
+      },
+      {
+       "title": "Zacks: Netflix (NFLX) Beats Q3 Earnings and Revenue Estimates",
+       "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-nflx-beats-q3-earnings-202003626.html",
+       "asOf": "2026-10-20"
+      },
+      {
+       "title": "Variety: Netflix Q3 revenue meets estimates (LSEG)",
+       "url": "https://variety.com/2026/tv/news/netflix-q3-2026-earnings-wall-street-layoffs-exec-firings-1236917438/",
+       "asOf": "2026-10-20"
+      }
+     ]
+    },
     "price_reaction": null
    },
-   "notes": "일정 추정. Q3 매출 가이던스 $12.86B 대비 결과."
+   "notes": "매출 $12.87B(+11.8% YoY)로 컨센·가이던스 부합(성장률 3년 만의 최저), EPS $0.87로 컨센 $0.82 상회. 영업이익률 34.6%(전년 28.2%, 시장 예상 약 33.2%) — 회사는 비용 집행 시점 차이 덕이라고 설명. Q4 가이던스 매출 약 $13.4B(+12%), 영업이익률 26.0%(인력 감축 비용 약 1.2%p 포함). 2026 매출 전망 약 $51.1B(이전 범위 중간값 대비 −0.2%), 광고 매출 전망 $3B → $2.7B 하향. 약 1,000명 감원 발표. 시간외 약세(보도 기준 약 −6%)."
   },
   {
    "ticker": "TSLA",

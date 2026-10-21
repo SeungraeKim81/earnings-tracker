@@ -425,9 +425,21 @@
    "src": "162839f5",
    "text": "Announced in company press release on 9/14"
   },
+  "2026Q3/NFLX/eps/note": {
+   "src": "d81bfbeb",
+   "text": "Diluted EPS (prior year $0.59)"
+  },
   "2026Q3/NFLX/notes": {
-   "src": "d6fef8c8",
-   "text": "Date estimated. Results vs Q3 revenue guidance of $12.86B."
+   "src": "7562499a",
+   "text": "Revenue $12.87B (+11.8% YoY), in line with consensus and guidance (slowest growth in three years); EPS $0.87 beat the $0.82 consensus. Operating margin 34.6% (prior year 28.2%, market expected ~33.2%) — the company cited timing of expenses. Q4 guidance: revenue ~$13.4B (+12%), operating margin 26.0% (including ~1.2pp of headcount-reduction costs). 2026 revenue outlook ~$51.1B (−0.2% vs prior range midpoint); ad revenue outlook cut from $3B to $2.7B. About 1,000 layoffs announced. Shares fell after hours (about −6% per reports)."
+  },
+  "2026Q3/NFLX/operating_income/reason": {
+   "src": "f7a2ae6f",
+   "text": "Converted as the release's 34.6% operating margin × revenue of $12.874B (press rounds it to about $4.5B)"
+  },
+  "2026Q3/NFLX/revenue_consensus/note": {
+   "src": "78b82962",
+   "text": "Company guidance $12.86B"
   },
   "2026Q3/NVDA/notes": {
    "src": "119b4dde",
