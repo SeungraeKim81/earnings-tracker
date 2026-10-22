@@ -397,9 +397,29 @@
    "src": "1d84755d",
    "text": "Announced in company press release on 10/12. Time is the conference call (results released after the close)"
   },
+  "2026Q3/META/eps/caution": {
+   "src": "4f6b5edd",
+   "text": "Adjusted EPS excluding the $9.89B legal charge. GAAP diluted EPS $3.83 (on that basis, a large miss vs LSEG $5.46)"
+  },
+  "2026Q3/META/eps_consensus/alts/1/provider": {
+   "src": "f6f465d1",
+   "text": "LSEG (likely mixed GAAP basis)"
+  },
+  "2026Q3/META/eps_consensus/note": {
+   "src": "36e6aa82",
+   "text": "Aggregators differ on whether they include the legal charge, so bases are mixed. Chose the Zacks figure, comparable to adjusted EPS"
+  },
   "2026Q3/META/notes": {
-   "src": "e148338c",
-   "text": "Schedule confirmed (10/21 after the close, company announcement — one week earlier than the previously estimated 10/28). Watch: results vs Q3 revenue guidance of $61–64B, full-year expenses $165–169B, CapEx $130–145B."
+   "src": "81cf34ee",
+   "text": "Revenue $64.6B (+26%), above the $63.37B consensus (LSEG) and the top of Q3 guidance ($61–64B). A $9.89B legal charge from the multistate attorneys general agreement cut GAAP operating income to $12.99B (−37%), operating margin from 40% to 20%, and GAAP EPS to $3.83 — adjusted EPS excluding the charge of $7.40 (EPS in the table) beat the $6.52 consensus (Zacks). Q4 revenue guidance $73–76B (LSEG $73.73B); full-year expense guidance raised by about $10B for the legal charge. Reality Labs revenue $0.44B, operating loss $4.13B. EPS = adjusted."
+  },
+  "2026Q3/META/operating_income/caution": {
+   "src": "5b12b285",
+   "text": "Includes a $9.89B legal charge related to the multistate attorneys general agreement — excluding it, operating margin is about 35%"
+  },
+  "2026Q3/META/revenue_yoy/note": {
+   "src": "acf1bb24",
+   "text": "Prior-year quarter $51.242B"
   },
   "2026Q3/MSFT/announce/note": {
    "src": "908fa819",
@@ -449,9 +469,25 @@
    "src": "b22ee308",
    "text": "Announced in 8-K"
   },
+  "2026Q3/TSLA/eps/note": {
+   "src": "cd5c51d7",
+   "text": "Adjusted EPS (same basis as Q2). GAAP diluted EPS $0.22 (prior year $0.39)"
+  },
   "2026Q3/TSLA/notes": {
-   "src": "8c20b25b",
-   "text": "Date confirmed (8-K): 10/21 at 5:30pm US Eastern after the close → Bangkok 10/22 04:30. Check EPS distortions such as equity-investment gains."
+   "src": "6675a92f",
+   "text": "Revenue $28.05B (flat YoY), in line to slightly above consensus; adjusted EPS $0.48 beat the $0.45 consensus (Zacks) (prior year $0.50). GAAP operating income $0.72B (−56%), operating margin 2.6% (prior year 5.8%, Q2 1.4%) — operating expenses +39% on R&D +69% ($2.76B). Gross margin 19.6% (prior year 18.0%); automotive gross margin ex regulatory credits improved to about 18.1%. GAAP net income $0.79B (−43%), FCF $1.5B (−62%). Deliveries 486.5K (−2%). EPS = adjusted."
+  },
+  "2026Q3/TSLA/revenue_consensus/alts/1/provider": {
+   "src": "99dd67fb",
+   "text": "Press (Electrek)"
+  },
+  "2026Q3/TSLA/revenue_consensus/reason": {
+   "src": "5842dfc5",
+   "text": "Range $27.78–28.06B by aggregator. A slight beat vs Zacks/LSEG, in line vs the figure cited by Electrek"
+  },
+  "2026Q3/TSLA/revenue_yoy/reason": {
+   "src": "79f8352c",
+   "text": "Calculated against Q3 2025 revenue of $28.095B (press describes it as flat)"
   },
   "2026Q3/TSM/announce/note": {
    "src": "029c2592",
