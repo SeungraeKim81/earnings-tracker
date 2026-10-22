@@ -956,7 +956,7 @@
     "date": "2026-10-08",
     "timing": null,
     "certainty": "confirmed",
-    "final_expected": "10월 말(추정)"
+    "final_expected": "10/29 10:00(서울) 3분기 실적발표 컨퍼런스콜 — 삼성전자 IR 게시"
    },
    "metrics": {
     "revenue": {
@@ -1011,10 +1011,9 @@
     "date": "2026-10-28",
     "timing": null,
     "certainty": "verified",
-    "alt_dates": [
-     "2026-10-29"
-    ],
-    "note": "SEC 6-K(10/14): 3분기 컨퍼런스콜 자료를 10/28(서울) IR 사이트에 게시. 시각 미확인, 일부 캘린더는 컨퍼런스콜 10/29 09:00로 표기"
+    "note": "SEC 6-K(10/14)·국내 보도: 3분기 실적 컨퍼런스콜 10/28(수) 09:00(서울), 실적 보도자료는 그 전에 발표",
+    "time": "09:00",
+    "tz": "Asia/Seoul"
    },
    "metrics": {
     "revenue": null,
