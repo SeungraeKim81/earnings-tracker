@@ -776,7 +776,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.0531,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-20",
+      "2026-10-21"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (NFLX)",
+       "url": "https://finance.yahoo.com/quote/NFLX/history"
+      }
+     ]
+    }
    },
    "notes": "매출 $12.87B(+11.8% YoY)로 컨센·가이던스 부합(성장률 3년 만의 최저), EPS $0.87로 컨센 $0.82 상회. 영업이익률 34.6%(전년 28.2%, 시장 예상 약 33.2%) — 회사는 비용 집행 시점 차이 덕이라고 설명. Q4 가이던스 매출 약 $13.4B(+12%), 영업이익률 26.0%(인력 감축 비용 약 1.2%p 포함). 2026 매출 전망 약 $51.1B(이전 범위 중간값 대비 −0.2%), 광고 매출 전망 $3B → $2.7B 하향. 약 1,000명 감원 발표. 시간외 약세(보도 기준 약 −6%)."
   },
