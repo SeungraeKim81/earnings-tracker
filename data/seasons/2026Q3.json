@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-10-22",
+ "updated": "2026-10-23",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -223,7 +223,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.0698,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-21",
+      "2026-10-22"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (META)",
+       "url": "https://finance.yahoo.com/quote/META/history"
+      }
+     ]
+    }
    },
    "notes": "매출 $64.6B(+26%)로 컨센 $63.37B(LSEG) 상회, Q3 가이던스($61–64B) 상단 초과. 주 법무장관 합의 법률비용 $9.89B로 GAAP 영업이익 $12.99B(−37%), 영업이익률 40%→20%, GAAP EPS $3.83 — 법률비용 제외 조정 EPS $7.40(표의 EPS)은 컨센 $6.52(Zacks) 상회. Q4 가이던스 매출 $73–76B(LSEG $73.73B), 연간 비용 가이던스 법률비용 반영해 약 $10B 상향. Reality Labs 매출 $0.44B·영업손실 $4.13B. EPS=조정."
   },
@@ -938,7 +952,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.0308,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-21",
+      "2026-10-22"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (TSLA)",
+       "url": "https://finance.yahoo.com/quote/TSLA/history"
+      }
+     ]
+    }
    },
    "notes": "매출 $28.05B(전년과 비슷)로 컨센 부합~소폭 상회, 조정 EPS $0.48로 컨센 $0.45(Zacks) 상회(전년 $0.50). GAAP 영업이익 $0.72B(−56%), 영업이익률 2.6%(전년 5.8%, 2분기 1.4%) — R&D +69%($2.76B)로 영업비용 +39%. 총이익률 19.6%(전년 18.0%), 규제 크레딧 제외 자동차 총이익률 약 18.1%로 개선. GAAP 순이익 $0.79B(−43%), FCF $1.5B(−62%). 인도 48.65만대(−2%). EPS=조정."
   },
