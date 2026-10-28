@@ -246,12 +246,36 @@
    "text": "[Interpretation caveat] MSFT's lower CapEx (~$175B) is an accounting-change effect, not a cut in actual spending. Alphabet, Tesla and Amazon EPS include equity-investment gains / non-operating investment results (SpaceX, Anthropic), and SK hynix's net margin (118%) also reflects non-operating items, so judge fundamentals by operating income and operating margin."
   },
   "2026Q3/000660/announce/note": {
-   "src": "bb574fac",
-   "text": "SEC 6-K (10/14) and domestic reports: Q3 earnings conference call on Wed 10/28 at 09:00 (Seoul); earnings release published before the call"
+   "src": "2ad6d2a9",
+   "text": "10/28 preliminary earnings filing and conference call at 09:00 (Seoul). As in Q2, the earnings-release (preliminary filing) figures are recorded as final"
+  },
+  "2026Q3/000660/eps/reason": {
+   "src": "44c1d6ae",
+   "text": "EPS not found in the earnings release or reports — check against the DART quarterly report (same as Q2)"
+  },
+  "2026Q3/000660/eps_consensus/reason": {
+   "src": "0bd828ea",
+   "text": "No source found for the EPS consensus just before the release"
   },
   "2026Q3/000660/notes": {
-   "src": "29cfbd9f",
-   "text": "Schedule: 10/28 (per SEC 6-K). Consensus (FnGuide): revenue ~KRW 99.4T, operating income ~KRW 78T."
+   "src": "127dcef1",
+   "text": "★Record results, above consensus. Revenue KRW 104.6T (+328% YoY, +32% QoQ, first quarter above KRW 100T), operating income KRW 83.3T (+632%), operating margin ~80% (Q2 76%). vs consensus (FnGuide: revenue KRW 98.2T, operating income KRW 76.96T): revenue +6.5%, operating income +8.3%. Net income ~KRW 39.8T (most reports KRW 39.7756T; one says KRW 39.1756T — check against the filing). Driven by the full ramp of HBM4 shipments and higher server DDR5 sales. Net cash KRW 98.7T. Board approved a Q3 cash dividend of KRW 14T and KRW 20T of share buybacks. EPS not disclosed."
+  },
+  "2026Q3/000660/operating_income/note": {
+   "src": "665cd4f0",
+   "text": "Operating margin ~80%. +8.3% vs consensus (FnGuide) of KRW 76.96T"
+  },
+  "2026Q3/000660/revenue/note": {
+   "src": "d333dd65",
+   "text": "K-IFRS consolidated, KRW 104.6155T (first quarter above KRW 100T)"
+  },
+  "2026Q3/000660/revenue_consensus/alts/0/provider": {
+   "src": "2a87a0d7",
+   "text": "FnGuide (as of early October)"
+  },
+  "2026Q3/000660/revenue_consensus/note": {
+   "src": "dd16dfa8",
+   "text": "Per reports just before the release. The ~KRW 99.4T entered earlier was from an earlier date"
   },
   "2026Q3/005930/announce/final_expected": {
    "src": "87d2d664",
