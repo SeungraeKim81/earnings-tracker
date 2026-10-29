@@ -278,16 +278,24 @@
    "text": "Per reports just before the release. The ~KRW 99.4T entered earlier was from an earlier date"
   },
   "2026Q3/005930/announce/final_expected": {
-   "src": "87d2d664",
-   "text": "10/29 10:00 (Seoul) Q3 earnings conference call — posted on Samsung Electronics IR"
+   "src": "a209145c",
+   "text": "10/29 final results and conference call completed"
   },
   "2026Q3/005930/eps/reason": {
-   "src": "26bc6b10",
-   "text": "Not in the preliminary filing — to be entered with final results"
+   "src": "2268e112",
+   "text": "EPS and net income not found in final-results reports — check against the Samsung newsroom and DART quarterly report"
   },
   "2026Q3/005930/notes": {
-   "src": "2ac861ac",
-   "text": "★Preliminary results (consolidated, IFRS, filed 10/8): revenue KRW 195T (+126.6% YoY, +13.7% QoQ), operating income KRW 107.4T (+782.5% YoY, +20.0% QoQ), operating margin about 55%. Consensus (WiseReport broker average, 10/4): revenue KRW 201.7T, operating income KRW 108.1T → revenue missed by 3.3%; operating income was -0.7% vs this aggregate but above LSEG (KRW 106.1T) and FnGuide (KRW 105.2T) (reported as a 'beat'). The consensus of KRW 110.6–111.8T noted earlier was an error. Segment results, net income and EPS are not in the preliminary filing; final results are due at the end of October (to be updated then). Shares: reported down about 2% on the day, with foreigners net sellers for 8 straight sessions, but the exact closing change was not confirmed, so left blank."
+   "src": "a4a4b868",
+   "text": "Final results (10/29, nearly identical to preliminary): revenue KRW 195.3T (+126.9% YoY), operating income KRW 107.4T (+783.1%, operating margin 55%) — quarterly operating income above KRW 100T. vs consensus (WiseReport 10/4): revenue KRW 201.7T −3.2% miss; operating income KRW 108.1T −0.6% (above LSEG KRW 106.1T and FnGuide KRW 105.2T). ★DS (semiconductors) revenue KRW 147.1T, operating income KRW 106.5T (72% margin, 99% of company operating income). ★DX (devices) operating loss ~KRW 0.8T. Q3 cash dividend KRW 4,601 per share (~KRW 30T total). Net income and EPS not found in this search (left blank). Price reaction is based on the preliminary release date (10/8)."
+  },
+  "2026Q3/005930/operating_income/note": {
+   "src": "2e3ed4ab",
+   "text": "Final KRW 107.4405T (preliminary KRW 107.4T)"
+  },
+  "2026Q3/005930/revenue/note": {
+   "src": "34d43466",
+   "text": "Final KRW 195.2532T (preliminary KRW 195T)"
   },
   "2026Q3/005930/revenue_consensus/provider": {
    "src": "df4c1d12",
@@ -361,9 +369,37 @@
    "src": "a4ba5e40",
    "text": "Alphabet IR announcement on 10/6. Time is the conference call (results released after the close)"
   },
+  "2026Q3/GOOGL/eps/caution": {
+   "src": "177f1b9c",
+   "text": "Reflects an $8.7B loss on equity securities (including an unrealized loss on the SpaceX stake) — lowered diluted EPS by $0.55; about $2.67 excluding it. Q2's $9.11 was inflated by valuation gains instead, so quarter-on-quarter comparison is not meaningful"
+  },
+  "2026Q3/GOOGL/eps_consensus/alts/0/provider": {
+   "src": "061ff1f2",
+   "text": "Other aggregator"
+  },
+  "2026Q3/GOOGL/eps_consensus/note": {
+   "src": "9e69c551",
+   "text": "Most estimates exclude valuation gains/losses, so direct comparison with GAAP EPS is not appropriate"
+  },
   "2026Q3/GOOGL/notes": {
-   "src": "fd1a8f02",
-   "text": "Schedule confirmed (10/28 after the close, Alphabet IR announcement). Watch: Cloud growth and backlog, CapEx guidance of $195–205B, separating EPS distortion from equity-investment gains."
+   "src": "f787d39a",
+   "text": "Revenue $127.6B (+25%), in line to slightly below consensus (aggregators differ); GAAP EPS $2.12, about −30% vs the $3.02 consensus — due to an $8.7B loss on equity securities (SpaceX stake etc., EPS −$0.55). Underlying: operating income ~$40.6B (+30%), operating margin 31.8%. Google Cloud revenue $30.7B (+103%, helped by TPU system sales) and operating income $11.1B (more than tripled); Search and YouTube ads below expectations. Shares about −8–10% after hours. ※EPS distortion: valuation gains in Q2, losses in Q3."
+  },
+  "2026Q3/GOOGL/operating_income/reason": {
+   "src": "5913db55",
+   "text": "Converted as the release's 31.8% operating margin × revenue of $127.6B (matches Investing.com's $40.6B, +30%)"
+  },
+  "2026Q3/GOOGL/revenue_consensus/alts/0/provider": {
+   "src": "061ff1f2",
+   "text": "Other aggregator"
+  },
+  "2026Q3/GOOGL/revenue_consensus/provider": {
+   "src": "2a0af39c",
+   "text": "Press aggregate (cited by Hoodline)"
+  },
+  "2026Q3/GOOGL/revenue_consensus/reason": {
+   "src": "60a6b6cf",
+   "text": "Range $127.22–128.22B by aggregator, so beat/miss calls differ. Most reports say in line to a slight miss"
   },
   "2026Q3/GS/eps_consensus/alts/0/provider": {
    "src": "4b47560b",
@@ -449,9 +485,25 @@
    "src": "908fa819",
    "text": "Announced in company press release on 10/7. Time is the conference call (results released after the close)"
   },
+  "2026Q3/MSFT/eps/note": {
+   "src": "08d762de",
+   "text": "Excludes OpenAI investment gains/losses (same basis as Q2). GAAP $4.92 (+32%)"
+  },
+  "2026Q3/MSFT/eps_consensus/alts/1/provider": {
+   "src": "061ff1f2",
+   "text": "Other aggregator"
+  },
+  "2026Q3/MSFT/eps_consensus/provider": {
+   "src": "b8da33a8",
+   "text": "LSEG (cited by CNBC)"
+  },
   "2026Q3/MSFT/notes": {
-   "src": "ade19b09",
-   "text": "Schedule confirmed (10/28 after the close, company announcement). July–September quarter. Watch: Azure growth, CapEx trend (separate accounting effects), FY27 CapEx growth guidance."
+   "src": "631ace0c",
+   "text": "Revenue $92.3B (+19%), above the $90.7B consensus (LSEG); non-GAAP EPS $4.89 (+18%) beat the $4.73 consensus (GAAP $4.92). Operating income $45.9B (+21%). Azure +48% (June quarter 42%, guidance 44–45%), accelerating, and disclosed in dollars for the first time (~$33.2B). Microsoft Cloud $63.9B (+30%), commercial RPO $677B (+73%). CapEx $39.4B ($45.2B incl. finance leases, below ~$50.7B expected), FCF $18.6B (−27%). FQ2 guidance: revenue $96.0–97.1B, Azure +49–50% (constant currency). Shares rose after hours (about +4%)."
+  },
+  "2026Q3/MSFT/revenue_consensus/provider": {
+   "src": "b8da33a8",
+   "text": "LSEG (cited by CNBC)"
   },
   "2026Q3/MU/eps_consensus/alts/0/provider": {
    "src": "061ff1f2",

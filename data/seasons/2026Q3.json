@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-10-28",
+ "updated": "2026-10-29",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -69,7 +69,7 @@
   },
   {
    "ticker": "GOOGL",
-   "status": "scheduled",
+   "status": "reported",
    "stage": null,
    "label": "Q3 2026",
    "period": {
@@ -80,21 +80,140 @@
    "announce": {
     "date": "2026-10-28",
     "timing": "amc",
-    "certainty": "verified",
+    "certainty": "confirmed",
     "time": "13:30",
     "tz": "America/Los_Angeles",
     "note": "10/6 Alphabet IR 공지. 시각은 컨퍼런스콜(장 마감 후 실적 발표)"
    },
    "metrics": {
-    "revenue": null,
-    "revenue_consensus": null,
-    "revenue_yoy": null,
-    "operating_income": null,
-    "eps": null,
-    "eps_consensus": null,
+    "revenue": {
+     "value": 127.6,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Alphabet 8-K exhibit 99.1 (Q3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "Alphabet Announces Third Quarter 2026 Results (PDF)",
+       "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q3/2026q3-alphabet-earnings-release.pdf",
+       "asOf": "2026-10-28"
+      }
+     ]
+    },
+    "revenue_consensus": {
+     "value": 127.97,
+     "provider": "보도 집계(Hoodline 인용)",
+     "asOf": "2026-10-28",
+     "flag": "disputed",
+     "alts": [
+      {
+       "provider": "기타 집계",
+       "value": 128.22
+      },
+      {
+       "provider": "Investing.com",
+       "value": 127.22
+      }
+     ],
+     "reason": "집계별 $127.22~128.22B로 상회/하회 판단이 갈림. 대부분 보도는 '부합~소폭 하회'",
+     "src": [
+      {
+       "title": "Hoodline: Alphabet Q3 earnings miss",
+       "url": "https://hoodline.com/2026/10/mountain-view-s-alphabet-misses-revenue-targets-stock-sinks-9-on-ai-spending-binge/",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "Investing.com: Alphabet Q3 2026 profit miss",
+       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-alphabet-q3-2026-profit-miss-sparks-10-afterhours-drop-93CH-4981037",
+       "asOf": "2026-10-28"
+      }
+     ]
+    },
+    "revenue_yoy": {
+     "value": 0.25,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Alphabet 8-K exhibit 99.1 (Q3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "Alphabet Announces Third Quarter 2026 Results (PDF)",
+       "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q3/2026q3-alphabet-earnings-release.pdf",
+       "asOf": "2026-10-28"
+      }
+     ]
+    },
+    "operating_income": {
+     "value": 40.58,
+     "flag": "derived",
+     "reason": "실적발표 영업이익률 31.8% × 매출 $127.6B로 환산(Investing.com 보도 $40.6B와 일치, +30%)",
+     "src": [
+      {
+       "title": "Alphabet Announces Third Quarter 2026 Results (PDF)",
+       "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q3/2026q3-alphabet-earnings-release.pdf",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "Investing.com: Alphabet Q3 2026 profit miss",
+       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-alphabet-q3-2026-profit-miss-sparks-10-afterhours-drop-93CH-4981037",
+       "asOf": "2026-10-28"
+      }
+     ]
+    },
+    "eps": {
+     "value": 2.12,
+     "basis": "GAAP",
+     "flag": "verified",
+     "caution": "지분증권 평가손실 $8.7B(SpaceX 지분 미실현 손실 등) 반영 — 희석 EPS를 $0.55 낮춤. 제외 시 약 $2.67. 2분기 $9.11은 반대로 평가이익으로 부풀려진 값이라 분기 비교 부적절",
+     "src": [
+      {
+       "title": "Alphabet 8-K exhibit 99.1 (Q3 2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "Investing.com: Alphabet Q3 2026 profit miss",
+       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-alphabet-q3-2026-profit-miss-sparks-10-afterhours-drop-93CH-4981037",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "24/7 Wall St: Google Q3 2026 — big loss drags EPS",
+       "url": "https://247wallst.com/cards/google-q3-2026-earnings-goog-01m621vznfkjc3wnswzh48s3h8",
+       "asOf": "2026-10-28"
+      }
+     ]
+    },
+    "eps_consensus": {
+     "value": 3.02,
+     "provider": "Investing.com",
+     "asOf": "2026-10-28",
+     "alts": [
+      {
+       "provider": "기타 집계",
+       "value": 3.0
+      }
+     ],
+     "note": "평가손익을 반영하지 않은 추정이 대부분이라 GAAP EPS와 직접 비교 부적절",
+     "src": [
+      {
+       "title": "Investing.com: Alphabet Q3 2026 profit miss",
+       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-alphabet-q3-2026-profit-miss-sparks-10-afterhours-drop-93CH-4981037",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "24/7 Wall St: Google Q3 2026 — big loss drags EPS",
+       "url": "https://247wallst.com/cards/google-q3-2026-earnings-goog-01m621vznfkjc3wnswzh48s3h8",
+       "asOf": "2026-10-28"
+      }
+     ]
+    },
     "price_reaction": null
    },
-   "notes": "일정 확인(10/28 장 후, Alphabet IR 공지). 체크: Cloud 성장·백로그, CapEx $195–205B 가이던스, 지분평가이익에 따른 EPS 왜곡 분리."
+   "notes": "매출 $127.6B(+25%)로 컨센과 부합~소폭 하회(집계별 엇갈림), GAAP EPS $2.12로 컨센 $3.02 대비 약 −30% — 지분증권 평가손실 $8.7B(SpaceX 지분 등, EPS −$0.55) 탓. 실체는 영업이익 약 $40.6B(+30%), 영업이익률 31.8%. Google Cloud 매출 $30.7B(+103%, TPU 시스템 판매 기여)·영업이익 $11.1B(3배 이상)로 호조, 검색·YouTube 광고는 예상 하회. 시간외 약 −8~10%. ※EPS 착시: 2분기는 평가이익, 3분기는 평가손실."
   },
   {
    "ticker": "META",
@@ -243,7 +362,7 @@
   },
   {
    "ticker": "MSFT",
-   "status": "scheduled",
+   "status": "reported",
    "stage": null,
    "label": "FQ1 2027",
    "period": {
@@ -254,21 +373,137 @@
    "announce": {
     "date": "2026-10-28",
     "timing": "amc",
-    "certainty": "verified",
+    "certainty": "confirmed",
     "note": "10/7 회사 보도자료 공지. 시각은 컨퍼런스콜(장 마감 후 실적 발표)",
     "time": "14:30",
     "tz": "America/Los_Angeles"
    },
    "metrics": {
-    "revenue": null,
-    "revenue_consensus": null,
-    "revenue_yoy": null,
-    "operating_income": null,
-    "eps": null,
-    "eps_consensus": null,
+    "revenue": {
+     "value": 92.28,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "CNBC: Microsoft Q1 FY27 earnings (LSEG)",
+       "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "World Today Journal: Microsoft Q1 2027 results",
+       "url": "https://world-today-journal.com/microsoft-q1-2027-results-revenue-jumps-19-driven-by-azure-and-ai/",
+       "asOf": "2026-10-28"
+      }
+     ]
+    },
+    "revenue_consensus": {
+     "value": 90.7,
+     "provider": "LSEG(CNBC 인용)",
+     "asOf": "2026-10-28",
+     "alts": [
+      {
+       "provider": "Benzinga",
+       "value": 90.65
+      },
+      {
+       "provider": "Visible Alpha",
+       "value": 90.7
+      }
+     ],
+     "src": [
+      {
+       "title": "CNBC: Microsoft Q1 FY27 earnings (LSEG)",
+       "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "Benzinga: MSFT earnings forecasts",
+       "url": "https://www.benzinga.com/quote/MSFT/earnings-forecasts"
+      },
+      {
+       "title": "S&P Global (Visible Alpha): Microsoft preview",
+       "url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/08/microsoft-postq-azure-usd100b-milestone-as-ai-demand-lifts-earnings-and-outlook"
+      }
+     ]
+    },
+    "revenue_yoy": {
+     "value": 0.19,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "CNBC: Microsoft Q1 FY27 earnings (LSEG)",
+       "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "World Today Journal: Microsoft Q1 2027 results",
+       "url": "https://world-today-journal.com/microsoft-q1-2027-results-revenue-jumps-19-driven-by-azure-and-ai/",
+       "asOf": "2026-10-28"
+      }
+     ]
+    },
+    "operating_income": {
+     "value": 45.9,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "CNBC: Microsoft Q1 FY27 earnings (LSEG)",
+       "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "World Today Journal: Microsoft Q1 2027 results",
+       "url": "https://world-today-journal.com/microsoft-q1-2027-results-revenue-jumps-19-driven-by-azure-and-ai/",
+       "asOf": "2026-10-28"
+      }
+     ]
+    },
+    "eps": {
+     "value": 4.89,
+     "basis": "non-GAAP",
+     "flag": "verified",
+     "note": "OpenAI 투자손익 제외(2분기와 같은 기준). GAAP $4.92(+32%)",
+     "src": [
+      {
+       "title": "CNBC: Microsoft Q1 FY27 earnings (LSEG)",
+       "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "World Today Journal: Microsoft Q1 2027 results",
+       "url": "https://world-today-journal.com/microsoft-q1-2027-results-revenue-jumps-19-driven-by-azure-and-ai/",
+       "asOf": "2026-10-28"
+      }
+     ]
+    },
+    "eps_consensus": {
+     "value": 4.73,
+     "provider": "LSEG(CNBC 인용)",
+     "asOf": "2026-10-28",
+     "alts": [
+      {
+       "provider": "Benzinga",
+       "value": 4.72
+      },
+      {
+       "provider": "기타 집계",
+       "value": 4.71
+      }
+     ],
+     "src": [
+      {
+       "title": "CNBC: Microsoft Q1 FY27 earnings (LSEG)",
+       "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+       "asOf": "2026-10-28"
+      },
+      {
+       "title": "Benzinga: MSFT earnings forecasts",
+       "url": "https://www.benzinga.com/quote/MSFT/earnings-forecasts"
+      }
+     ]
+    },
     "price_reaction": null
    },
-   "notes": "일정 확인(10/28 장 후, 회사 공지). 7~9월 분기. 체크: Azure 성장, CapEx 흐름(회계처리 효과 분리), FY27 CapEx 증가 가이던스."
+   "notes": "매출 $92.3B(+19%)로 컨센 $90.7B(LSEG) 상회, non-GAAP EPS $4.89(+18%)로 컨센 $4.73 상회(GAAP $4.92). 영업이익 $45.9B(+21%). Azure +48%(6월 분기 42%, 가이던스 44–45%)로 가속, 처음으로 달러 공개(약 $33.2B). Microsoft Cloud $63.9B(+30%), 상업 RPO $677B(+73%). CapEx $39.4B(금융리스 포함 $45.2B, 예상 약 $50.7B 하회), FCF $18.6B(−27%). FQ2 가이던스 매출 $96.0–97.1B, Azure +49–50%(고정환율). 시간외 상승(약 +4%)."
   },
   {
    "ticker": "MU",
@@ -973,7 +1208,7 @@
   {
    "ticker": "005930",
    "status": "reported",
-   "stage": "preliminary",
+   "stage": "final",
    "label": "Q3 2026",
    "period": {
     "start": "2026-07-01",
@@ -984,11 +1219,30 @@
     "date": "2026-10-08",
     "timing": null,
     "certainty": "confirmed",
-    "final_expected": "10/29 10:00(서울) 3분기 실적발표 컨퍼런스콜 — 삼성전자 IR 게시"
+    "final_expected": "10/29 확정실적 발표·컨퍼런스콜 완료"
    },
    "metrics": {
     "revenue": {
-     "value": 195000
+     "value": 195253.2,
+     "flag": "verified",
+     "note": "확정치 195조2,532억원(잠정 195조)",
+     "src": [
+      {
+       "title": "이투데이: 삼성전자 3분기 반도체 영업익 106.5조",
+       "url": "https://www.etoday.co.kr/news/view/2641586",
+       "asOf": "2026-10-29"
+      },
+      {
+       "title": "아시아투데이: 삼성전자 3분기 DS 영업익 106.5조",
+       "url": "https://www.asiatoday.co.kr/kn/view.php?key=20261029010010302",
+       "asOf": "2026-10-29"
+      },
+      {
+       "title": "파이낸셜뉴스: 삼성전자 3분기 반도체 106.5조",
+       "url": "https://www.fnnews.com/news/202610290956367331",
+       "asOf": "2026-10-29"
+      }
+     ]
     },
     "revenue_consensus": {
      "value": 201727.6,
@@ -996,15 +1250,42 @@
      "asOf": "2026-10-04"
     },
     "revenue_yoy": {
-     "value": 1.266
+     "value": 1.269,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "이투데이: 삼성전자 3분기 반도체 영업익 106.5조",
+       "url": "https://www.etoday.co.kr/news/view/2641586",
+       "asOf": "2026-10-29"
+      }
+     ]
     },
     "operating_income": {
-     "value": 107400,
-     "basis": "IFRS"
+     "value": 107440.5,
+     "basis": "IFRS",
+     "flag": "verified",
+     "note": "확정치 107조4,405억원(잠정 107.4조)",
+     "src": [
+      {
+       "title": "이투데이: 삼성전자 3분기 반도체 영업익 106.5조",
+       "url": "https://www.etoday.co.kr/news/view/2641586",
+       "asOf": "2026-10-29"
+      },
+      {
+       "title": "아시아투데이: 삼성전자 3분기 DS 영업익 106.5조",
+       "url": "https://www.asiatoday.co.kr/kn/view.php?key=20261029010010302",
+       "asOf": "2026-10-29"
+      },
+      {
+       "title": "파이낸셜뉴스: 삼성전자 3분기 반도체 106.5조",
+       "url": "https://www.fnnews.com/news/202610290956367331",
+       "asOf": "2026-10-29"
+      }
+     ]
     },
     "eps": {
      "value": null,
-     "reason": "잠정 공시에 없음 — 확정실적 때 입력"
+     "reason": "확정실적 보도에서 EPS·순이익을 찾지 못함 — 삼성전자 뉴스룸·DART 분기보고서로 대조 필요"
     },
     "eps_consensus": null,
     "price_reaction": {
@@ -1023,7 +1304,7 @@
      ]
     }
    },
-   "notes": "★잠정실적(연결, IFRS, 10/8 공시): 매출 195조(+126.6% YoY, +13.7% QoQ), 영업이익 107.4조(+782.5% YoY, +20.0% QoQ), 영업이익률 약 55%. 컨센(WiseReport 10/4 증권사 평균): 매출 201.7조, 영업이익 108.1조 → 매출 -3.3% 하회, 영업이익은 이 집계 대비 -0.7%이나 LSEG 106.1조·FnGuide 105.2조 대비로는 상회(보도는 '상회'로 표현). 이전에 적어 둔 컨센 110.6~111.8조는 오차였음. 부문별 실적·순이익·EPS는 잠정 공시에 없고 확정실적은 10월 말 예정(확정 후 갱신). 주가: 당일 -2%대 하락, 외국인 8거래일 연속 순매도로 보도됐으나 정확한 종가 등락률은 확인하지 못해 공란."
+   "notes": "확정실적(10/29, 잠정치와 거의 동일): 매출 195.3조(+126.9% YoY), 영업이익 107.4조(+783.1%, 영업이익률 55%) — 분기 영업이익 100조 돌파. 컨센(WiseReport 10/4): 매출 201.7조 대비 −3.2% 하회, 영업이익 108.1조 대비 −0.6%(LSEG 106.1조·FnGuide 105.2조 대비로는 상회). ★DS(반도체) 매출 147.1조·영업이익 106.5조(이익률 72%, 전사 영업이익의 99%). ★DX(세트) 영업적자 약 0.8조. 3분기 현금배당 주당 4,601원(총 약 30조). 순이익·EPS는 이번 검색으로 확인 못 함(공란). 주가반응은 잠정 발표일(10/8) 기준."
   },
   {
    "ticker": "000660",
