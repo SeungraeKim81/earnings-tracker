@@ -1418,7 +1418,21 @@
      "value": null,
      "reason": "발표 직전 EPS 컨센서스를 확인할 출처를 찾지 못함"
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": 0.1089,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-27",
+      "2026-10-28"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (000660.KS)",
+       "url": "https://finance.yahoo.com/quote/000660.KS/history"
+      }
+     ]
+    }
    },
    "notes": "★사상 최대 실적, 컨센 상회. 매출 104.6조(+328% YoY, +32% QoQ, 분기 첫 100조), 영업이익 83.3조(+632%), 영업이익률 약 80%(2분기 76%). 컨센(FnGuide: 매출 98.2조·영업이익 76.96조) 대비 매출 +6.5%·영업이익 +8.3%. 순이익 약 39.8조(보도 대부분 39조7,756억원, 한 곳은 39조1,756억원 — 공시로 대조 필요). HBM4 출하 본격화·서버용 DDR5 판매 증가가 견인. 순현금 98.7조. 3분기 현금배당 14조·자사주 매입 20조 결의. EPS 미공개."
   },
