@@ -336,7 +336,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.1264,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-28",
+      "2026-10-29"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (GOOGL)",
+       "url": "https://finance.yahoo.com/quote/GOOGL/history"
+      }
+     ]
+    }
    },
    "notes": "매출 $127.6B(+25%)로 컨센과 부합~소폭 하회(집계별 엇갈림), GAAP EPS $2.12로 컨센 $3.02 대비 약 −30% — 지분증권 평가손실 $8.7B(SpaceX 지분 등, EPS −$0.55) 탓. 실체는 영업이익 약 $40.6B(+30%), 영업이익률 31.8%. Google Cloud 매출 $30.7B(+103%, TPU 시스템 판매 기여)·영업이익 $11.1B(3배 이상)로 호조, 검색·YouTube 광고는 예상 하회. 시간외 약 −8~10%. ※EPS 착시: 2분기는 평가이익, 3분기는 평가손실."
   },
@@ -626,7 +640,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.0016,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-28",
+      "2026-10-29"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (MSFT)",
+       "url": "https://finance.yahoo.com/quote/MSFT/history"
+      }
+     ]
+    }
    },
    "notes": "매출 $92.3B(+19%)로 컨센 $90.7B(LSEG) 상회, non-GAAP EPS $4.89(+18%)로 컨센 $4.73 상회(GAAP $4.92). 영업이익 $45.9B(+21%). Azure +48%(6월 분기 42%, 가이던스 44–45%)로 가속, 처음으로 달러 공개(약 $33.2B). Microsoft Cloud $63.9B(+30%), 상업 RPO $677B(+73%). CapEx $39.4B(금융리스 포함 $45.2B, 예상 약 $50.7B 하회), FCF $18.6B(−27%). FQ2 가이던스 매출 $96.0–97.1B, Azure +49–50%(고정환율). 시간외 상승(약 +4%)."
   },
