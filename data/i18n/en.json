@@ -313,9 +313,17 @@
    "src": "4496ef90",
    "text": "Announced in company press release on 10/15. Time is the conference call (results released after the close)"
   },
+  "2026Q3/AMZN/eps/note": {
+   "src": "45e8dfa8",
+   "text": "Diluted EPS (prior year $1.95)"
+  },
   "2026Q3/AMZN/notes": {
-   "src": "4940871e",
-   "text": "Schedule confirmed (10/29 after the close, company announcement). Watch: AWS growth (Q2 +37%), whether the $220B CapEx guidance holds, operating margin."
+   "src": "2eb29fdb",
+   "text": "Revenue $201.9B (+12%, +13% ex currency), slightly below the $202.3B consensus (LSEG); EPS $1.89 missed the $1.96 consensus (prior year $1.95). Most of Prime Day moved into Q2, making growth look about 4pp lower. Operating income $28.1B, operating margin 13.9%, a record (above ~$26.1B consensus). ★AWS revenue $46.0B (+39%, accelerating from +37% in Q2), AWS operating income $17.8B, margin 38.7%. North America $112.9B (+6%), International $43.1B (+5%). Q4 revenue guidance $240–247B (+12–16%), seen as somewhat below expectations."
+  },
+  "2026Q3/AMZN/revenue_yoy/note": {
+   "src": "e04db7c9",
+   "text": "Prime Day mostly moved into Q2 this year — growth would be about 4pp higher excluding this shift"
   },
   "2026Q3/ASML/eps/caution": {
    "src": "4e4ae8ea",
