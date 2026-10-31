@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-10-30",
+ "updated": "2026-10-31",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -188,7 +188,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.0141,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-10-29",
+      "2026-10-30"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (AMZN)",
+       "url": "https://finance.yahoo.com/quote/AMZN/history"
+      }
+     ]
+    }
    },
    "notes": "매출 $201.9B(+12%, 환율 제외 +13%)로 컨센 $202.3B(LSEG) 소폭 하회, EPS $1.89로 컨센 $1.96 하회(전년 $1.95). Prime Day 대부분이 2분기로 옮겨가 성장률이 약 4%p 낮아 보임. 영업이익 $28.1B, 영업이익률 13.9%로 사상 최고(컨센 약 $26.1B 상회). ★AWS 매출 $46.0B(+39%, 2분기 +37%에서 가속), AWS 영업이익 $17.8B·마진 38.7%. 북미 $112.9B(+6%), 해외 $43.1B(+5%). Q4 가이던스 매출 $240–247B(+12~16%), 예상 대비 다소 낮다는 평가."
   },
