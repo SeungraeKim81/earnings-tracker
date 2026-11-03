@@ -305,9 +305,21 @@
    "src": "346f872d",
    "text": "Apple IR announcement (reported 10/7). Time is the conference call (results released after the close)"
   },
+  "2026Q3/AAPL/eps/note": {
+   "src": "261e56b3",
+   "text": "Diluted EPS (+14%). Includes a $0.05 benefit from tariff refunds — $2.05 excluding it"
+  },
   "2026Q3/AAPL/notes": {
-   "src": "8fd65b62",
-   "text": "Schedule confirmed (Mon 11/2 after the close, Apple IR announcement — changed from the previously estimated 10/29). Jun–Sep → Jul–Sep quarter. Watch: iPhone revenue, Services growth, China, tariff impact."
+   "src": "3f99e387",
+   "text": "Record September quarter. Revenue $114.5B (+12%), above consensus; EPS $2.10 (+14%, incl. $0.05 from tariff refunds) beat the $1.98 consensus (Zacks). iPhone $57.6B (+17%, above $56.5B expected), Services $31.6B (+10%, all-time high), iPad $6.2B (−10%, below expectations). Gross margin 47.9% (incl. ~1pp from tariff refunds). FY2026 revenue $479B, an all-time record. December-quarter guidance: revenue +7–10% (below LSEG's 11.4% expectation), Services +8–9% → shares fell after hours. First earnings call led by CEO John Ternus. Operating income not confirmed, left blank."
+  },
+  "2026Q3/AAPL/operating_income/reason": {
+   "src": "3c90c077",
+   "text": "Operating income not found in reports or the release summary — check against the 10-K (only the 47.9% gross margin confirmed)"
+  },
+  "2026Q3/AAPL/revenue_consensus/alts/0/provider": {
+   "src": "fbeaf8a4",
+   "text": "Zacks (back-calculated from the +1.35% surprise)"
   },
   "2026Q3/AMZN/announce/note": {
    "src": "4496ef90",

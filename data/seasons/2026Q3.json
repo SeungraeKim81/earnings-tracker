@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-10-31",
+ "updated": "2026-11-03",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -11,7 +11,7 @@
  "events": [
   {
    "ticker": "AAPL",
-   "status": "scheduled",
+   "status": "reported",
    "stage": null,
    "label": "FQ4 2026",
    "period": {
@@ -22,21 +22,120 @@
    "announce": {
     "date": "2026-11-02",
     "timing": "amc",
-    "certainty": "verified",
+    "certainty": "confirmed",
     "time": "14:00",
     "tz": "America/Los_Angeles",
     "note": "애플 IR 공지(10/7 보도). 시각은 컨퍼런스콜(장 마감 후 실적 발표)"
    },
    "metrics": {
-    "revenue": null,
-    "revenue_consensus": null,
-    "revenue_yoy": null,
-    "operating_income": null,
-    "eps": null,
-    "eps_consensus": null,
+    "revenue": {
+     "value": 114.48,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Apple 8-K exhibit 99.1 (Q4 FY2026)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0000320193/000032019326000024/a8-kex991q4202609262026.htm",
+       "asOf": "2026-11-02"
+      },
+      {
+       "title": "Apple reports fourth quarter results (Newsroom)",
+       "url": "https://www.apple.com/newsroom/2026/11/apple-reports-fourth-quarter-results/",
+       "asOf": "2026-11-02"
+      },
+      {
+       "title": "9to5Mac: Apple Q4 2026 earnings",
+       "url": "https://9to5mac.com/2026/11/02/apple-reports-q4-2026-earnings/",
+       "asOf": "2026-11-02"
+      }
+     ]
+    },
+    "revenue_consensus": {
+     "value": 113.38,
+     "provider": "Investing.com",
+     "asOf": "2026-11-02",
+     "alts": [
+      {
+       "provider": "Zacks(서프라이즈 +1.35%에서 역산)",
+       "value": 112.96
+      }
+     ],
+     "src": [
+      {
+       "title": "Investing.com: Apple tops Q4 2026 estimates",
+       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-apple-tops-q4-2026-estimates-but-shares-fall-after-hours-93CH-4993172",
+       "asOf": "2026-11-02"
+      },
+      {
+       "title": "Zacks: Apple (AAPL) Q4 earnings and revenues beat estimates",
+       "url": "https://sg.finance.yahoo.com/news/apple-aapl-q4-earnings-revenues-215502859.html",
+       "asOf": "2026-11-02"
+      }
+     ]
+    },
+    "revenue_yoy": {
+     "value": 0.12,
+     "flag": "verified",
+     "src": [
+      {
+       "title": "Apple reports fourth quarter results (Newsroom)",
+       "url": "https://www.apple.com/newsroom/2026/11/apple-reports-fourth-quarter-results/",
+       "asOf": "2026-11-02"
+      },
+      {
+       "title": "9to5Mac: Apple Q4 2026 earnings",
+       "url": "https://9to5mac.com/2026/11/02/apple-reports-q4-2026-earnings/",
+       "asOf": "2026-11-02"
+      }
+     ]
+    },
+    "operating_income": {
+     "value": null,
+     "reason": "보도·실적발표 요약에서 영업이익을 확인 못 함 — 10-K로 대조 필요(매출총이익률 47.9%만 확인)"
+    },
+    "eps": {
+     "value": 2.1,
+     "basis": "GAAP",
+     "flag": "verified",
+     "note": "희석 EPS(+14%). 관세 환급 효과 $0.05 포함 — 제외 시 $2.05",
+     "src": [
+      {
+       "title": "Apple reports fourth quarter results (Newsroom)",
+       "url": "https://www.apple.com/newsroom/2026/11/apple-reports-fourth-quarter-results/",
+       "asOf": "2026-11-02"
+      },
+      {
+       "title": "Zacks: Apple (AAPL) Q4 earnings and revenues beat estimates",
+       "url": "https://sg.finance.yahoo.com/news/apple-aapl-q4-earnings-revenues-215502859.html",
+       "asOf": "2026-11-02"
+      }
+     ]
+    },
+    "eps_consensus": {
+     "value": 1.98,
+     "provider": "Zacks",
+     "asOf": "2026-11-02",
+     "alts": [
+      {
+       "provider": "Investing.com",
+       "value": 1.99
+      }
+     ],
+     "src": [
+      {
+       "title": "Zacks: Apple (AAPL) Q4 earnings and revenues beat estimates",
+       "url": "https://sg.finance.yahoo.com/news/apple-aapl-q4-earnings-revenues-215502859.html",
+       "asOf": "2026-11-02"
+      },
+      {
+       "title": "Investing.com: Apple tops Q4 2026 estimates",
+       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-apple-tops-q4-2026-estimates-but-shares-fall-after-hours-93CH-4993172",
+       "asOf": "2026-11-02"
+      }
+     ]
+    },
     "price_reaction": null
    },
-   "notes": "일정 확인(11/2 월 장 후, 애플 IR 공지 — 기존 추정 10/29에서 변경). 6~9월→7~9월 분기. 체크: 아이폰 매출, 서비스 성장률, 중국, 관세 영향."
+   "notes": "9월분기 사상 최대. 매출 $114.5B(+12%)로 컨센 상회, EPS $2.10(+14%, 관세 환급 $0.05 포함)으로 컨센 $1.98(Zacks) 상회. 아이폰 $57.6B(+17%, 예상 $56.5B 상회), 서비스 $31.6B(+10%, 사상 최대), 아이패드 $6.2B(−10%, 예상 하회). 매출총이익률 47.9%(관세 환급 약 +1%p 포함). FY2026 연간 매출 $479B로 사상 최대. 12월분기 가이던스 매출 +7~10%(LSEG 예상 11.4% 하회), 서비스 +8~9% → 시간외 하락. John Ternus CEO의 첫 실적발표. 영업이익은 확인 못 해 공란."
   },
   {
    "ticker": "AMZN",
