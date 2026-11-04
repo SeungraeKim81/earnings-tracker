@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-11-03",
+ "updated": "2026-11-04",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -133,7 +133,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.019,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-11-02",
+      "2026-11-03"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (AAPL)",
+       "url": "https://finance.yahoo.com/quote/AAPL/history"
+      }
+     ]
+    }
    },
    "notes": "9월분기 사상 최대. 매출 $114.5B(+12%)로 컨센 상회, EPS $2.10(+14%, 관세 환급 $0.05 포함)으로 컨센 $1.98(Zacks) 상회. 아이폰 $57.6B(+17%, 예상 $56.5B 상회), 서비스 $31.6B(+10%, 사상 최대), 아이패드 $6.2B(−10%, 예상 하회). 매출총이익률 47.9%(관세 환급 약 +1%p 포함). FY2026 연간 매출 $479B로 사상 최대. 12월분기 가이던스 매출 +7~10%(LSEG 예상 11.4% 하회), 서비스 +8~9% → 시간외 하락. John Ternus CEO의 첫 실적발표. 영업이익은 확인 못 해 공란."
   },
