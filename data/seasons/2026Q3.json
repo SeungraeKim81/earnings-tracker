@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-11-04",
+ "updated": "2026-11-07",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -857,17 +857,16 @@
    "label": "FQ3 2027",
    "period": {
     "start": "2026-07-27",
-    "end": "2026-10-25",
-    "approx": true
+    "end": "2026-10-25"
    },
    "currency": "USD",
    "announce": {
-    "date": "2026-11-18",
+    "date": "2026-11-17",
     "timing": "amc",
-    "certainty": "estimated",
-    "alt_dates": [
-     "2026-11-25"
-    ]
+    "certainty": "verified",
+    "time": "14:00",
+    "tz": "America/Los_Angeles",
+    "note": "10/28 NVIDIA 공지. 시각은 컨퍼런스콜(실적은 13:20 PT 무렵 공개)"
    },
    "metrics": {
     "revenue": null,
@@ -878,7 +877,7 @@
     "eps_consensus": null,
     "price_reaction": null
    },
-   "notes": "일정 추정(11/25 전망도 존재). 8~10월 분기. 가이던스: 매출 $108B ±2%, GM 74% ±0.5%p."
+   "notes": "일정 확인(11/17 화 장 후, NVIDIA 공지 — 기존 추정 11/18에서 변경). 8~10월 분기. 가이던스: 매출 $108B ±2%, GM 74% ±0.5%p."
   },
   {
    "ticker": "GS",
