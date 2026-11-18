@@ -558,12 +558,32 @@
    "text": "Company guidance $12.86B"
   },
   "2026Q3/NVDA/announce/note": {
-   "src": "0ecc803c",
-   "text": "NVIDIA announcement on 10/28. Time is the conference call (results released around 13:20 PT)"
+   "src": "53e73cd0",
+   "text": "Results released 11/17 after the close (NVIDIA notice). Time is the conference call"
+  },
+  "2026Q3/NVDA/eps_consensus/alts/0/provider": {
+   "src": "bf7db087",
+   "text": "LSEG (another report)"
   },
   "2026Q3/NVDA/notes": {
-   "src": "2bbac8d9",
-   "text": "Schedule confirmed (Tue 11/17 after the close, NVIDIA announcement — changed from the previously estimated 11/18). Aug–Oct quarter. Guidance: revenue $108B ±2%, GM 74% ±0.5pp."
+   "src": "a99f2220",
+   "text": "★Record quarter, 6th straight consensus beat. Revenue $115.8B (+20% QoQ, +103% YoY), +6.1% vs consensus $109.1B (LSEG), also above the top of company guidance ($108B ±2%). Data center revenue $107.6B (+21% QoQ, +110% YoY, 93% of total). GAAP operating income $77.5B (+115% YoY), operating margin 66.9% (Q2 66.2%). GAAP net income $65.3B (EPS $2.70), non-GAAP EPS $2.68 (+8% vs consensus $2.48). Gross margin GAAP 74.8% / non-GAAP 74.9% (consensus 74.1%). FQ4 guidance: revenue $130.0B ±3% (above LSEG consensus of about $125.3–125.5B), assumes no China data center compute revenue. Buyback authorization raised by $150B in September. ※Per reports, this is the first report since CEO Jensen Huang's departure, and the WSJ reported the SEC is investigating NVIDIA's disclosures — consider non-earnings factors when reading the price reaction."
+  },
+  "2026Q3/NVDA/operating_income/note": {
+   "src": "6c58bf89",
+   "text": "Non-GAAP $77.9B"
+  },
+  "2026Q3/NVDA/revenue_consensus/alts/0/provider": {
+   "src": "061ff1f2",
+   "text": "Other aggregator"
+  },
+  "2026Q3/NVDA/revenue_consensus/alts/1/provider": {
+   "src": "061ff1f2",
+   "text": "Other aggregator"
+  },
+  "2026Q3/NVDA/revenue_yoy/note": {
+   "src": "c830a981",
+   "text": "Company-reported +103% (prior-year FQ3 FY26 $57.0B)"
   },
   "2026Q3/TSLA/announce/note": {
    "src": "b22ee308",

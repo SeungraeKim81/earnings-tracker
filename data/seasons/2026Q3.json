@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-11-07",
+ "updated": "2026-11-18",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -852,7 +852,7 @@
   },
   {
    "ticker": "NVDA",
-   "status": "scheduled",
+   "status": "reported",
    "stage": null,
    "label": "FQ3 2027",
    "period": {
@@ -863,21 +863,97 @@
    "announce": {
     "date": "2026-11-17",
     "timing": "amc",
-    "certainty": "verified",
+    "certainty": "confirmed",
     "time": "14:00",
     "tz": "America/Los_Angeles",
-    "note": "10/28 NVIDIA 공지. 시각은 컨퍼런스콜(실적은 13:20 PT 무렵 공개)"
+    "note": "11/17 장 후 실적 발표(NVIDIA 공지). 시각은 컨퍼런스콜"
    },
    "metrics": {
-    "revenue": null,
-    "revenue_consensus": null,
-    "revenue_yoy": null,
-    "operating_income": null,
-    "eps": null,
-    "eps_consensus": null,
+    "revenue": {
+     "value": 115.8,
+     "basis": "GAAP",
+     "src": [
+      {
+       "title": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027",
+       "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+      },
+      {
+       "title": "NVIDIA Form 8-K Ex.99.1 (Q3 FY27)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27pr.htm"
+      }
+     ],
+     "flag": "verified"
+    },
+    "revenue_consensus": {
+     "value": 109.11,
+     "provider": "LSEG",
+     "asOf": "2026-11-17",
+     "alts": [
+      {
+       "provider": "기타 집계",
+       "value": 108.96
+      },
+      {
+       "provider": "기타 집계",
+       "value": 109.08
+      }
+     ]
+    },
+    "revenue_yoy": {
+     "value": 1.03,
+     "src": [
+      {
+       "title": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027",
+       "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+      }
+     ],
+     "note": "회사 발표 +103% (전년 FQ3 FY26 $57.0B)"
+    },
+    "operating_income": {
+     "value": 77.5,
+     "basis": "GAAP",
+     "src": [
+      {
+       "title": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027",
+       "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+      },
+      {
+       "title": "NVIDIA Form 8-K Ex.99.1 (Q3 FY27)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27pr.htm"
+      }
+     ],
+     "note": "비GAAP $77.9B"
+    },
+    "eps": {
+     "value": 2.68,
+     "basis": "non-GAAP",
+     "src": [
+      {
+       "title": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027",
+       "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+      },
+      {
+       "title": "NVIDIA Form 8-K Ex.99.1 (Q3 FY27)",
+       "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000088/q3fy27pr.htm"
+      }
+     ],
+     "flag": "verified",
+     "note": "GAAP $2.70"
+    },
+    "eps_consensus": {
+     "value": 2.48,
+     "provider": "LSEG",
+     "asOf": "2026-11-17",
+     "alts": [
+      {
+       "provider": "LSEG(다른 보도)",
+       "value": 2.47
+      }
+     ]
+    },
     "price_reaction": null
    },
-   "notes": "일정 확인(11/17 화 장 후, NVIDIA 공지 — 기존 추정 11/18에서 변경). 8~10월 분기. 가이던스: 매출 $108B ±2%, GM 74% ±0.5%p."
+   "notes": "★역대 최대 분기, 6분기 연속 컨센 상회. 매출 $115.8B(+20% QoQ, +103% YoY)로 컨센 $109.1B(LSEG) 대비 +6.1%, 회사 가이던스($108B±2%) 상단도 넘음. 데이터센터 매출 $107.6B(+21% QoQ, +110% YoY, 전체의 93%). GAAP 영업이익 $77.5B(+115% YoY), 영업이익률 66.9%(Q2 66.2%). GAAP 순이익 $65.3B(EPS $2.70), 비GAAP EPS $2.68(컨센 $2.48 대비 +8%). 총이익률 GAAP 74.8%·비GAAP 74.9%(컨센 74.1%). FQ4 가이던스: 매출 $130.0B±3%(LSEG 컨센 약 $125.3~125.5B 상회), 중국 데이터센터 컴퓨트 매출은 가정하지 않음. 9월 자사주매입 한도 $150B 증액. ※보도에 따르면 젠슨 황 CEO 퇴임 후 첫 실적이며, WSJ는 SEC가 NVIDIA 공시를 조사 중이라고 보도 — 주가반응 해석 시 실적 외 요인 감안."
   },
   {
    "ticker": "GS",
