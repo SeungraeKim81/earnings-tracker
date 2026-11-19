@@ -2,7 +2,7 @@
  "id": "2026Q3",
  "label": "Q3 2026",
  "sheet_updated": "2026-10-09",
- "updated": "2026-11-18",
+ "updated": "2026-11-19",
  "source": "google_sheet",
  "highlights": [
   "[Q2 시트 대비 체크포인트] AMZN CapEx $220B · GOOGL $195–205B · META $130–145B · MSFT ~$175B(회계효과로 감소처럼 보임, 실지출 감소 아님) — 상향/유지/하향 여부를 비고에 기록.",
@@ -951,7 +951,21 @@
       }
      ]
     },
-    "price_reaction": null
+    "price_reaction": {
+     "value": -0.0289,
+     "basis": "close",
+     "provider": "Yahoo Finance",
+     "window": [
+      "2026-11-17",
+      "2026-11-18"
+     ],
+     "src": [
+      {
+       "title": "Yahoo Finance daily close (NVDA)",
+       "url": "https://finance.yahoo.com/quote/NVDA/history"
+      }
+     ]
+    }
    },
    "notes": "★역대 최대 분기, 6분기 연속 컨센 상회. 매출 $115.8B(+20% QoQ, +103% YoY)로 컨센 $109.1B(LSEG) 대비 +6.1%, 회사 가이던스($108B±2%) 상단도 넘음. 데이터센터 매출 $107.6B(+21% QoQ, +110% YoY, 전체의 93%). GAAP 영업이익 $77.5B(+115% YoY), 영업이익률 66.9%(Q2 66.2%). GAAP 순이익 $65.3B(EPS $2.70), 비GAAP EPS $2.68(컨센 $2.48 대비 +8%). 총이익률 GAAP 74.8%·비GAAP 74.9%(컨센 74.1%). FQ4 가이던스: 매출 $130.0B±3%(LSEG 컨센 약 $125.3~125.5B 상회), 중국 데이터센터 컴퓨트 매출은 가정하지 않음. 9월 자사주매입 한도 $150B 증액. ※보도에 따르면 젠슨 황 CEO 퇴임 후 첫 실적이며, WSJ는 SEC가 NVIDIA 공시를 조사 중이라고 보도 — 주가반응 해석 시 실적 외 요인 감안."
   },
